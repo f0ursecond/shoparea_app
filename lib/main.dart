@@ -1,21 +1,26 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/routes.dart';
+import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
+import 'package:shoparea_app/theme.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Shoparea',
+      theme: themeData(),
+      initialRoute: FrontStoreScreen.routeName,
+      routes: routes,
+    );
   }
 }
