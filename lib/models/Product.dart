@@ -2,7 +2,7 @@
 
 class Product {
   final String title, description;
-  final int price, id;
+  final int price, id, stok;
   final List<String> images;
   final List<String> colors;
   final List<String> size;
@@ -15,6 +15,7 @@ class Product {
     required this.price,
     required this.size,
     required this.colors,
+    required this.stok,
   });
 }
 
@@ -34,6 +35,7 @@ List<Product> products = [
       "L(40x50)",
       "XL(50x60)",
     ],
+    stok: 200,
     colors: [
       "Merah",
       "Biru",
@@ -54,6 +56,7 @@ List<Product> products = [
       "S(20x30)",
       "M(30x40)",
     ],
+    stok: 160,
     colors: [
       "Merah",
     ],
@@ -72,6 +75,7 @@ List<Product> products = [
       "M(30x40)",
       "L(40x50)",
     ],
+    stok: 22,
     colors: [
       "Merah",
       "Biru",
@@ -94,6 +98,7 @@ List<Product> products = [
       "L(40x50)",
       "XL(50x60)",
     ],
+    stok: 33,
     colors: [
       "Hijau",
       "Kuning",

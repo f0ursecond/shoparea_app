@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/error_button_50.dart';
 import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/models/Product.dart';
+import 'package:shoparea_app/screen/details_screen/detail_screen.dart';
 import 'package:shoparea_app/screen/front_store/components/categories/categories.dart';
 import 'package:shoparea_app/screen/front_store/components/contact_banner/contact_banner.dart';
 import 'package:shoparea_app/screen/front_store/components/home_banner/home_banner.dart';
@@ -76,8 +77,19 @@ class _BodyState extends State<Body> {
                       ),
                       itemBuilder: (context, index) => ItemProductCard(
                         product: products[index],
+                        press: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailScreen(
+                              product: products[index],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: getProportionateScreenWidth(24),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
@@ -85,6 +97,7 @@ class _BodyState extends State<Body> {
                       vertical: getProportionateScreenWidth(8),
                     ),
                     child: PrimaryButton(
+                      button_width: double.infinity,
                       text: "Lihat lebih banyak",
                       press: () {},
                     ),
