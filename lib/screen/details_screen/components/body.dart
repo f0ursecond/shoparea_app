@@ -155,7 +155,10 @@ class _BodyState extends State<Body> {
                     vertical: getProportionateScreenWidth(15),
                   ),
                   child: PrimaryButton(
+                    color: cColorPrimary50,
                     text: "Beli Sekarang",
+                    textColor: Colors.white,
+                    customFontWeight: FontWeight.bold,
                     press: () {},
                     button_width: getProportionateScreenWidth(140),
                   ),

@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/size_config.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -10,9 +9,16 @@ class PrimaryButton extends StatelessWidget {
     required this.text,
     required this.press,
     required this.button_width,
+    required this.color,
+    required this.textColor,
+    required this.customFontWeight,
   });
   final String text;
+  final FontWeight customFontWeight;
+  final Color textColor;
   final Function()? press;
+
+  final Color color;
 
   final double button_width;
 
@@ -24,14 +30,15 @@ class PrimaryButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: press,
         style: ElevatedButton.styleFrom(
-            backgroundColor: cColorPrimary50,
+            backgroundColor: color,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         child: Text(
           text,
           style: TextStyle(
             fontSize: getProportionateScreenWidth(14),
-            color: Colors.white,
+            color: textColor,
+            fontWeight: customFontWeight,
           ),
         ),
       ),

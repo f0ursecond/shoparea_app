@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:shoparea_app/components/button_style/white_button.dart';
+import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/size_config.dart';
 
@@ -49,7 +49,11 @@ class ContactBanner extends StatelessWidget {
           ),
           Expanded(
             flex: 2,
-            child: WhiteButton(
+            child: PrimaryButton(
+              button_width: double.infinity,
+              color: Colors.white,
+              customFontWeight: FontWeight.bold,
+              textColor: cColorPrimary50,
               text: "Chat Penjual",
               press: () {},
             ),

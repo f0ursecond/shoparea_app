@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:shoparea_app/components/button_style/error_button_50.dart';
 import 'package:shoparea_app/components/button_style/primary_button.dart';
+import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/models/Product.dart';
 import 'package:shoparea_app/screen/details_screen/detail_screen.dart';
 import 'package:shoparea_app/screen/front_store/components/categories/categories.dart';
@@ -21,6 +21,8 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  int productsPerPage = 4;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -67,7 +69,7 @@ class _BodyState extends State<Body> {
                     ),
                     child: GridView.builder(
                       physics: ScrollPhysics(),
-                      itemCount: products.length,
+                      itemCount: productsPerPage,
                       shrinkWrap: true,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -97,9 +99,16 @@ class _BodyState extends State<Body> {
                       vertical: getProportionateScreenWidth(8),
                     ),
                     child: PrimaryButton(
+                      color: (productsPerPage < products.length)
+                          ? cColorPrimary50
+                          : Colors.white,
+                      customFontWeight: FontWeight.w400,
                       button_width: double.infinity,
                       text: "Lihat lebih banyak",
-                      press: () {},
+                      textColor: (productsPerPage < products.length)
+                          ? Colors.white
+                          : cColorNeutralBlack10,
+                      press: nextPage,
                     ),
                   ),
                 ],
@@ -111,7 +120,11 @@ class _BodyState extends State<Body> {
               horizontal: getProportionateScreenWidth(24),
               vertical: getProportionateScreenWidth(24),
             ),
-            child: ErrorButton50(
+            child: PrimaryButton(
+              button_width: double.infinity,
+              color: cColorError50,
+              customFontWeight: FontWeight.normal,
+              textColor: Colors.white,
               text: "Lihat semua pesanan",
               press: () {},
             ),
@@ -119,5 +132,21 @@ class _BodyState extends State<Body> {
         ],
       ),
     );
+  }
+
+  nextPage() {
+    if ((productsPerPage) < products.length) {
+      int nextPageItem = products.length - productsPerPage;
+
+      if (nextPageItem >= 4) {
+        setState(() {
+          productsPerPage += 4;
+        });
+      } else {
+        setState(() {
+          productsPerPage += nextPageItem;
+        });
+      }
+    }
   }
 }
