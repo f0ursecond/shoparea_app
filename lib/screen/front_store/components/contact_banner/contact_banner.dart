@@ -48,7 +48,7 @@ class ContactBanner extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 3,
             child: PrimaryButton(
               button_width: double.infinity,
               color: Colors.white,

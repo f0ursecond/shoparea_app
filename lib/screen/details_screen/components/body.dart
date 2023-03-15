@@ -144,7 +144,7 @@ class _BodyState extends State<Body> {
                   ),
                   child: OutlinedButtonWithIcon(
                     text: "Keranjang",
-                    button_width: getProportionateScreenWidth(135),
+                    button_width: getProportionateScreenWidth(138),
                     press: () {},
                     icon: Icons.add,
                   ),
@@ -160,7 +160,7 @@ class _BodyState extends State<Body> {
                     textColor: Colors.white,
                     customFontWeight: FontWeight.bold,
                     press: () {},
-                    button_width: getProportionateScreenWidth(140),
+                    button_width: getProportionateScreenWidth(138),
                   ),
                 ),
               ],

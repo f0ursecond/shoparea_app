@@ -40,16 +40,28 @@ class _BodyState extends State<Body> {
                   ),
                   HomeBanner(),
                   ContactBanner(),
-                  HomeTitleText(
-                    titleText: "Kategori",
-                    txtButton: "Lihat Semua",
-                    press: () {},
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(24),
+                    ),
+                    child: HomeTitleText(
+                      titleFontSize: getProportionateScreenWidth(16),
+                      titleText: "Kategori",
+                      txtButton: "Lihat Semua",
+                      press: () {},
+                    ),
                   ),
                   Categories(),
-                  HomeTitleText(
-                    titleText: "Semua Produk",
-                    txtButton: "Lihat Semua",
-                    press: () {},
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(24),
+                    ),
+                    child: HomeTitleText(
+                      titleText: "Semua Produk",
+                      txtButton: "Lihat Semua",
+                      titleFontSize: getProportionateScreenWidth(16),
+                      press: () {},
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
