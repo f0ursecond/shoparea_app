@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class ContactBanner extends StatelessWidget {
   const ContactBanner({
@@ -13,14 +12,14 @@ class ContactBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: getProportionateScreenWidth(98),
+      height: (98),
       width: double.infinity,
       margin: EdgeInsets.symmetric(
-        vertical: getProportionateScreenWidth(24),
-        horizontal: getProportionateScreenWidth(24),
+        vertical: (24),
+        horizontal: (24),
       ),
       padding: EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(20),
+        horizontal: (20),
       ),
       decoration: BoxDecoration(
         color: cColorPrimary50,
@@ -39,7 +38,7 @@ class ContactBanner extends StatelessWidget {
                   TextSpan(
                     text: "Sido Muncul",
                     style: TextStyle(
-                      fontSize: getProportionateScreenWidth(18),
+                      fontSize: (18),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -56,6 +55,7 @@ class ContactBanner extends StatelessWidget {
               textColor: cColorPrimary50,
               text: "Chat Penjual",
               press: () {},
+              button_height: (48),
             ),
           ),
         ],

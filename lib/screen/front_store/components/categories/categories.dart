@@ -1,6 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import "package:flutter/material.dart";
 import "package:shoparea_app/consts/colors.dart";
-import "package:shoparea_app/size_config.dart";
 
 class Categories extends StatefulWidget {
   const Categories({super.key});
@@ -28,13 +29,13 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: getProportionateScreenWidth(16),
-        bottom: getProportionateScreenWidth(24),
-        left: getProportionateScreenWidth(16),
-        right: getProportionateScreenWidth(24),
+        top: (16),
+        bottom: (24),
+        left: (16),
+        right: (24),
       ),
       child: SizedBox(
-        height: getProportionateScreenWidth(32),
+        height: (32),
         child: ListView.builder(
           itemCount: categories.length,
           scrollDirection: Axis.horizontal,
@@ -53,14 +54,14 @@ class _CategoriesState extends State<Categories> {
       },
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenWidth(8),
+          horizontal: (8),
         ),
         child: Container(
           padding: EdgeInsets.symmetric(
-            vertical: getProportionateScreenWidth(5),
-            horizontal: getProportionateScreenWidth(16),
+            vertical: (5),
+            horizontal: (16),
           ),
-          margin: EdgeInsets.only(right: getProportionateScreenWidth(8)),
+          margin: EdgeInsets.only(right: (8)),
           decoration: BoxDecoration(
             color: selectedIndex == index ? cColorPrimary50 : Colors.white,
             border: Border.all(
@@ -68,7 +69,7 @@ class _CategoriesState extends State<Categories> {
               color: selectedIndex == index ? cColorPrimary50 : cColorNeutral50,
             ),
             borderRadius: BorderRadius.circular(
-              getProportionateScreenWidth(8),
+              (8),
             ),
           ),
           child: Text(
@@ -77,7 +78,7 @@ class _CategoriesState extends State<Categories> {
               color: selectedIndex == index ? Colors.white : cColorExpired50,
               fontWeight:
                   selectedIndex == index ? FontWeight.bold : FontWeight.w400,
-              fontSize: getProportionateScreenWidth(12),
+              fontSize: (12),
             ),
           ),
         ),

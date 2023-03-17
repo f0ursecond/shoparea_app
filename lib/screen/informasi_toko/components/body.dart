@@ -35,26 +35,26 @@ class _BodyState extends State<Body> {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: getProportionateScreenWidth(24),
+                horizontal: (24),
               ),
               child: Column(
                 children: [
                   SizedBox(
-                    height: getProportionateScreenWidth(65),
+                    height: (65),
                   ),
                   ProfileTokoSection(),
                   SizedBox(
-                    height: getProportionateScreenWidth(52),
+                    height: (52),
                   ),
                   HomeTitleText(
                     titleText: "Kategori Produk",
                     txtButton: "Lihat Selengkapnya",
-                    titleFontSize: getProportionateScreenWidth(14),
+                    titleFontSize: (14),
                     press: () {},
                   ),
                   ProductOnInformasiScreen(),
                   SizedBox(
-                    height: getProportionateScreenWidth(16),
+                    height: (16),
                   ),
                 ],
               ),
@@ -69,15 +69,15 @@ class _BodyState extends State<Body> {
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: getProportionateScreenWidth(24),
-              vertical: getProportionateScreenWidth(15),
+              horizontal: (24),
+              vertical: (15),
             ),
             child: Column(
               children: [
                 HomeTitleText(
                   titleText: "Ketersediaan Toko",
                   txtButton: "Sekarang Buka",
-                  titleFontSize: getProportionateScreenWidth(14),
+                  titleFontSize: (14),
                   press: () {
                     showModalBottomSheet(
                       isScrollControlled: true,
@@ -92,11 +92,11 @@ class _BodyState extends State<Body> {
                       context: context,
                       builder: (context) {
                         return SizedBox(
-                          height: getProportionateScreenWidth(480),
+                          height: (480),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: getProportionateScreenWidth(24),
-                              vertical: getProportionateScreenWidth(16),
+                              horizontal: (24),
+                              vertical: (16),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,18 +106,18 @@ class _BodyState extends State<Body> {
                                       "assets/icons/img_bottom_sheet.svg"),
                                 ),
                                 SizedBox(
-                                  height: getProportionateScreenWidth(24),
+                                  height: (24),
                                 ),
                                 Text(
                                   "Ketersediaan Toko",
                                   style: TextStyle(
-                                    fontSize: getProportionateScreenWidth(16),
+                                    fontSize: (16),
                                     fontWeight: FontWeight.w700,
                                     color: cColorNeutralBlack50,
                                   ),
                                 ),
                                 SizedBox(
-                                  height: getProportionateScreenWidth(24),
+                                  height: (24),
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -130,18 +130,14 @@ class _BodyState extends State<Body> {
                                         itemBuilder: (context, index) {
                                           return Padding(
                                             padding: EdgeInsets.only(
-                                              bottom:
-                                                  getProportionateScreenWidth(
-                                                      24),
+                                              bottom: (24),
                                             ),
                                             child: Text(
                                               dataKetersediaanToko[index]
                                                       ["hari"]
                                                   .toString(),
                                               style: TextStyle(
-                                                  fontSize:
-                                                      getProportionateScreenWidth(
-                                                          12),
+                                                  fontSize: (12),
                                                   fontWeight: FontWeight.w400,
                                                   color: cColorExpired50),
                                             ),
@@ -156,9 +152,7 @@ class _BodyState extends State<Body> {
                                         itemBuilder: (context, index) {
                                           return Padding(
                                             padding: EdgeInsets.only(
-                                              bottom:
-                                                  getProportionateScreenWidth(
-                                                      24),
+                                              bottom: (24),
                                             ),
                                             child: Text(
                                               dataKetersediaanToko[index]
@@ -166,9 +160,7 @@ class _BodyState extends State<Body> {
                                                   .toString(),
                                               textAlign: TextAlign.end,
                                               style: TextStyle(
-                                                  fontSize:
-                                                      getProportionateScreenWidth(
-                                                          12),
+                                                  fontSize: (12),
                                                   fontWeight: FontWeight.w700,
                                                   color: dataKetersediaanToko[
                                                                       index][
@@ -185,7 +177,7 @@ class _BodyState extends State<Body> {
                                   ],
                                 ),
                                 Container(
-                                  height: getProportionateScreenWidth(60),
+                                  height: (60),
                                   decoration: BoxDecoration(
                                     border: Border(
                                       top: BorderSide(
@@ -201,8 +193,7 @@ class _BodyState extends State<Body> {
                                       Text(
                                         "Sekarang",
                                         style: TextStyle(
-                                          fontSize:
-                                              getProportionateScreenWidth(16),
+                                          fontSize: (16),
                                           fontWeight: FontWeight.w700,
                                           color: cColorNeutralBlack50,
                                         ),
@@ -212,8 +203,7 @@ class _BodyState extends State<Body> {
                                             .toString(),
                                         textAlign: TextAlign.end,
                                         style: TextStyle(
-                                          fontSize:
-                                              getProportionateScreenWidth(16),
+                                          fontSize: (16),
                                           fontWeight: FontWeight.w700,
                                           color: dataKetersediaanToko[0]
                                                           ["ketersediaan"]
@@ -235,7 +225,7 @@ class _BodyState extends State<Body> {
                   },
                 ),
                 SizedBox(
-                  height: getProportionateScreenWidth(16),
+                  height: (16),
                 ),
                 PrimaryButton(
                   color: cColorPrimary50,
@@ -244,6 +234,7 @@ class _BodyState extends State<Body> {
                   customFontWeight: FontWeight.bold,
                   press: () {},
                   button_width: double.infinity,
+                  button_height: (48),
                 ),
               ],
             ),
@@ -268,21 +259,21 @@ class ProfileTokoSection extends StatelessWidget {
             backgroundImage: AssetImage(
               "assets/images/iv_avatar_profile_2.png",
             ),
-            radius: getProportionateScreenWidth(100),
+            radius: (100),
           ),
           SizedBox(
-            height: getProportionateScreenWidth(16),
+            height: (16),
           ),
           Text(
             "Toko Sepatu",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: getProportionateScreenWidth(16),
+              fontSize: (16),
               color: Colors.black,
             ),
           ),
           SizedBox(
-            height: getProportionateScreenWidth(8),
+            height: (8),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -290,20 +281,20 @@ class ProfileTokoSection extends StatelessWidget {
             children: [
               SvgPicture.asset("assets/icons/icon_links.svg"),
               SizedBox(
-                width: getProportionateScreenWidth(8),
+                width: (8),
               ),
               Text(
                 "www.linktoko.com",
                 style: TextStyle(
                   color: cColorSecondary50,
-                  fontSize: getProportionateScreenWidth(12),
+                  fontSize: (12),
                   fontWeight: FontWeight.w400,
                 ),
               )
             ],
           ),
           SizedBox(
-            height: getProportionateScreenWidth(8),
+            height: (8),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -311,7 +302,7 @@ class ProfileTokoSection extends StatelessWidget {
             children: [
               SvgPicture.asset("assets/icons/ic_shop_address.svg"),
               SizedBox(
-                width: getProportionateScreenWidth(8),
+                width: (8),
               ),
               Flexible(
                 child: Text(
@@ -321,7 +312,7 @@ class ProfileTokoSection extends StatelessWidget {
                   softWrap: false,
                   style: TextStyle(
                     color: cColorExpired50,
-                    fontSize: getProportionateScreenWidth(12),
+                    fontSize: (12),
                     fontWeight: FontWeight.w400,
                   ),
                 ),

@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shoparea_app/consts/colors.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class IconBtnWIthCounter extends StatelessWidget {
   const IconBtnWIthCounter({
@@ -26,9 +25,9 @@ class IconBtnWIthCounter extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Container(
-            padding: EdgeInsets.all(getProportionateScreenWidth(12)),
-            height: getProportionateScreenWidth(46),
-            width: getProportionateScreenWidth(46),
+            padding: EdgeInsets.all(12),
+            height: 46,
+            width: 46,
             decoration: BoxDecoration(
               color: cColorPrimary50,
               shape: BoxShape.circle,
@@ -40,8 +39,8 @@ class IconBtnWIthCounter extends StatelessWidget {
               right: 3,
               top: 3,
               child: Container(
-                height: getProportionateScreenWidth(22),
-                width: getProportionateScreenWidth(22),
+                height: 22,
+                width: 22,
                 decoration: BoxDecoration(
                   color: Color(0xFFEB4755),
                   shape: BoxShape.circle,
@@ -50,7 +49,7 @@ class IconBtnWIthCounter extends StatelessWidget {
                   child: Text(
                     "$numOfitem",
                     style: TextStyle(
-                      fontSize: getProportionateScreenWidth(10),
+                      fontSize: 10,
                       height: 1,
                       fontWeight: FontWeight.w700,
                       color: Colors.white,

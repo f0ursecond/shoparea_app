@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class OutlinedButton50 extends StatelessWidget {
   const OutlinedButton50({
@@ -16,8 +15,8 @@ class OutlinedButton50 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: getProportionateScreenWidth(131),
-      height: getProportionateScreenHeight(48),
+      width: (131),
+      height: (48),
       child: OutlinedButton(
         onPressed: press,
         style: OutlinedButton.styleFrom(
@@ -28,7 +27,7 @@ class OutlinedButton50 extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: getProportionateScreenWidth(14),
+            fontSize: (14),
             color: cColorPrimary50,
             fontWeight: FontWeight.bold,
           ),

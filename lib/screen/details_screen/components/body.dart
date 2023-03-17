@@ -29,23 +29,21 @@ class _BodyState extends State<Body> {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(24)),
+                padding: EdgeInsets.symmetric(horizontal: (24)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: getProportionateScreenHeight(32),
+                      height: (32),
                     ),
                     ImageProduct(widget: widget),
                     SizedBox(
-                      height: getProportionateScreenWidth(24),
+                      height: (24),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          width: SizeConfig.screenWidth * 0.59,
                           color: Colors.white,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,19 +51,19 @@ class _BodyState extends State<Body> {
                               Text(
                                 widget.product!.title,
                                 style: TextStyle(
-                                    fontSize: getProportionateScreenWidth(16),
+                                    fontSize: (16),
                                     color: cColorNeutralBlack50,
                                     fontWeight: FontWeight.w400),
                               ),
                               SizedBox(
-                                height: getProportionateScreenWidth(8),
+                                height: (8),
                               ),
                               Text(
                                 CurrencyFormat.convertToIdr(
                                         widget.product!.price, 0)
                                     .toString(),
                                 style: TextStyle(
-                                    fontSize: getProportionateScreenWidth(20),
+                                    fontSize: (20),
                                     color: cColorError50,
                                     fontWeight: FontWeight.w700),
                               ),
@@ -91,15 +89,15 @@ class _BodyState extends State<Body> {
                       ],
                     ),
                     SizedBox(
-                      height: getProportionateScreenWidth(48),
+                      height: (48),
                     ),
                     ProductDescription(widget: widget),
                     SizedBox(
-                      height: getProportionateScreenWidth(20),
+                      height: (20),
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(
-                        vertical: getProportionateScreenWidth(24),
+                        vertical: (24),
                       ),
                       decoration: BoxDecoration(
                         border: Border(
@@ -114,14 +112,14 @@ class _BodyState extends State<Body> {
                               "(${widget.product!.colors.length.toString()} Warna, ${widget.product!.size.length.toString()} Ukuran)"),
                     ),
                     SizedBox(
-                      height: getProportionateScreenWidth(24),
+                      height: (24),
                     ),
                     TextProductDetailsTitleValue(
                         widget: widget,
                         title: "Stok : ",
                         value: "${widget.product!.stok.toString()} Item"),
                     SizedBox(
-                      height: getProportionateScreenWidth(32),
+                      height: (32),
                     ),
                   ],
                 ),
@@ -139,20 +137,20 @@ class _BodyState extends State<Body> {
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(24),
-                    vertical: getProportionateScreenWidth(15),
+                    horizontal: (24),
+                    vertical: (15),
                   ),
                   child: OutlinedButtonWithIcon(
                     text: "Keranjang",
-                    button_width: getProportionateScreenWidth(138),
+                    button_width: (138),
                     press: () {},
                     icon: Icons.add,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(24),
-                    vertical: getProportionateScreenWidth(15),
+                    horizontal: (24),
+                    vertical: (15),
                   ),
                   child: PrimaryButton(
                     color: cColorPrimary50,
@@ -160,7 +158,8 @@ class _BodyState extends State<Body> {
                     textColor: Colors.white,
                     customFontWeight: FontWeight.bold,
                     press: () {},
-                    button_width: getProportionateScreenWidth(138),
+                    button_width: (138),
+                    button_height: (48),
                   ),
                 ),
               ],
@@ -191,16 +190,16 @@ class ProductDescription extends StatelessWidget {
           style: TextStyle(
             color: cColorNeutralBlack50,
             fontWeight: FontWeight.w700,
-            fontSize: getProportionateScreenWidth(16),
+            fontSize: (16),
           ),
         ),
         SizedBox(
-          height: getProportionateScreenWidth(16),
+          height: (16),
         ),
         Text(
           widget.product!.description,
           style: TextStyle(
-            fontSize: getProportionateScreenWidth(14),
+            fontSize: (14),
             fontWeight: FontWeight.w400,
             color: cColorExpired50,
           ),
@@ -223,8 +222,8 @@ class ImageProduct extends StatelessWidget {
     return Center(
       child: Image.asset(
         widget.product!.images[0],
-        width: getProportionateScreenWidth(327),
-        height: getProportionateScreenWidth(285),
+        width: (327),
+        height: (285),
         fit: BoxFit.fill,
       ),
     );
@@ -249,7 +248,7 @@ class TextProductDetailsTitleValue extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            fontSize: getProportionateScreenWidth(16),
+            fontSize: (16),
             fontWeight: FontWeight.w700,
             color: cColorNeutralBlack50,
           ),
@@ -258,7 +257,7 @@ class TextProductDetailsTitleValue extends StatelessWidget {
           value,
           style: TextStyle(
             color: cColorExpired50,
-            fontSize: getProportionateScreenWidth(14),
+            fontSize: (14),
             fontWeight: FontWeight.w400,
           ),
         ),

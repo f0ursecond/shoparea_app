@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/consts/consts.dart';
 import 'package:shoparea_app/screen/front_store/components/home_banner/home_banner_content.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class HomeBanner extends StatefulWidget {
   const HomeBanner({super.key});
@@ -26,7 +25,7 @@ class _HomeBannerState extends State<HomeBanner> {
     return Column(
       children: [
         SizedBox(
-          height: getProportionateScreenWidth(173),
+          height: (173),
           child: Expanded(
             child: PageView.builder(
               onPageChanged: (value) {
@@ -42,8 +41,7 @@ class _HomeBannerState extends State<HomeBanner> {
           ),
         ),
         Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(24)),
+          padding: EdgeInsets.symmetric(horizontal: (24)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: List.generate(
@@ -60,10 +58,8 @@ class _HomeBannerState extends State<HomeBanner> {
       margin: EdgeInsets.only(
         right: 5,
       ),
-      height: getProportionateScreenWidth(6),
-      width: currentPage == index
-          ? getProportionateScreenWidth(20)
-          : getProportionateScreenWidth(6),
+      height: (6),
+      width: currentPage == index ? (20) : (6),
       decoration: BoxDecoration(
           color: currentPage == index ? cColorPrimary50 : cColorNeutral50,
           borderRadius: BorderRadius.circular(3)),

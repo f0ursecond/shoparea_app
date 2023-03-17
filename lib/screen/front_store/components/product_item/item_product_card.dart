@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/outlined_button_50.dart';
 import 'package:shoparea_app/components/numeric_step_button.dart';
 import 'package:shoparea_app/models/Product.dart';
-import 'package:shoparea_app/size_config.dart';
 import 'package:shoparea_app/utils/currency_formatter.dart';
 
 class ItemProductCard extends StatefulWidget {
   final Product? product;
   final Function()? press;
 
-  ItemProductCard({
+  const ItemProductCard({
     super.key,
     this.product,
     this.press,
@@ -50,16 +49,16 @@ class _ItemProductCardState extends State<ItemProductCard> {
               Image.asset(
                 widget.product!.images[0],
                 fit: BoxFit.fill,
-                height: getProportionateScreenWidth(154),
-                width: getProportionateScreenWidth(154),
+                height: (154),
+                width: (154),
               ),
               SizedBox(
-                height: getProportionateScreenWidth(8),
+                height: (8),
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  left: getProportionateScreenWidth(12),
-                  right: getProportionateScreenWidth(12),
+                  left: (12),
+                  right: (12),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,25 +67,25 @@ class _ItemProductCardState extends State<ItemProductCard> {
                       widget.product!.title,
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                        fontSize: getProportionateScreenWidth(14),
+                        fontSize: (14),
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     SizedBox(
-                      height: getProportionateScreenWidth(8),
+                      height: (8),
                     ),
                     Text(
                       CurrencyFormat.convertToIdr(widget.product!.price, 0)
                           .toString(),
                       style: TextStyle(
-                        fontSize: getProportionateScreenWidth(16),
+                        fontSize: (16),
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(
-                      height: getProportionateScreenWidth(16),
+                      height: (16),
                     ),
                   ],
                 ),

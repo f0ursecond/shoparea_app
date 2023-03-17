@@ -9,7 +9,7 @@ class ProductOnInformasiScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: getProportionateScreenWidth(20)),
+        SizedBox(height: (20)),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -20,7 +20,7 @@ class ProductOnInformasiScreen extends StatelessWidget {
                   return ProductCard(product: products[index]);
                 },
               ),
-              SizedBox(width: getProportionateScreenWidth(20)),
+              SizedBox(width: (20)),
             ],
           ),
         )

@@ -1,6 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class HomeTitleText extends StatelessWidget {
   const HomeTitleText({
@@ -23,7 +24,7 @@ class HomeTitleText extends StatelessWidget {
         Text(
           titleText,
           style: TextStyle(
-              fontSize: getProportionateScreenWidth(titleFontSize),
+              fontSize: (titleFontSize),
               fontWeight: FontWeight.bold,
               color: Colors.black),
         ),
@@ -34,7 +35,7 @@ class HomeTitleText extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w400,
                 color: cColorPrimary50,
-                fontSize: getProportionateScreenWidth(14)),
+                fontSize: (14)),
           ),
         )
       ],

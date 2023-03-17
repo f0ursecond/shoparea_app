@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class BannerContent extends StatelessWidget {
   const BannerContent({
@@ -16,8 +15,8 @@ class BannerContent extends StatelessWidget {
         Image.asset(
           image,
           fit: BoxFit.fill,
-          height: getProportionateScreenWidth(157),
-          width: getProportionateScreenWidth(327),
+          height: (157),
+          width: (327),
         ),
       ],
     );

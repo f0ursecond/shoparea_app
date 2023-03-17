@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -12,6 +11,7 @@ class PrimaryButton extends StatelessWidget {
     required this.color,
     required this.textColor,
     required this.customFontWeight,
+    required this.button_height,
   });
   final String text;
   final FontWeight customFontWeight;
@@ -20,13 +20,13 @@ class PrimaryButton extends StatelessWidget {
 
   final Color color;
 
-  final double button_width;
+  final double button_width, button_height;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: button_width,
-      height: getProportionateScreenHeight(48),
+      height: button_height,
       child: ElevatedButton(
         onPressed: press,
         style: ElevatedButton.styleFrom(
@@ -36,7 +36,7 @@ class PrimaryButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: getProportionateScreenWidth(14),
+            fontSize: 14,
             color: textColor,
             fontWeight: customFontWeight,
           ),

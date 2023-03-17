@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class NumericStepButton extends StatefulWidget {
   final int minValue;
@@ -32,8 +31,8 @@ class _NumericStepButtonState extends State<NumericStepButton> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Container(
-          height: getProportionateScreenWidth(24),
-          width: getProportionateScreenWidth(24),
+          height: (24),
+          width: (24),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(
@@ -62,13 +61,13 @@ class _NumericStepButtonState extends State<NumericStepButton> {
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.black,
-            fontSize: getProportionateScreenWidth(14),
+            fontSize: (14),
             fontWeight: FontWeight.w700,
           ),
         ),
         Container(
-          height: getProportionateScreenWidth(24),
-          width: getProportionateScreenWidth(24),
+          height: (24),
+          width: (24),
           decoration: BoxDecoration(
             color: cColorPrimary50,
             borderRadius: BorderRadius.all(

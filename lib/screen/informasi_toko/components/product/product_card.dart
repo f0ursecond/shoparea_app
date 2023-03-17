@@ -20,9 +20,9 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
+      padding: EdgeInsets.only(left: (20)),
       child: SizedBox(
-        width: getProportionateScreenWidth(width),
+        width: (width),
         child: GestureDetector(
           onTap: press,
           child: Stack(
@@ -36,14 +36,14 @@ class ProductCard extends StatelessWidget {
               Positioned.fill(
                 child: Padding(
                   padding: EdgeInsets.all(
-                    getProportionateScreenWidth(24),
+                    (24),
                   ),
                   child: Align(
                     alignment: Alignment.bottomLeft,
                     child: Text(
                       product.category,
                       style: TextStyle(
-                        fontSize: getProportionateScreenWidth(16),
+                        fontSize: (16),
                         fontWeight: FontWeight.w700,
                         color: Colors.white,
                       ),

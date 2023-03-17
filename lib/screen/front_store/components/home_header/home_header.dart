@@ -5,7 +5,6 @@ import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/front_store/components/home_header/icon_btn_with_counter.dart';
 import 'package:shoparea_app/screen/informasi_toko/informasi_toko_screen.dart';
 import 'package:shoparea_app/screen/search_screen/search_screen.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -15,7 +14,7 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: getProportionateScreenWidth(76),
+      height: 76,
       decoration: BoxDecoration(
         color: cColorPrimary50,
         boxShadow: [
@@ -27,14 +26,13 @@ class HomeHeader extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(24)),
+        padding: EdgeInsets.symmetric(horizontal: 24),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              width: SizeConfig.screenWidth * 0.6,
-              height: getProportionateScreenWidth(50),
+              // width: SizeConfig.screenWidth * 0.6,
+              height: 50,
               color: cColorPrimary50,
               child: Row(
                 children: [
@@ -49,12 +47,12 @@ class HomeHeader extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: getProportionateScreenWidth(20),
+                    width: 20,
                   ),
                   Text(
                     "Toko Sepatu",
                     style: TextStyle(
-                        fontSize: getProportionateScreenWidth(14),
+                        fontSize: 14,
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
                   ),

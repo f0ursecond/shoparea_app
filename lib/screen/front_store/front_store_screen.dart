@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shoparea_app/consts/colors.dart';
@@ -18,8 +19,15 @@ class FrontStoreScreen extends StatelessWidget {
         value: SystemUiOverlayStyle(
           statusBarColor: cColorPrimary50,
         ),
-        child: Scaffold(
-          body: Body(),
+        child: Center(
+          child: Container(
+            decoration:
+                BoxDecoration(border: Border.all(color: cColorPrimary50)),
+            width: kIsWeb ? 400.0 : double.infinity,
+            child: Scaffold(
+              body: Body(),
+            ),
+          ),
         ));
   }
 }
