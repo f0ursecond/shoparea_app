@@ -1,6 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import '../../size_config.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -36,7 +39,9 @@ class PrimaryButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 14,
+            fontSize: kIsWeb
+                ? getWebProportionateScreenWidth(10)
+                : getProportionateScreenWidth(10),
             color: textColor,
             fontWeight: customFontWeight,
           ),

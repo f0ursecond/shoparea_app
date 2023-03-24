@@ -28,3 +28,17 @@ double getProportionateScreenWidth(double inputWidth) {
   // 375 is the layout width that designer use
   return (inputWidth / 375.0) * screenWidth;
 }
+
+// Get the proportionate height as per screen size
+double getWebProportionateScreenHeight(double inputHeight) {
+  double screenHeight = 570;
+  // 812 is the layout height that designer use
+  return (inputHeight / 812.0) * screenHeight;
+}
+
+// Get the proportionate height as per screen size
+double getWebProportionateScreenWidth(double inputWidth) {
+  double screenWidth = 400;
+  // 375 is the layout width that designer use
+  return (inputWidth / 375.0) * screenWidth;
+}

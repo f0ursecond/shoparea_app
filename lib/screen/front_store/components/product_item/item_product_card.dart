@@ -1,10 +1,13 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable, avoid_unnecessary_containers
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/outlined_button_50.dart';
 import 'package:shoparea_app/components/numeric_step_button.dart';
 import 'package:shoparea_app/models/Product.dart';
 import 'package:shoparea_app/utils/currency_formatter.dart';
+
+import '../../../../size_config.dart';
 
 class ItemProductCard extends StatefulWidget {
   final Product? product;
@@ -45,20 +48,31 @@ class _ItemProductCardState extends State<ItemProductCard> {
         children: [
           GestureDetector(
             onTap: widget.press,
-            child: Column(children: [
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Image.asset(
                 widget.product!.images[0],
                 fit: BoxFit.fill,
-                height: (154),
-                width: (154),
+                height: kIsWeb
+                    ? getWebProportionateScreenWidth(154)
+                    : getProportionateScreenWidth(154),
+                width: kIsWeb
+                    ? getWebProportionateScreenWidth(154)
+                    : getProportionateScreenWidth(154),
               ),
               SizedBox(
-                height: (8),
+                height: kIsWeb
+                    ? getWebProportionateScreenWidth(8)
+                    : getProportionateScreenWidth(8),
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  left: (12),
-                  right: (12),
+                  left: kIsWeb
+                      ? getWebProportionateScreenWidth(8)
+                      : getProportionateScreenWidth(8),
+                  right: kIsWeb
+                      ? getWebProportionateScreenWidth(8)
+                      : getProportionateScreenWidth(8),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,41 +81,64 @@ class _ItemProductCardState extends State<ItemProductCard> {
                       widget.product!.title,
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                        fontSize: (14),
+                        fontSize: kIsWeb
+                            ? getWebProportionateScreenWidth(10)
+                            : getProportionateScreenWidth(10),
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     SizedBox(
-                      height: (8),
+                      height: kIsWeb
+                          ? getWebProportionateScreenWidth(8)
+                          : getProportionateScreenWidth(8),
                     ),
                     Text(
                       CurrencyFormat.convertToIdr(widget.product!.price, 0)
                           .toString(),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: (16),
+                        fontSize: kIsWeb
+                            ? getWebProportionateScreenWidth(12)
+                            : getProportionateScreenWidth(12),
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(
-                      height: (16),
+                      height: kIsWeb
+                          ? getWebProportionateScreenWidth(16)
+                          : getProportionateScreenWidth(16),
                     ),
                   ],
                 ),
               ),
             ]),
           ),
-          Visibility(
-            visible: isButtonVisible,
-            child: OutlinedButton50(
-              text: "Beli",
-              press: () {
-                setState(() {
-                  isButtonVisible = !isButtonVisible;
-                  isCounterVisible = !isCounterVisible;
-                });
-              },
+          Padding(
+            padding: EdgeInsets.only(
+              left: kIsWeb
+                  ? getWebProportionateScreenWidth(8)
+                  : getProportionateScreenWidth(8),
+              right: kIsWeb
+                  ? getWebProportionateScreenWidth(8)
+                  : getProportionateScreenWidth(8),
+            ),
+            child: Visibility(
+              visible: isButtonVisible,
+              child: OutlinedButton50(
+                width: kIsWeb
+                    ? getWebProportionateScreenWidth(131)
+                    : getProportionateScreenWidth(131),
+                text: "Beli",
+                press: () {
+                  setState(() {
+                    isButtonVisible = !isButtonVisible;
+                    isCounterVisible = !isCounterVisible;
+                  });
+                },
+              ),
             ),
           ),
           Visibility(

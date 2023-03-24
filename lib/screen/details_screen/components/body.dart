@@ -6,7 +6,6 @@ import 'package:shoparea_app/components/button_style/outlined_button_with_icon.d
 import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/models/Product.dart';
-import 'package:shoparea_app/size_config.dart';
 import 'package:shoparea_app/utils/currency_formatter.dart';
 
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables

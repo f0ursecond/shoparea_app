@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/models/Product.dart';
 import 'package:shoparea_app/screen/search_screen/components/item_listview_product/item_listview_product.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -14,6 +13,9 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  bool isEmptyStateVisible = false;
+  bool isListProductVisible = true;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -73,12 +75,13 @@ class _BodyState extends State<Body> {
           child: Stack(
             children: [
               ListView.builder(
-                itemCount: products.length,
+                itemCount: foundProducts.length,
                 itemBuilder: (context, index) => ItemListProduct(
                   product: foundProducts[index],
                 ),
               ),
               Visibility(
+                visible: isEmptyStateVisible,
                 child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -135,6 +138,15 @@ class _BodyState extends State<Body> {
 
     setState(() {
       foundProducts = results;
+
+      // show empty state
+      if (results.isEmpty) {
+        isEmptyStateVisible = true;
+        isListProductVisible = false;
+      } else {
+        isEmptyStateVisible = false;
+        isListProductVisible = true;
+      }
     });
   }
 }

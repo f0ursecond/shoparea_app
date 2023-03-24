@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shoparea_app/consts/colors.dart';
+import 'package:shoparea_app/size_config.dart';
 
 class IconBtnWIthCounter extends StatelessWidget {
   const IconBtnWIthCounter({
@@ -19,15 +21,23 @@ class IconBtnWIthCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      borderRadius: BorderRadius.circular(100),
+      borderRadius: BorderRadius.circular(
+        kIsWeb
+            ? getWebProportionateScreenWidth(80)
+            : getProportionateScreenWidth(80),
+      ),
       onTap: press,
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           Container(
             padding: EdgeInsets.all(12),
-            height: 46,
-            width: 46,
+            height: kIsWeb
+                ? getWebProportionateScreenWidth(46)
+                : getProportionateScreenWidth(46),
+            width: kIsWeb
+                ? getWebProportionateScreenWidth(46)
+                : getProportionateScreenWidth(46),
             decoration: BoxDecoration(
               color: cColorPrimary50,
               shape: BoxShape.circle,
@@ -39,8 +49,12 @@ class IconBtnWIthCounter extends StatelessWidget {
               right: 3,
               top: 3,
               child: Container(
-                height: 22,
-                width: 22,
+                height: kIsWeb
+                    ? getWebProportionateScreenWidth(22)
+                    : getProportionateScreenWidth(22),
+                width: kIsWeb
+                    ? getWebProportionateScreenWidth(22)
+                    : getProportionateScreenWidth(22),
                 decoration: BoxDecoration(
                   color: Color(0xFFEB4755),
                   shape: BoxShape.circle,
@@ -49,7 +63,9 @@ class IconBtnWIthCounter extends StatelessWidget {
                   child: Text(
                     "$numOfitem",
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: kIsWeb
+                          ? getWebProportionateScreenWidth(10)
+                          : getProportionateScreenWidth(10),
                       height: 1,
                       fontWeight: FontWeight.w700,
                       color: Colors.white,

@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/models/Product.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({

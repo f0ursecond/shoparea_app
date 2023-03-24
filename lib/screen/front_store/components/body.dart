@@ -12,6 +12,7 @@ import 'package:shoparea_app/screen/front_store/components/home_banner/home_bann
 import 'package:shoparea_app/screen/front_store/components/home_header/home_header.dart';
 import 'package:shoparea_app/screen/front_store/components/home_title/home_title_text.dart';
 import 'package:shoparea_app/screen/front_store/components/product_item/item_product_card.dart';
+import 'package:shoparea_app/size_config.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -39,16 +40,22 @@ class _BodyState extends State<Body> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(
-                        height: (32),
+                        height: kIsWeb
+                            ? getWebProportionateScreenWidth(16)
+                            : getProportionateScreenWidth(16),
                       ),
                       HomeBanner(),
                       ContactBanner(),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: (24),
+                          horizontal: kIsWeb
+                              ? getWebProportionateScreenWidth(24)
+                              : getProportionateScreenWidth(24),
                         ),
                         child: HomeTitleText(
-                          titleFontSize: (16),
+                          titleFontSize: kIsWeb
+                              ? getWebProportionateScreenWidth(12)
+                              : getProportionateScreenWidth(12),
                           titleText: "Kategori",
                           txtButton: "Lihat Semua",
                           press: () {},
@@ -57,18 +64,24 @@ class _BodyState extends State<Body> {
                       Categories(),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: (24),
+                          horizontal: kIsWeb
+                              ? getWebProportionateScreenWidth(24)
+                              : getProportionateScreenWidth(24),
                         ),
                         child: HomeTitleText(
                           titleText: "Semua Produk",
                           txtButton: "Lihat Semua",
-                          titleFontSize: (16),
+                          titleFontSize: kIsWeb
+                              ? getWebProportionateScreenWidth(12)
+                              : getProportionateScreenWidth(12),
                           press: () {},
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: (24),
+                          horizontal: kIsWeb
+                              ? getWebProportionateScreenWidth(24)
+                              : getProportionateScreenWidth(24),
                         ),
                         child: Text(
                           "100 produk",
@@ -76,11 +89,15 @@ class _BodyState extends State<Body> {
                         ),
                       ),
                       SizedBox(
-                        height: (24),
+                        height: kIsWeb
+                            ? getWebProportionateScreenWidth(24)
+                            : getProportionateScreenWidth(24),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: (24),
+                          horizontal: kIsWeb
+                              ? getWebProportionateScreenWidth(24)
+                              : getProportionateScreenWidth(24),
                         ),
                         child: GridView.builder(
                           physics: ScrollPhysics(),
@@ -88,10 +105,17 @@ class _BodyState extends State<Body> {
                           shrinkWrap: true,
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
+                            mainAxisExtent: 275,
                             crossAxisCount: 2,
-                            childAspectRatio: 0.53,
-                            mainAxisSpacing: (24),
-                            crossAxisSpacing: (20),
+                            childAspectRatio: kIsWeb
+                                ? getWebProportionateScreenHeight(0.55)
+                                : getProportionateScreenWidth(0.55),
+                            mainAxisSpacing: kIsWeb
+                                ? getWebProportionateScreenWidth(24)
+                                : getProportionateScreenWidth(24),
+                            crossAxisSpacing: kIsWeb
+                                ? getWebProportionateScreenWidth(20)
+                                : getProportionateScreenWidth(20),
                           ),
                           itemBuilder: (context, index) => ItemProductCard(
                             product: products[index],
@@ -107,12 +131,18 @@ class _BodyState extends State<Body> {
                         ),
                       ),
                       SizedBox(
-                        height: (24),
+                        height: kIsWeb
+                            ? getWebProportionateScreenWidth(24)
+                            : getProportionateScreenWidth(24),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: (24),
-                          vertical: (8),
+                          horizontal: kIsWeb
+                              ? getWebProportionateScreenWidth(24)
+                              : getProportionateScreenWidth(24),
+                          vertical: kIsWeb
+                              ? getWebProportionateScreenWidth(8)
+                              : getProportionateScreenWidth(8),
                         ),
                         child: PrimaryButton(
                           color: (productsPerPage < products.length)
@@ -125,7 +155,9 @@ class _BodyState extends State<Body> {
                               ? Colors.white
                               : cColorNeutralBlack10,
                           press: nextPage,
-                          button_height: (48),
+                          button_height: kIsWeb
+                              ? getWebProportionateScreenWidth(32)
+                              : getProportionateScreenWidth(32),
                         ),
                       ),
                     ],
@@ -134,8 +166,12 @@ class _BodyState extends State<Body> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: (24),
-                  vertical: (24),
+                  horizontal: kIsWeb
+                      ? getWebProportionateScreenWidth(24)
+                      : getProportionateScreenWidth(24),
+                  vertical: kIsWeb
+                      ? getWebProportionateScreenWidth(24)
+                      : getProportionateScreenWidth(24),
                 ),
                 child: PrimaryButton(
                   button_width: double.infinity,
@@ -144,7 +180,7 @@ class _BodyState extends State<Body> {
                   textColor: Colors.white,
                   text: "Lihat semua pesanan",
                   press: () {},
-                  button_height: 48,
+                  button_height: 32,
                 ),
               ),
             ],

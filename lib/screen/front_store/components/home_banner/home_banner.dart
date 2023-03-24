@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/consts/consts.dart';
 import 'package:shoparea_app/screen/front_store/components/home_banner/home_banner_content.dart';
+import 'package:shoparea_app/size_config.dart';
 
 class HomeBanner extends StatefulWidget {
   const HomeBanner({super.key});
@@ -25,7 +27,9 @@ class _HomeBannerState extends State<HomeBanner> {
     return Column(
       children: [
         SizedBox(
-          height: (173),
+          height: kIsWeb
+              ? getWebProportionateScreenWidth(173)
+              : getProportionateScreenWidth(173),
           child: Expanded(
             child: PageView.builder(
               onPageChanged: (value) {
@@ -41,7 +45,11 @@ class _HomeBannerState extends State<HomeBanner> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: (24)),
+          padding: EdgeInsets.symmetric(
+            horizontal: kIsWeb
+                ? getWebProportionateScreenWidth(24)
+                : getProportionateScreenWidth(24),
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: List.generate(
@@ -56,13 +64,28 @@ class _HomeBannerState extends State<HomeBanner> {
     return AnimatedContainer(
       duration: kAnimationDuration,
       margin: EdgeInsets.only(
-        right: 5,
+        right: kIsWeb
+            ? getWebProportionateScreenWidth(5)
+            : getProportionateScreenWidth(5),
       ),
-      height: (6),
-      width: currentPage == index ? (20) : (6),
+      height: kIsWeb
+          ? getWebProportionateScreenWidth(6)
+          : getProportionateScreenWidth(6),
+      width: currentPage == index
+          ? kIsWeb
+              ? getWebProportionateScreenWidth(20)
+              : getProportionateScreenWidth(20)
+          : kIsWeb
+              ? getWebProportionateScreenWidth(6)
+              : getProportionateScreenWidth(6),
       decoration: BoxDecoration(
-          color: currentPage == index ? cColorPrimary50 : cColorNeutral50,
-          borderRadius: BorderRadius.circular(3)),
+        color: currentPage == index ? cColorPrimary50 : cColorNeutral50,
+        borderRadius: BorderRadius.circular(
+          kIsWeb
+              ? getWebProportionateScreenWidth(3)
+              : getProportionateScreenWidth(3),
+        ),
+      ),
     );
   }
 }

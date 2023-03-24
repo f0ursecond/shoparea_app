@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
+
+import '../../../../size_config.dart';
 
 class ContactBanner extends StatelessWidget {
   const ContactBanner({
@@ -12,18 +15,30 @@ class ContactBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: (98),
+      height: kIsWeb
+          ? getWebProportionateScreenWidth(78)
+          : getProportionateScreenWidth(78),
       width: double.infinity,
       margin: EdgeInsets.symmetric(
-        vertical: (24),
-        horizontal: (24),
+        vertical: kIsWeb
+            ? getWebProportionateScreenWidth(24)
+            : getProportionateScreenWidth(24),
+        horizontal: kIsWeb
+            ? getWebProportionateScreenWidth(24)
+            : getProportionateScreenWidth(24),
       ),
       padding: EdgeInsets.symmetric(
-        horizontal: (20),
+        horizontal: kIsWeb
+            ? getWebProportionateScreenWidth(20)
+            : getProportionateScreenWidth(20),
       ),
       decoration: BoxDecoration(
         color: cColorPrimary50,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(
+          kIsWeb
+              ? getWebProportionateScreenWidth(8)
+              : getProportionateScreenWidth(8),
+        ),
       ),
       alignment: Alignment.centerLeft,
       child: Row(
@@ -38,7 +53,9 @@ class ContactBanner extends StatelessWidget {
                   TextSpan(
                     text: "Sido Muncul",
                     style: TextStyle(
-                      fontSize: (18),
+                      fontSize: kIsWeb
+                          ? getWebProportionateScreenWidth(12)
+                          : getProportionateScreenWidth(12),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -47,7 +64,7 @@ class ContactBanner extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 2,
             child: PrimaryButton(
               button_width: double.infinity,
               color: Colors.white,
@@ -55,7 +72,9 @@ class ContactBanner extends StatelessWidget {
               textColor: cColorPrimary50,
               text: "Chat Penjual",
               press: () {},
-              button_height: (48),
+              button_height: kIsWeb
+                  ? getWebProportionateScreenWidth(32)
+                  : getProportionateScreenWidth(32),
             ),
           ),
         ],

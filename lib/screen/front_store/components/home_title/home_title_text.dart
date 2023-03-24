@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
+
+import '../../../../size_config.dart';
 
 class HomeTitleText extends StatelessWidget {
   const HomeTitleText({
@@ -24,18 +27,22 @@ class HomeTitleText extends StatelessWidget {
         Text(
           titleText,
           style: TextStyle(
-              fontSize: (titleFontSize),
-              fontWeight: FontWeight.bold,
-              color: Colors.black),
+            fontSize: (titleFontSize),
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
         ),
         GestureDetector(
           onTap: press,
           child: Text(
             txtButton,
             style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: cColorPrimary50,
-                fontSize: (14)),
+              fontWeight: FontWeight.w400,
+              color: cColorPrimary50,
+              fontSize: kIsWeb
+                  ? getWebProportionateScreenWidth(10)
+                  : getProportionateScreenWidth(10),
+            ),
           ),
         )
       ],

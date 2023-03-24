@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/search_screen/components/body.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -14,7 +13,8 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        decoration: BoxDecoration(border: Border.all(color: cColorPrimary50)),
+        decoration: BoxDecoration(
+            border: kIsWeb ? Border.all(color: cColorPrimary50) : null),
         width: kIsWeb ? 400.0 : double.infinity,
         child: Scaffold(
           appBar: AppBar(
