@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/models/Product.dart';
 import 'package:shoparea_app/screen/search_screen/components/item_listview_product/item_listview_product.dart';
+
+import '../../../size_config.dart';
+import '../../details_screen/detail_screen.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -21,15 +25,17 @@ class _BodyState extends State<Body> {
     return Column(
       children: [
         Container(
-          height: (87),
+          height: kIsWeb
+              ? getWebProportionateScreenWidth(84)
+              : getProportionateScreenWidth(84),
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.4),
                 spreadRadius: 3,
-                blurRadius: 15,
-                offset: Offset(0, 3), // changes position of shadow
+                blurRadius: 10,
+                offset: Offset(0, 10), // changes position of shadow
               ),
             ],
           ),
@@ -78,6 +84,14 @@ class _BodyState extends State<Body> {
                 itemCount: foundProducts.length,
                 itemBuilder: (context, index) => ItemListProduct(
                   product: foundProducts[index],
+                  press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailScreen(
+                        product: foundProducts[index],
+                      ),
+                    ),
+                  ),
                 ),
               ),
               Visibility(

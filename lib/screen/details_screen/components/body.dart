@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shoparea_app/components/button_style/outlined_button_with_icon.dart';
@@ -7,6 +8,8 @@ import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/models/Product.dart';
 import 'package:shoparea_app/utils/currency_formatter.dart';
+
+import '../../../size_config.dart';
 
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
@@ -28,16 +31,24 @@ class _BodyState extends State<Body> {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: (24)),
+                padding: EdgeInsets.symmetric(
+                  horizontal: kIsWeb
+                      ? getWebProportionateScreenWidth(24)
+                      : getProportionateScreenWidth(24),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: (32),
+                      height: kIsWeb
+                          ? getWebProportionateScreenWidth(24)
+                          : getProportionateScreenWidth(24),
                     ),
                     ImageProduct(widget: widget),
                     SizedBox(
-                      height: (24),
+                      height: kIsWeb
+                          ? getWebProportionateScreenWidth(16)
+                          : getProportionateScreenWidth(16),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,19 +61,25 @@ class _BodyState extends State<Body> {
                               Text(
                                 widget.product!.title,
                                 style: TextStyle(
-                                    fontSize: (16),
+                                    fontSize: kIsWeb
+                                        ? getWebProportionateScreenWidth(18)
+                                        : getProportionateScreenWidth(18),
                                     color: cColorNeutralBlack50,
                                     fontWeight: FontWeight.w400),
                               ),
                               SizedBox(
-                                height: (8),
+                                height: kIsWeb
+                                    ? getWebProportionateScreenWidth(8)
+                                    : getProportionateScreenWidth(8),
                               ),
                               Text(
                                 CurrencyFormat.convertToIdr(
                                         widget.product!.price, 0)
                                     .toString(),
                                 style: TextStyle(
-                                    fontSize: (20),
+                                    fontSize: kIsWeb
+                                        ? getWebProportionateScreenWidth(24)
+                                        : getProportionateScreenWidth(24),
                                     color: cColorError50,
                                     fontWeight: FontWeight.w700),
                               ),
@@ -88,15 +105,21 @@ class _BodyState extends State<Body> {
                       ],
                     ),
                     SizedBox(
-                      height: (48),
+                      height: kIsWeb
+                          ? getWebProportionateScreenWidth(32)
+                          : getProportionateScreenWidth(32),
                     ),
                     ProductDescription(widget: widget),
                     SizedBox(
-                      height: (20),
+                      height: kIsWeb
+                          ? getWebProportionateScreenWidth(12)
+                          : getProportionateScreenWidth(12),
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(
-                        vertical: (24),
+                        vertical: kIsWeb
+                            ? getWebProportionateScreenWidth(24)
+                            : getProportionateScreenWidth(24),
                       ),
                       decoration: BoxDecoration(
                         border: Border(
@@ -111,14 +134,18 @@ class _BodyState extends State<Body> {
                               "(${widget.product!.colors.length.toString()} Warna, ${widget.product!.size.length.toString()} Ukuran)"),
                     ),
                     SizedBox(
-                      height: (24),
+                      height: kIsWeb
+                          ? getWebProportionateScreenWidth(16)
+                          : getProportionateScreenWidth(16),
                     ),
                     TextProductDetailsTitleValue(
                         widget: widget,
                         title: "Stok : ",
                         value: "${widget.product!.stok.toString()} Item"),
                     SizedBox(
-                      height: (32),
+                      height: kIsWeb
+                          ? getWebProportionateScreenWidth(24)
+                          : getProportionateScreenWidth(24),
                     ),
                   ],
                 ),
@@ -132,24 +159,34 @@ class _BodyState extends State<Body> {
               ),
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: (24),
-                    vertical: (15),
+                  padding: EdgeInsets.only(
+                    left: kIsWeb
+                        ? getWebProportionateScreenWidth(24)
+                        : getProportionateScreenWidth(24),
                   ),
                   child: OutlinedButtonWithIcon(
                     text: "Keranjang",
-                    button_width: (138),
+                    button_width: kIsWeb
+                        ? getWebProportionateScreenWidth(125)
+                        : getProportionateScreenWidth(125),
+                    button_height: kIsWeb
+                        ? getWebProportionateScreenWidth(32)
+                        : getProportionateScreenWidth(32),
                     press: () {},
                     icon: Icons.add,
                   ),
                 ),
+                Spacer(),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: (24),
-                    vertical: (15),
+                    horizontal: kIsWeb
+                        ? getWebProportionateScreenWidth(24)
+                        : getProportionateScreenWidth(24),
+                    vertical: kIsWeb
+                        ? getWebProportionateScreenWidth(15)
+                        : getProportionateScreenWidth(15),
                   ),
                   child: PrimaryButton(
                     color: cColorPrimary50,
@@ -157,8 +194,12 @@ class _BodyState extends State<Body> {
                     textColor: Colors.white,
                     customFontWeight: FontWeight.bold,
                     press: () {},
-                    button_width: (138),
-                    button_height: (48),
+                    button_width: kIsWeb
+                        ? getWebProportionateScreenWidth(125)
+                        : getProportionateScreenWidth(125),
+                    button_height: kIsWeb
+                        ? getWebProportionateScreenWidth(32)
+                        : getProportionateScreenWidth(32),
                   ),
                 ),
               ],
@@ -189,16 +230,22 @@ class ProductDescription extends StatelessWidget {
           style: TextStyle(
             color: cColorNeutralBlack50,
             fontWeight: FontWeight.w700,
-            fontSize: (16),
+            fontSize: kIsWeb
+                ? getWebProportionateScreenWidth(14)
+                : getProportionateScreenWidth(14),
           ),
         ),
         SizedBox(
-          height: (16),
+          height: kIsWeb
+              ? getWebProportionateScreenWidth(16)
+              : getProportionateScreenWidth(16),
         ),
         Text(
           widget.product!.description,
           style: TextStyle(
-            fontSize: (14),
+            fontSize: kIsWeb
+                ? getWebProportionateScreenWidth(14)
+                : getProportionateScreenWidth(14),
             fontWeight: FontWeight.w400,
             color: cColorExpired50,
           ),
@@ -247,7 +294,9 @@ class TextProductDetailsTitleValue extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            fontSize: (16),
+            fontSize: kIsWeb
+                ? getWebProportionateScreenWidth(14)
+                : getProportionateScreenWidth(14),
             fontWeight: FontWeight.w700,
             color: cColorNeutralBlack50,
           ),
@@ -256,7 +305,9 @@ class TextProductDetailsTitleValue extends StatelessWidget {
           value,
           style: TextStyle(
             color: cColorExpired50,
-            fontSize: (14),
+            fontSize: kIsWeb
+                ? getWebProportionateScreenWidth(12)
+                : getProportionateScreenWidth(12),
             fontWeight: FontWeight.w400,
           ),
         ),

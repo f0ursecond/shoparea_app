@@ -59,6 +59,9 @@ class _BodyState extends State<Body> {
                           titleText: "Kategori",
                           txtButton: "Lihat Semua",
                           press: () {},
+                          btnFontSize: kIsWeb
+                              ? getWebProportionateScreenWidth(10)
+                              : getProportionateScreenWidth(10),
                         ),
                       ),
                       Categories(),
@@ -75,6 +78,9 @@ class _BodyState extends State<Body> {
                               ? getWebProportionateScreenWidth(12)
                               : getProportionateScreenWidth(12),
                           press: () {},
+                          btnFontSize: kIsWeb
+                              ? getWebProportionateScreenWidth(10)
+                              : getProportionateScreenWidth(10),
                         ),
                       ),
                       Padding(
@@ -170,8 +176,8 @@ class _BodyState extends State<Body> {
                       ? getWebProportionateScreenWidth(24)
                       : getProportionateScreenWidth(24),
                   vertical: kIsWeb
-                      ? getWebProportionateScreenWidth(24)
-                      : getProportionateScreenWidth(24),
+                      ? getWebProportionateScreenWidth(12)
+                      : getProportionateScreenWidth(12),
                 ),
                 child: PrimaryButton(
                   button_width: double.infinity,
@@ -180,7 +186,9 @@ class _BodyState extends State<Body> {
                   textColor: Colors.white,
                   text: "Lihat semua pesanan",
                   press: () {},
-                  button_height: 32,
+                  button_height: kIsWeb
+                      ? getWebProportionateScreenWidth(32)
+                      : getProportionateScreenWidth(32),
                 ),
               ),
             ],

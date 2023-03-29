@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/models/Product.dart';
+import 'package:shoparea_app/screen/details_screen/detail_screen.dart';
 import 'package:shoparea_app/screen/informasi_toko/components/product/product_card.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -18,7 +19,17 @@ class ProductOnInformasiScreen extends StatelessWidget {
               ...List.generate(
                 products.length,
                 (index) {
-                  return ProductCard(product: products[index]);
+                  return ProductCard(
+                    product: products[index],
+                    press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                          product: products[index],
+                        ),
+                      ),
+                    ),
+                  );
                 },
               ),
               SizedBox(width: (20)),

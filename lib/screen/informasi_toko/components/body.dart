@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import, prefer_const_constructors
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shoparea_app/components/button_style/outlined_button_with_icon.dart';
@@ -35,26 +36,39 @@ class _BodyState extends State<Body> {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: (24),
+                horizontal: kIsWeb
+                    ? getWebProportionateScreenWidth(24)
+                    : getProportionateScreenWidth(24),
               ),
               child: Column(
                 children: [
                   SizedBox(
-                    height: (65),
+                    height: kIsWeb
+                        ? getWebProportionateScreenWidth(65)
+                        : getProportionateScreenWidth(65),
                   ),
                   ProfileTokoSection(),
                   SizedBox(
-                    height: (52),
+                    height: kIsWeb
+                        ? getWebProportionateScreenWidth(52)
+                        : getProportionateScreenWidth(52),
                   ),
                   HomeTitleText(
                     titleText: "Kategori Produk",
                     txtButton: "Lihat Selengkapnya",
-                    titleFontSize: (14),
+                    titleFontSize: kIsWeb
+                        ? getWebProportionateScreenWidth(12)
+                        : getProportionateScreenWidth(12),
                     press: () {},
+                    btnFontSize: kIsWeb
+                        ? getWebProportionateScreenWidth(10)
+                        : getProportionateScreenWidth(10),
                   ),
                   ProductOnInformasiScreen(),
                   SizedBox(
-                    height: (16),
+                    height: kIsWeb
+                        ? getWebProportionateScreenWidth(16)
+                        : getProportionateScreenWidth(16),
                   ),
                 ],
               ),
@@ -69,19 +83,31 @@ class _BodyState extends State<Body> {
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: (24),
-              vertical: (15),
+              horizontal: kIsWeb
+                  ? getWebProportionateScreenWidth(24)
+                  : getProportionateScreenWidth(24),
+              vertical: kIsWeb
+                  ? getWebProportionateScreenWidth(15)
+                  : getProportionateScreenWidth(15),
             ),
             child: Column(
               children: [
                 HomeTitleText(
                   titleText: "Ketersediaan Toko",
                   txtButton: "Sekarang Buka",
-                  titleFontSize: (14),
+                  btnFontSize: kIsWeb
+                      ? getWebProportionateScreenWidth(14)
+                      : getProportionateScreenWidth(14),
+                  titleFontSize: kIsWeb
+                      ? getWebProportionateScreenWidth(14)
+                      : getProportionateScreenWidth(14),
                   press: () {
                     showModalBottomSheet(
                       isScrollControlled: true,
                       useSafeArea: true,
+                      constraints: BoxConstraints(
+                        maxWidth: kIsWeb ? 400 : double.infinity,
+                      ),
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
@@ -92,11 +118,17 @@ class _BodyState extends State<Body> {
                       context: context,
                       builder: (context) {
                         return SizedBox(
-                          height: (480),
+                          height: kIsWeb
+                              ? getWebProportionateScreenWidth(480)
+                              : getProportionateScreenWidth(480),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: (24),
-                              vertical: (16),
+                              horizontal: kIsWeb
+                                  ? getWebProportionateScreenWidth(24)
+                                  : getProportionateScreenWidth(24),
+                              vertical: kIsWeb
+                                  ? getWebProportionateScreenWidth(16)
+                                  : getProportionateScreenWidth(16),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,18 +138,24 @@ class _BodyState extends State<Body> {
                                       "assets/icons/img_bottom_sheet.svg"),
                                 ),
                                 SizedBox(
-                                  height: (24),
+                                  height: kIsWeb
+                                      ? getWebProportionateScreenWidth(24)
+                                      : getProportionateScreenWidth(24),
                                 ),
                                 Text(
                                   "Ketersediaan Toko",
                                   style: TextStyle(
-                                    fontSize: (16),
+                                    fontSize: kIsWeb
+                                        ? getWebProportionateScreenWidth(12)
+                                        : getProportionateScreenWidth(12),
                                     fontWeight: FontWeight.w700,
                                     color: cColorNeutralBlack50,
                                   ),
                                 ),
                                 SizedBox(
-                                  height: (24),
+                                  height: kIsWeb
+                                      ? getWebProportionateScreenWidth(24)
+                                      : getProportionateScreenWidth(24),
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -137,7 +175,11 @@ class _BodyState extends State<Body> {
                                                       ["hari"]
                                                   .toString(),
                                               style: TextStyle(
-                                                  fontSize: (12),
+                                                  fontSize: kIsWeb
+                                                      ? getWebProportionateScreenWidth(
+                                                          12)
+                                                      : getProportionateScreenWidth(
+                                                          12),
                                                   fontWeight: FontWeight.w400,
                                                   color: cColorExpired50),
                                             ),
@@ -160,7 +202,11 @@ class _BodyState extends State<Body> {
                                                   .toString(),
                                               textAlign: TextAlign.end,
                                               style: TextStyle(
-                                                  fontSize: (12),
+                                                  fontSize: kIsWeb
+                                                      ? getWebProportionateScreenWidth(
+                                                          12)
+                                                      : getProportionateScreenWidth(
+                                                          12),
                                                   fontWeight: FontWeight.w700,
                                                   color: dataKetersediaanToko[
                                                                       index][
@@ -177,7 +223,9 @@ class _BodyState extends State<Body> {
                                   ],
                                 ),
                                 Container(
-                                  height: (60),
+                                  height: kIsWeb
+                                      ? getWebProportionateScreenWidth(60)
+                                      : getProportionateScreenWidth(60),
                                   decoration: BoxDecoration(
                                     border: Border(
                                       top: BorderSide(
@@ -193,7 +241,10 @@ class _BodyState extends State<Body> {
                                       Text(
                                         "Sekarang",
                                         style: TextStyle(
-                                          fontSize: (16),
+                                          fontSize: kIsWeb
+                                              ? getWebProportionateScreenWidth(
+                                                  12)
+                                              : getProportionateScreenWidth(12),
                                           fontWeight: FontWeight.w700,
                                           color: cColorNeutralBlack50,
                                         ),
@@ -203,7 +254,10 @@ class _BodyState extends State<Body> {
                                             .toString(),
                                         textAlign: TextAlign.end,
                                         style: TextStyle(
-                                          fontSize: (16),
+                                          fontSize: kIsWeb
+                                              ? getWebProportionateScreenWidth(
+                                                  12)
+                                              : getProportionateScreenWidth(12),
                                           fontWeight: FontWeight.w700,
                                           color: dataKetersediaanToko[0]
                                                           ["ketersediaan"]
@@ -225,7 +279,9 @@ class _BodyState extends State<Body> {
                   },
                 ),
                 SizedBox(
-                  height: (16),
+                  height: kIsWeb
+                      ? getWebProportionateScreenWidth(16)
+                      : getProportionateScreenWidth(16),
                 ),
                 PrimaryButton(
                   color: cColorPrimary50,
@@ -234,7 +290,9 @@ class _BodyState extends State<Body> {
                   customFontWeight: FontWeight.bold,
                   press: () {},
                   button_width: double.infinity,
-                  button_height: (48),
+                  button_height: kIsWeb
+                      ? getWebProportionateScreenWidth(32)
+                      : getProportionateScreenWidth(32),
                 ),
               ],
             ),

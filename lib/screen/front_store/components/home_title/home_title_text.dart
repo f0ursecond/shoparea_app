@@ -1,10 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
-
-import '../../../../size_config.dart';
 
 class HomeTitleText extends StatelessWidget {
   const HomeTitleText({
@@ -13,10 +10,11 @@ class HomeTitleText extends StatelessWidget {
     required this.txtButton,
     required this.press,
     required this.titleFontSize,
+    required this.btnFontSize,
   });
 
   final String titleText, txtButton;
-  final double titleFontSize;
+  final double titleFontSize, btnFontSize;
   final Function()? press;
 
   @override
@@ -39,9 +37,7 @@ class HomeTitleText extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w400,
               color: cColorPrimary50,
-              fontSize: kIsWeb
-                  ? getWebProportionateScreenWidth(10)
-                  : getProportionateScreenWidth(10),
+              fontSize: btnFontSize,
             ),
           ),
         )

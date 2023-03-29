@@ -79,6 +79,8 @@ class _ItemProductCardState extends State<ItemProductCard> {
                   children: [
                     Text(
                       widget.product!.title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontSize: kIsWeb
