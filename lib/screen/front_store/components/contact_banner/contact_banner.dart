@@ -10,7 +10,15 @@ import '../../../../size_config.dart';
 class ContactBanner extends StatelessWidget {
   const ContactBanner({
     Key? key,
+    required this.text1,
+    required this.text2,
+    required this.bannerWidth,
+    required this.textButton,
   }) : super(key: key);
+
+  final String text1, text2;
+  final double bannerWidth;
+  final String textButton;
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +26,7 @@ class ContactBanner extends StatelessWidget {
       height: kIsWeb
           ? getWebProportionateScreenWidth(78)
           : getProportionateScreenWidth(78),
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(
-        vertical: kIsWeb
-            ? getWebProportionateScreenWidth(24)
-            : getProportionateScreenWidth(24),
-        horizontal: kIsWeb
-            ? getWebProportionateScreenWidth(24)
-            : getProportionateScreenWidth(24),
-      ),
+      width: bannerWidth,
       padding: EdgeInsets.symmetric(
         horizontal: kIsWeb
             ? getWebProportionateScreenWidth(20)
@@ -49,9 +49,9 @@ class ContactBanner extends StatelessWidget {
               TextSpan(
                 style: TextStyle(color: Colors.white),
                 children: [
-                  TextSpan(text: "Hubungi Toko\n"),
+                  TextSpan(text: "$text1\n"),
                   TextSpan(
-                    text: "Sido Muncul",
+                    text: text2,
                     style: TextStyle(
                       fontSize: kIsWeb
                           ? getWebProportionateScreenWidth(12)
@@ -70,7 +70,7 @@ class ContactBanner extends StatelessWidget {
               color: Colors.white,
               customFontWeight: FontWeight.bold,
               textColor: cColorPrimary50,
-              text: "Chat Penjual",
+              text: textButton,
               press: () {},
               button_height: kIsWeb
                   ? getWebProportionateScreenWidth(32)

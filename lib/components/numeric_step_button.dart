@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
+
+import '../size_config.dart';
 
 class NumericStepButton extends StatefulWidget {
   final int minValue;
@@ -31,8 +34,12 @@ class _NumericStepButtonState extends State<NumericStepButton> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Container(
-          height: (24),
-          width: (24),
+          height: kIsWeb
+              ? getWebProportionateScreenWidth(20)
+              : getProportionateScreenWidth(20),
+          width: kIsWeb
+              ? getWebProportionateScreenWidth(20)
+              : getProportionateScreenWidth(20),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(
@@ -45,6 +52,9 @@ class _NumericStepButtonState extends State<NumericStepButton> {
             icon: Icon(
               Icons.remove,
               color: cColorPrimary50,
+              size: kIsWeb
+                  ? getWebProportionateScreenWidth(14)
+                  : getProportionateScreenWidth(14),
             ),
             onPressed: () {
               setState(() {
@@ -61,13 +71,19 @@ class _NumericStepButtonState extends State<NumericStepButton> {
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.black,
-            fontSize: (14),
+            fontSize: kIsWeb
+                ? getWebProportionateScreenWidth(12)
+                : getProportionateScreenWidth(12),
             fontWeight: FontWeight.w700,
           ),
         ),
         Container(
-          height: (24),
-          width: (24),
+          height: kIsWeb
+              ? getWebProportionateScreenWidth(20)
+              : getProportionateScreenWidth(20),
+          width: kIsWeb
+              ? getWebProportionateScreenWidth(20)
+              : getProportionateScreenWidth(20),
           decoration: BoxDecoration(
             color: cColorPrimary50,
             borderRadius: BorderRadius.all(
@@ -79,6 +95,9 @@ class _NumericStepButtonState extends State<NumericStepButton> {
             icon: Icon(
               Icons.add,
               color: Colors.white,
+              size: kIsWeb
+                  ? getWebProportionateScreenWidth(14)
+                  : getProportionateScreenWidth(14),
             ),
             onPressed: () {
               setState(() {

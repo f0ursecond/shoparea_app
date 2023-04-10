@@ -38,12 +38,6 @@ class _CategoriesState extends State<Categories> {
         bottom: kIsWeb
             ? getWebProportionateScreenWidth(16)
             : getProportionateScreenWidth(16),
-        left: kIsWeb
-            ? getWebProportionateScreenWidth(24)
-            : getProportionateScreenWidth(24),
-        right: kIsWeb
-            ? getWebProportionateScreenWidth(24)
-            : getProportionateScreenWidth(24),
       ),
       child: SizedBox(
         height: kIsWeb

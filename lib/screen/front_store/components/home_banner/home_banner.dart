@@ -44,17 +44,10 @@ class _HomeBannerState extends State<HomeBanner> {
             ),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: kIsWeb
-                ? getWebProportionateScreenWidth(24)
-                : getProportionateScreenWidth(24),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: List.generate(
-                bannerData.length, (index) => buildDot(index: index)),
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: List.generate(
+              bannerData.length, (index) => buildDot(index: index)),
         )
       ],
     );

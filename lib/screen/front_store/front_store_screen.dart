@@ -16,18 +16,18 @@ class FrontStoreScreen extends StatelessWidget {
     // We have to call it on the starter screen
     SizeConfig().init(context);
     return AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle(
-          statusBarColor: cColorPrimary50,
-        ),
-        child: Center(
-          child: Container(
-            decoration:
-                BoxDecoration(border: Border.all(color: cColorPrimary50)),
-            width: kIsWeb ? 400.0 : double.infinity,
-            child: Scaffold(
-              body: Body(),
-            ),
+      value: SystemUiOverlayStyle(
+        statusBarColor: cColorPrimary50,
+      ),
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(border: Border.all(color: cColorPrimary50)),
+          width: kIsWeb ? 400.0 : double.infinity,
+          child: Scaffold(
+            body: Body(),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -133,6 +133,9 @@ class _ItemProductCardState extends State<ItemProductCard> {
                 width: kIsWeb
                     ? getWebProportionateScreenWidth(131)
                     : getProportionateScreenWidth(131),
+                height: kIsWeb
+                    ? getWebProportionateScreenWidth(32)
+                    : getProportionateScreenWidth(32),
                 text: "Beli",
                 press: () {
                   setState(() {

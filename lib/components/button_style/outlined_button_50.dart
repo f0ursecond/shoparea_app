@@ -12,18 +12,17 @@ class OutlinedButton50 extends StatelessWidget {
     required this.text,
     required this.press,
     required this.width,
+    required this.height,
   });
   final String text;
   final Function()? press;
-  final double width;
+  final double width, height;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
-      height: kIsWeb
-          ? getWebProportionateScreenWidth(32)
-          : getProportionateScreenWidth(32),
+      height: height,
       child: OutlinedButton(
         onPressed: press,
         style: OutlinedButton.styleFrom(

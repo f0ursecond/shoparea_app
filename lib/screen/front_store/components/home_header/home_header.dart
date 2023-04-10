@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/front_store/components/home_header/icon_btn_with_counter.dart';
 import 'package:shoparea_app/screen/informasi_toko/informasi_toko_screen.dart';
+import 'package:shoparea_app/screen/keranjang_screen/keranjang_screen.dart';
 import 'package:shoparea_app/screen/search_screen/search_screen.dart';
 import 'package:shoparea_app/size_config.dart';
 
@@ -84,7 +85,9 @@ class HomeHeader extends StatelessWidget {
             IconBtnWIthCounter(
               svgSrc: "assets/icons/ic_shop_cart.svg",
               numOfitem: 3,
-              press: () {},
+              press: () {
+                Navigator.pushNamed(context, KeranjangScreen.routeName);
+              },
             ),
           ],
         ),

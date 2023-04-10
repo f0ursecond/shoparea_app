@@ -36,23 +36,37 @@ class _BodyState extends State<Body> {
               HomeHeader(),
               Expanded(
                 child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      SizedBox(
-                        height: kIsWeb
-                            ? getWebProportionateScreenWidth(16)
-                            : getProportionateScreenWidth(16),
-                      ),
-                      HomeBanner(),
-                      ContactBanner(),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: kIsWeb
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: kIsWeb
+                          ? getWebProportionateScreenWidth(24)
+                          : getProportionateScreenWidth(24),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(
+                          height: kIsWeb
+                              ? getWebProportionateScreenWidth(16)
+                              : getProportionateScreenWidth(16),
+                        ),
+                        HomeBanner(),
+                        SizedBox(
+                          height: kIsWeb
                               ? getWebProportionateScreenWidth(24)
                               : getProportionateScreenWidth(24),
                         ),
-                        child: HomeTitleText(
+                        ContactBanner(
+                            text1: "Hubungi Toko",
+                            text2: "Sido Muncul",
+                            textButton: "Chat Penjual",
+                            bannerWidth: double.infinity),
+                        SizedBox(
+                          height: kIsWeb
+                              ? getWebProportionateScreenWidth(24)
+                              : getProportionateScreenWidth(24),
+                        ),
+                        HomeTitleText(
                           titleFontSize: kIsWeb
                               ? getWebProportionateScreenWidth(12)
                               : getProportionateScreenWidth(12),
@@ -63,15 +77,8 @@ class _BodyState extends State<Body> {
                               ? getWebProportionateScreenWidth(10)
                               : getProportionateScreenWidth(10),
                         ),
-                      ),
-                      Categories(),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: kIsWeb
-                              ? getWebProportionateScreenWidth(24)
-                              : getProportionateScreenWidth(24),
-                        ),
-                        child: HomeTitleText(
+                        Categories(),
+                        HomeTitleText(
                           titleText: "Semua Produk",
                           txtButton: "Lihat Semua",
                           titleFontSize: kIsWeb
@@ -82,30 +89,16 @@ class _BodyState extends State<Body> {
                               ? getWebProportionateScreenWidth(10)
                               : getProportionateScreenWidth(10),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: kIsWeb
-                              ? getWebProportionateScreenWidth(24)
-                              : getProportionateScreenWidth(24),
-                        ),
-                        child: Text(
+                        Text(
                           "100 produk",
                           textAlign: TextAlign.left,
                         ),
-                      ),
-                      SizedBox(
-                        height: kIsWeb
-                            ? getWebProportionateScreenWidth(24)
-                            : getProportionateScreenWidth(24),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: kIsWeb
+                        SizedBox(
+                          height: kIsWeb
                               ? getWebProportionateScreenWidth(24)
                               : getProportionateScreenWidth(24),
                         ),
-                        child: GridView.builder(
+                        GridView.builder(
                           physics: ScrollPhysics(),
                           itemCount: productsPerPage,
                           shrinkWrap: true,
@@ -135,22 +128,12 @@ class _BodyState extends State<Body> {
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: kIsWeb
-                            ? getWebProportionateScreenWidth(24)
-                            : getProportionateScreenWidth(24),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: kIsWeb
+                        SizedBox(
+                          height: kIsWeb
                               ? getWebProportionateScreenWidth(24)
                               : getProportionateScreenWidth(24),
-                          vertical: kIsWeb
-                              ? getWebProportionateScreenWidth(8)
-                              : getProportionateScreenWidth(8),
                         ),
-                        child: PrimaryButton(
+                        PrimaryButton(
                           color: (productsPerPage < products.length)
                               ? cColorPrimary50
                               : Colors.white,
@@ -165,8 +148,8 @@ class _BodyState extends State<Body> {
                               ? getWebProportionateScreenWidth(32)
                               : getProportionateScreenWidth(32),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
