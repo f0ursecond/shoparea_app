@@ -1,4 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/button_style/outlined_button_50.dart';
+import 'package:shoparea_app/components/numeric_step_button.dart';
+import 'package:shoparea_app/consts/colors.dart';
+
+import '../../../size_config.dart';
 
 class ItemProductKeranjang extends StatelessWidget {
   const ItemProductKeranjang({

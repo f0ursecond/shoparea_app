@@ -8,6 +8,7 @@ import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/front_store/components/contact_banner/contact_banner.dart';
 import 'package:shoparea_app/screen/keranjang_screen/components/item_product_keranjang.dart';
+import 'package:shoparea_app/screen/pengiriman_screen/pengiriman_screen.dart';
 
 import '../../../size_config.dart';
 
@@ -118,8 +119,8 @@ class _BodyState extends State<Body> {
                     ),
                     SizedBox(
                       height: kIsWeb
-                          ? getWebProportionateScreenWidth(24)
-                          : getProportionateScreenWidth(24),
+                          ? getWebProportionateScreenWidth(32)
+                          : getProportionateScreenWidth(32),
                     ),
                     ItemProductKeranjang(),
                     SizedBox(
@@ -339,7 +340,10 @@ class _BodyState extends State<Body> {
                     ),
                     PrimaryButton(
                       text: "Lanjut",
-                      press: () {},
+                      press: () {
+                        Navigator.pushNamed(
+                            context, PengirimanScreen.routeName);
+                      },
                       button_width: double.infinity,
                       color: cColorPrimary50,
                       textColor: Colors.white,
