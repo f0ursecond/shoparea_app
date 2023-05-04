@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/components/body.dart';
+import 'package:shoparea_app/screen/pengiriman_screen/components/harga_bottom_sheet.dart';
 
 import '../../../size_config.dart';
 
@@ -141,7 +142,7 @@ class _BodyState extends State<Body> {
                                 ),
                               ),
                               builder: (BuildContext context) {
-                                return MyBottomSheet();
+                                return HargaBottomSheet();
                               },
                             );
                           },

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, unused_import
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +6,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
+import 'package:shoparea_app/screen/pengiriman_screen/alamat_bottom_sheet/alamat_bottom_sheet.dart';
 import 'package:shoparea_app/screen/status_bayar_screen/status_bayar_screen.dart';
 
 import '../../../size_config.dart';
+import 'harga_bottom_sheet.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -154,7 +156,29 @@ class _BodyState extends State<Body> {
                         ),
                         PrimaryButton(
                           text: "Ganti Alamat",
-                          press: () {},
+                          press: () {
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              isDismissible: true,
+                              useSafeArea: true,
+                              constraints: BoxConstraints(
+                                maxWidth: kIsWeb ? 400 : double.infinity,
+                                maxHeight:
+                                    MediaQuery.of(context).size.height * 0.9,
+                              ),
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  topRight: Radius.circular(8),
+                                ),
+                              ),
+                              builder: (BuildContext context) {
+                                return ProvinsiBottomSheet();
+                              },
+                            );
+                          },
                           button_width: kIsWeb
                               ? getWebProportionateScreenWidth(110)
                               : getProportionateScreenWidth(110),
@@ -463,7 +487,7 @@ class _BodyState extends State<Body> {
                           ),
                         ),
                         builder: (BuildContext context) {
-                          return MyBottomSheet();
+                          return HargaBottomSheet();
                         },
                       );
                     },
@@ -507,146 +531,6 @@ class _BodyState extends State<Body> {
           ),
         )
       ],
-    );
-  }
-}
-
-class MyBottomSheet extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-          padding: EdgeInsets.all(
-            kIsWeb
-                ? getWebProportionateScreenWidth(24)
-                : getProportionateScreenWidth(24),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: SvgPicture.asset("assets/icons/img_bottom_sheet.svg"),
-              ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(24)
-                    : getProportionateScreenWidth(24),
-              ),
-              Text(
-                'Detail Pembayaran',
-                style: TextStyle(
-                  fontSize: kIsWeb
-                      ? getWebProportionateScreenWidth(16)
-                      : getProportionateScreenWidth(16),
-                  fontWeight: FontWeight.w700,
-                  color: cColorNeutralBlack50,
-                ),
-              ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(24)
-                    : getProportionateScreenWidth(24),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Sub Total',
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w400,
-                      color: cColorExpired50,
-                    ),
-                  ),
-                  Text(
-                    'Rp 69.000',
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w700,
-                      color: cColorNeutralBlack50,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(16)
-                    : getProportionateScreenWidth(16),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Biaya Pengiriman',
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w400,
-                      color: cColorExpired50,
-                    ),
-                  ),
-                  Text(
-                    'Rp -5.000',
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w700,
-                      color: cColorPrimary50,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(16)
-                    : getProportionateScreenWidth(16),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Biaya Admin',
-                        style: TextStyle(
-                          fontSize: kIsWeb
-                              ? getWebProportionateScreenWidth(12)
-                              : getProportionateScreenWidth(12),
-                          fontWeight: FontWeight.w400,
-                          color: cColorExpired50,
-                        ),
-                      ),
-                      SizedBox(
-                        width: kIsWeb
-                            ? getWebProportionateScreenWidth(8)
-                            : getProportionateScreenWidth(8),
-                      ),
-                      Icon(
-                        Icons.info_outlined,
-                        color: cColorNeutral50,
-                      )
-                    ],
-                  ),
-                  Text(
-                    'Rp -4.000',
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w700,
-                      color: cColorPrimary50,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          )),
     );
   }
 }
