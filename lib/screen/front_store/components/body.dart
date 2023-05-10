@@ -12,6 +12,7 @@ import 'package:shoparea_app/screen/front_store/components/home_banner/home_bann
 import 'package:shoparea_app/screen/front_store/components/home_header/home_header.dart';
 import 'package:shoparea_app/screen/front_store/components/home_title/home_title_text.dart';
 import 'package:shoparea_app/screen/front_store/components/product_item/item_product_card.dart';
+import 'package:shoparea_app/screen/semua_pesanan_screen/semua_pesanan_screen.dart';
 import 'package:shoparea_app/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -168,7 +169,9 @@ class _BodyState extends State<Body> {
                   customFontWeight: FontWeight.normal,
                   textColor: Colors.white,
                   text: "Lihat semua pesanan",
-                  press: () {},
+                  press: () {
+                    Navigator.pushNamed(context, SemuaPesananScreen.routeName);
+                  },
                   button_height: kIsWeb
                       ? getWebProportionateScreenWidth(32)
                       : getProportionateScreenWidth(32),
