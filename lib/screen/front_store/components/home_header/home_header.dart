@@ -9,6 +9,9 @@ import 'package:shoparea_app/screen/keranjang_screen/keranjang_screen.dart';
 import 'package:shoparea_app/screen/search_screen/search_screen.dart';
 import 'package:shoparea_app/size_config.dart';
 
+import '../../../../components/sized_box/horizontal_sized_box.dart';
+import '../../../../components/teks/custom_teks.dart';
+
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
     super.key,
@@ -17,14 +20,17 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 76,
+      height: kIsWeb
+          ? getWebProportionateScreenWidth(76)
+          : getProportionateScreenWidth(76),
       decoration: BoxDecoration(
         color: cColorPrimary50,
         boxShadow: [
           BoxShadow(
             color: Colors.grey,
-            offset: Offset(0.0, 1.0), //(x,y)
-            blurRadius: 15.0,
+            offset: Offset(0.0, 5.0),
+            blurRadius: 4.0,
+            spreadRadius: 0.0,
           ),
         ],
       ),
@@ -40,7 +46,9 @@ class HomeHeader extends StatelessWidget {
             Expanded(
               flex: 3,
               child: Container(
-                height: 50,
+                height: kIsWeb
+                    ? getWebProportionateScreenWidth(50)
+                    : getProportionateScreenWidth(50),
                 color: cColorPrimary50,
                 child: Row(
                   children: [
@@ -57,20 +65,12 @@ class HomeHeader extends StatelessWidget {
                             AssetImage('assets/images/iv_avatar.png'),
                       ),
                     ),
-                    SizedBox(
-                      width: kIsWeb
-                          ? getWebProportionateScreenWidth(8)
-                          : getProportionateScreenWidth(8),
-                    ),
-                    Text(
-                      "Toko Sepatu",
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          fontSize: kIsWeb
-                              ? getWebProportionateScreenWidth(14)
-                              : getProportionateScreenWidth(14),
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
+                    HorizontalSizedBox(width: 8),
+                    CustomText(
+                      teks: "Toko Sepatu",
+                      fontSize: 14,
+                      teksColor: Colors.white,
+                      fontWeight: FontWeight.bold,
                     ),
                   ],
                 ),

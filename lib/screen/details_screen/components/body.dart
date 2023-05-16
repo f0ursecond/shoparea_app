@@ -7,6 +7,7 @@ import 'package:shoparea_app/components/button_style/outlined_button_with_icon.d
 import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/models/Product.dart';
+import 'package:shoparea_app/screen/pengiriman_screen/pengiriman_screen.dart';
 import 'package:shoparea_app/utils/currency_formatter.dart';
 
 import '../../../size_config.dart';
@@ -193,7 +194,9 @@ class _BodyState extends State<Body> {
                     text: "Beli Sekarang",
                     textColor: Colors.white,
                     customFontWeight: FontWeight.bold,
-                    press: () {},
+                    press: () {
+                      Navigator.pushNamed(context, PengirimanScreen.routeName);
+                    },
                     button_width: kIsWeb
                         ? getWebProportionateScreenWidth(125)
                         : getProportionateScreenWidth(125),

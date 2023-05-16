@@ -72,9 +72,7 @@ class ContactBanner extends StatelessWidget {
               textColor: cColorPrimary50,
               text: textButton,
               press: () {},
-              button_height: kIsWeb
-                  ? getWebProportionateScreenWidth(32)
-                  : getProportionateScreenWidth(32),
+              button_height: 32,
             ),
           ),
         ],

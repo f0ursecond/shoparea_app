@@ -3,6 +3,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/size_config.dart';
 
@@ -60,18 +61,12 @@ class IconBtnWIthCounter extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Center(
-                  child: Text(
-                    "$numOfitem",
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(10)
-                          : getProportionateScreenWidth(10),
-                      height: 1,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                    child: CustomText(
+                  teks: "$numOfitem",
+                  fontSize: 10,
+                  fontWeight: FontWeight.w700,
+                  teksColor: Colors.white,
+                )),
               ),
             )
         ],

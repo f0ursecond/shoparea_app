@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';
 
 class HomeTitleText extends StatelessWidget {
@@ -22,23 +23,19 @@ class HomeTitleText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          titleText,
-          style: TextStyle(
-            fontSize: (titleFontSize),
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+        CustomText(
+          teks: titleText,
+          fontSize: titleFontSize,
+          fontWeight: FontWeight.bold,
+          teksColor: Colors.black,
         ),
         GestureDetector(
           onTap: press,
-          child: Text(
-            txtButton,
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              color: cColorPrimary50,
-              fontSize: btnFontSize,
-            ),
+          child: CustomText(
+            teks: txtButton,
+            fontSize: btnFontSize,
+            fontWeight: FontWeight.w400,
+            teksColor: cColorPrimary50,
           ),
         )
       ],

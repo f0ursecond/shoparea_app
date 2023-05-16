@@ -28,8 +28,12 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: button_width,
-      height: button_height,
+      width: kIsWeb
+          ? getWebProportionateScreenWidth(button_width)
+          : getProportionateScreenWidth(button_width),
+      height: kIsWeb
+          ? getWebProportionateScreenWidth(button_height)
+          : getProportionateScreenWidth(button_height),
       child: ElevatedButton(
         onPressed: press,
         style: ElevatedButton.styleFrom(

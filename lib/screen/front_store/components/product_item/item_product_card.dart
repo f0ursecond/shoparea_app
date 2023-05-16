@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/outlined_button_50.dart';
 import 'package:shoparea_app/components/numeric_step_button.dart';
+import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/models/Product.dart';
 import 'package:shoparea_app/utils/currency_formatter.dart';
 
@@ -60,11 +62,7 @@ class _ItemProductCardState extends State<ItemProductCard> {
                     ? getWebProportionateScreenWidth(154)
                     : getProportionateScreenWidth(154),
               ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(8)
-                    : getProportionateScreenWidth(8),
-              ),
+              VerticalSizedBox(height: 8),
               Padding(
                 padding: EdgeInsets.only(
                   left: kIsWeb
@@ -77,42 +75,26 @@ class _ItemProductCardState extends State<ItemProductCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      widget.product!.title,
+                    CustomText(
+                      teks: widget.product!.title,
+                      fontSize: 10,
+                      teksColor: Colors.black,
+                      fontWeight: FontWeight.w400,
                       maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                      textOverflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: kIsWeb
-                            ? getWebProportionateScreenWidth(10)
-                            : getProportionateScreenWidth(10),
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                      ),
                     ),
-                    SizedBox(
-                      height: kIsWeb
-                          ? getWebProportionateScreenWidth(8)
-                          : getProportionateScreenWidth(8),
-                    ),
-                    Text(
-                      CurrencyFormat.convertToIdr(widget.product!.price, 0)
-                          .toString(),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: kIsWeb
-                            ? getWebProportionateScreenWidth(12)
-                            : getProportionateScreenWidth(12),
-                        color: Colors.black,
+                    VerticalSizedBox(height: 8),
+                    CustomText(
+                        teks: CurrencyFormat.convertToIdr(
+                                widget.product!.price, 0)
+                            .toString(),
+                        maxLines: 1,
+                        textOverflow: TextOverflow.ellipsis,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      height: kIsWeb
-                          ? getWebProportionateScreenWidth(16)
-                          : getProportionateScreenWidth(16),
-                    ),
+                        teksColor: Colors.black),
+                    VerticalSizedBox(height: 16)
                   ],
                 ),
               ),
@@ -130,12 +112,8 @@ class _ItemProductCardState extends State<ItemProductCard> {
             child: Visibility(
               visible: isButtonVisible,
               child: OutlinedButton50(
-                width: kIsWeb
-                    ? getWebProportionateScreenWidth(131)
-                    : getProportionateScreenWidth(131),
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(32)
-                    : getProportionateScreenWidth(32),
+                width: 131,
+                height: 32,
                 text: "Beli",
                 press: () {
                   setState(() {

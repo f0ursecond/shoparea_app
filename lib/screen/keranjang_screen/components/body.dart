@@ -7,6 +7,7 @@ import 'package:shoparea_app/components/button_style/outlined_button_with_icon.d
 import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/front_store/components/contact_banner/contact_banner.dart';
+import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
 import 'package:shoparea_app/screen/keranjang_screen/components/item_product_keranjang.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/pengiriman_screen.dart';
 
@@ -136,7 +137,10 @@ class _BodyState extends State<Body> {
                     ),
                     OutlinedButtonWithIcon(
                       text: "Tambah Produk",
-                      press: () {},
+                      press: () {
+                        Navigator.pushNamed(
+                            context, FrontStoreScreen.routeName);
+                      },
                       button_width: double.infinity,
                       icon: Icons.add,
                       button_height: kIsWeb
