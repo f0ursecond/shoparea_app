@@ -3,6 +3,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/primary_button.dart';
+import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/models/Product.dart';
 import 'package:shoparea_app/utils/currency_formatter.dart';
@@ -30,7 +32,9 @@ class _ItemListProductState extends State<ItemListProduct> {
       onTap: widget.press,
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: (24),
+          horizontal: kIsWeb
+              ? getWebProportionateScreenWidth(24)
+              : getProportionateScreenWidth(24),
         ),
         child: Container(
           height: kIsWeb
@@ -76,33 +80,20 @@ class _ItemListProductState extends State<ItemListProduct> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            widget.product!.title,
-                            style: TextStyle(
-                              fontSize: kIsWeb
-                                  ? getWebProportionateScreenWidth(10)
-                                  : getProportionateScreenWidth(10),
+                          CustomText(
+                              teks: widget.product!.title,
+                              fontSize: 10,
                               fontWeight: FontWeight.w400,
-                              color: Colors.black,
-                            ),
-                          ),
-                          SizedBox(
-                            height: kIsWeb
-                                ? getWebProportionateScreenWidth(8)
-                                : getProportionateScreenWidth(8),
-                          ),
-                          Text(
-                            CurrencyFormat.convertToIdr(
+                              teksColor: Colors.black),
+                          VerticalSizedBox(height: 8),
+                          CustomText(
+                            teks: CurrencyFormat.convertToIdr(
                                     widget.product!.price, 0)
                                 .toString(),
-                            style: TextStyle(
-                              fontSize: kIsWeb
-                                  ? getWebProportionateScreenWidth(12)
-                                  : getProportionateScreenWidth(12),
-                              fontWeight: FontWeight.w700,
-                              color: cColorError50,
-                            ),
-                          )
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            teksColor: cColorError50,
+                          ),
                         ],
                       )
                     ],
@@ -114,15 +105,11 @@ class _ItemListProductState extends State<ItemListProduct> {
                 child: PrimaryButton(
                   text: "Pilih Item",
                   press: () {},
-                  button_width: kIsWeb
-                      ? getWebProportionateScreenWidth(84)
-                      : getProportionateScreenWidth(84),
+                  button_width: 84,
                   color: cColorPrimary50,
                   textColor: Colors.white,
                   customFontWeight: FontWeight.w400,
-                  button_height: kIsWeb
-                      ? getWebProportionateScreenWidth(24)
-                      : getProportionateScreenWidth(24),
+                  button_height: 24,
                 ),
               )
             ],

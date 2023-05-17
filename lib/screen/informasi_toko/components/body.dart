@@ -118,9 +118,7 @@ class _BodyState extends State<Body> {
                     Navigator.pushNamed(context, FrontStoreScreen.routeName);
                   },
                   button_width: double.infinity,
-                  button_height: kIsWeb
-                      ? getWebProportionateScreenWidth(32)
-                      : getProportionateScreenWidth(32),
+                  button_height: 32,
                 ),
               ],
             ),

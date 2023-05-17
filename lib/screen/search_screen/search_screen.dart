@@ -2,6 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/search_screen/components/body.dart';
 
@@ -19,12 +20,11 @@ class SearchScreen extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             elevation: 0,
-            title: Text(
-              "Cari Produk",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: (16),
-              ),
+            title: CustomText(
+              teks: "Cari Produk",
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              teksColor: Colors.white,
             ),
           ),
           body: Body(),
