@@ -21,8 +21,6 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  List<bool> _isCheckedList = List.generate(transactions.length, (_) => false);
-
   bool isEmptyStateVisible = false;
   bool isListProductVisible = true;
 

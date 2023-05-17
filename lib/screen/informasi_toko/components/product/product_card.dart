@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/models/Product.dart';
 
@@ -39,13 +40,11 @@ class ProductCard extends StatelessWidget {
                   ),
                   child: Align(
                     alignment: Alignment.bottomLeft,
-                    child: Text(
-                      product.category,
-                      style: TextStyle(
-                        fontSize: (16),
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
-                      ),
+                    child: CustomText(
+                      teks: product.category,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      teksColor: Colors.white,
                     ),
                   ),
                 ),

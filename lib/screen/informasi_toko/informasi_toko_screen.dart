@@ -3,6 +3,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/informasi_toko/components/body.dart';
 
@@ -20,13 +21,11 @@ class InformasiTokoScreen extends StatelessWidget {
         width: kIsWeb ? 400.0 : double.infinity,
         child: Scaffold(
           appBar: AppBar(
-            title: Text(
-              "Informasi Toko",
-              style: TextStyle(
+            title: CustomText(
+                teks: "Informasi Toko",
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
-                fontSize: (16),
-              ),
-            ),
+                teksColor: Colors.white),
           ),
           body: Body(),
         ),

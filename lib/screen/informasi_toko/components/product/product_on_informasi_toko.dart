@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/sized_box/horizontal_sized_box.dart';
+import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
 import 'package:shoparea_app/models/Product.dart';
 import 'package:shoparea_app/screen/details_screen/detail_screen.dart';
 import 'package:shoparea_app/screen/informasi_toko/components/product/product_card.dart';
@@ -11,7 +13,7 @@ class ProductOnInformasiScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: (20)),
+        VerticalSizedBox(height: 20),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -32,7 +34,7 @@ class ProductOnInformasiScreen extends StatelessWidget {
                   );
                 },
               ),
-              SizedBox(width: (20)),
+              HorizontalSizedBox(width: 20)
             ],
           ),
         )

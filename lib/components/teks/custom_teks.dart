@@ -13,16 +13,19 @@ class CustomText extends StatelessWidget {
   int? maxLines;
   TextAlign? textAlign;
   TextOverflow? textOverflow;
+  bool? softWrap;
 
-  CustomText(
-      {super.key,
-      required this.teks,
-      required this.fontSize,
-      required this.fontWeight,
-      required this.teksColor,
-      this.maxLines,
-      this.textAlign,
-      this.textOverflow});
+  CustomText({
+    super.key,
+    required this.teks,
+    required this.fontSize,
+    required this.fontWeight,
+    required this.teksColor,
+    this.maxLines,
+    this.textAlign,
+    this.textOverflow,
+    this.softWrap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +34,14 @@ class CustomText extends StatelessWidget {
       maxLines: maxLines,
       textAlign: textAlign,
       overflow: textOverflow,
+      softWrap: softWrap,
       style: TextStyle(
-          fontSize: kIsWeb
-              ? getWebProportionateScreenWidth(fontSize)
-              : getProportionateScreenWidth(fontSize),
-          color: teksColor,
-          fontWeight: fontWeight),
+        fontSize: kIsWeb
+            ? getWebProportionateScreenWidth(fontSize)
+            : getProportionateScreenWidth(fontSize),
+        color: teksColor,
+        fontWeight: fontWeight,
+      ),
     );
   }
 }

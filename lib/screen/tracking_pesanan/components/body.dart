@@ -3,7 +3,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/outlined_button_50.dart';
-import 'package:shoparea_app/components/button_style/primary_button.dart';
 
 import '../../../consts/colors.dart';
 import '../../../size_config.dart';
