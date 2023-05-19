@@ -126,18 +126,21 @@ class _ItemProductCardState extends State<ItemProductCard> {
           ),
           Visibility(
             visible: isCounterVisible,
-            child: Container(
-              child: NumericStepButton(
-                // maxValue: 20,
-                onChanged: (value) {
-                  counterProduct = value;
-                  setState(() {
-                    if (counterProduct == 0) {
-                      isCounterVisible = !isCounterVisible;
-                      isButtonVisible = !isButtonVisible;
-                    }
-                  });
-                },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Container(
+                child: NumericStepButton(
+                  // maxValue: 20,
+                  onChanged: (value) {
+                    counterProduct = value;
+                    setState(() {
+                      if (counterProduct == 0) {
+                        isCounterVisible = !isCounterVisible;
+                        isButtonVisible = !isButtonVisible;
+                      }
+                    });
+                  },
+                ),
               ),
             ),
           )

@@ -66,6 +66,7 @@ class _NumericStepButtonState extends State<NumericStepButton> {
             },
           ),
         ),
+        Spacer(),
         Text(
           '$counter',
           textAlign: TextAlign.center,
@@ -77,6 +78,7 @@ class _NumericStepButtonState extends State<NumericStepButton> {
             fontWeight: FontWeight.w700,
           ),
         ),
+        Spacer(),
         Container(
           height: kIsWeb
               ? getWebProportionateScreenWidth(20)
