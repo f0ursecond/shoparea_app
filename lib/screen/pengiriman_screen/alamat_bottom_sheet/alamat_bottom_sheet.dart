@@ -14,12 +14,12 @@ import 'package:shoparea_app/components/teks/text_field_with_counter.dart';
 
 import '../../../size_config.dart';
 
-class ProvinsiBottomSheet extends StatefulWidget {
+class AlamatBottomSheet extends StatefulWidget {
   @override
-  State<ProvinsiBottomSheet> createState() => _ProvinsiBottomSheetState();
+  State<AlamatBottomSheet> createState() => AlamatBottomSheetState();
 }
 
-class _ProvinsiBottomSheetState extends State<ProvinsiBottomSheet> {
+class AlamatBottomSheetState extends State<AlamatBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Center(

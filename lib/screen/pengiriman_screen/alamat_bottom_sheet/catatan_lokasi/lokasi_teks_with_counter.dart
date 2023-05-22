@@ -2,6 +2,8 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 
 import '../../../../consts/colors.dart';
 import '../../../../size_config.dart';
@@ -40,32 +42,21 @@ class LokasiTeksWithCounterState extends State<LokasiTeksWithCounter> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "Catatan (Lokasi)",
-              style: TextStyle(
-                color: cColorNeutralBlack50,
-                fontWeight: FontWeight.w700,
-                fontSize: kIsWeb
-                    ? getWebProportionateScreenWidth(14)
-                    : getProportionateScreenWidth(14),
-              ),
+            CustomText(
+              teks: "Catatan (Lokasi)",
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              teksColor: cColorNeutralBlack50,
             ),
-            Text(
-              '${_controller.text.length} / 100',
-              style: TextStyle(
-                fontSize: kIsWeb
-                    ? getWebProportionateScreenWidth(12)
-                    : getProportionateScreenWidth(12),
-                color: cColorNeutral70,
-              ),
+            CustomText(
+              teks: '${_controller.text.length} / 100',
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              teksColor: cColorNeutral70,
             ),
           ],
         ),
-        SizedBox(
-          height: kIsWeb
-              ? getWebProportionateScreenWidth(8)
-              : getProportionateScreenWidth(8),
-        ),
+        VerticalSizedBox(height: 8),
         Container(
           height: kIsWeb
               ? getWebProportionateScreenWidth(84)

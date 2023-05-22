@@ -3,6 +3,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shoparea_app/components/sized_box/horizontal_sized_box.dart';
+import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 
 import '../../../consts/colors.dart';
 import '../../../size_config.dart';
@@ -23,121 +26,73 @@ class HargaBottomSheet extends StatelessWidget {
               Center(
                 child: SvgPicture.asset("assets/icons/img_bottom_sheet.svg"),
               ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(24)
-                    : getProportionateScreenWidth(24),
+              VerticalSizedBox(height: 24),
+              CustomText(
+                teks: "Detail Pembayaran",
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+                teksColor: cColorNeutralBlack50,
               ),
-              Text(
-                'Detail Pembayaran',
-                style: TextStyle(
-                  fontSize: kIsWeb
-                      ? getWebProportionateScreenWidth(16)
-                      : getProportionateScreenWidth(16),
-                  fontWeight: FontWeight.w700,
-                  color: cColorNeutralBlack50,
-                ),
-              ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(24)
-                    : getProportionateScreenWidth(24),
-              ),
+              VerticalSizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Sub Total',
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w400,
-                      color: cColorExpired50,
-                    ),
+                  CustomText(
+                    teks: "Sub Total",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    teksColor: cColorExpired50,
                   ),
-                  Text(
-                    'Rp 69.000',
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w700,
-                      color: cColorNeutralBlack50,
-                    ),
+                  CustomText(
+                    teks: "Rp 69.000",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    teksColor: cColorNeutralBlack50,
                   ),
                 ],
               ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(16)
-                    : getProportionateScreenWidth(16),
-              ),
+              VerticalSizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Biaya Pengiriman',
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w400,
-                      color: cColorExpired50,
-                    ),
+                  CustomText(
+                    teks: "Biaya Pengiriman",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    teksColor: cColorExpired50,
                   ),
-                  Text(
-                    'Rp -5.000',
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w700,
-                      color: cColorPrimary50,
-                    ),
+                  CustomText(
+                    teks: "Rp -5.000",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    teksColor: cColorPrimary50,
                   ),
                 ],
               ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(16)
-                    : getProportionateScreenWidth(16),
-              ),
+              VerticalSizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
-                      Text(
-                        'Biaya Admin',
-                        style: TextStyle(
-                          fontSize: kIsWeb
-                              ? getWebProportionateScreenWidth(12)
-                              : getProportionateScreenWidth(12),
-                          fontWeight: FontWeight.w400,
-                          color: cColorExpired50,
-                        ),
+                      CustomText(
+                        teks: "Biaya Admin",
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        teksColor: cColorExpired50,
                       ),
-                      SizedBox(
-                        width: kIsWeb
-                            ? getWebProportionateScreenWidth(8)
-                            : getProportionateScreenWidth(8),
-                      ),
+                      HorizontalSizedBox(width: 8),
                       Icon(
                         Icons.info_outlined,
                         color: cColorNeutral50,
                       )
                     ],
                   ),
-                  Text(
-                    'Rp -4.000',
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w700,
-                      color: cColorPrimary50,
-                    ),
+                  CustomText(
+                    teks: "Rp -4.000",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    teksColor: cColorPrimary50,
                   ),
                 ],
               ),

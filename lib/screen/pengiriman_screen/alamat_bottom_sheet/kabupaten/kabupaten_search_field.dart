@@ -2,6 +2,8 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 
 import '../../../../consts/colors.dart';
 import '../../../../size_config.dart';
@@ -66,21 +68,13 @@ class _KabupatenSearchFieldState extends State<KabupatenSearchField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Nama Kabupaten",
-          style: TextStyle(
-            color: cColorNeutralBlack50,
-            fontWeight: FontWeight.w700,
-            fontSize: kIsWeb
-                ? getWebProportionateScreenWidth(14)
-                : getProportionateScreenWidth(14),
-          ),
+        CustomText(
+          teks: "Nama Kabupaten",
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          teksColor: cColorNeutralBlack50,
         ),
-        SizedBox(
-          height: kIsWeb
-              ? getWebProportionateScreenWidth(8)
-              : getProportionateScreenWidth(8),
-        ),
+        VerticalSizedBox(height: 8),
         TextField(
           onTap: _toggleSearchField,
           controller: _controller,

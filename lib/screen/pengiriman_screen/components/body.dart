@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:shoparea_app/components/button_style/primary_button.dart';
+import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/alamat_bottom_sheet/alamat_bottom_sheet.dart';
 import 'package:shoparea_app/screen/status_bayar_screen/status_bayar_screen.dart';
@@ -30,38 +32,26 @@ class _BodyState extends State<Body> {
     return Column(
       children: [
         Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: kIsWeb
-                  ? getWebProportionateScreenWidth(24)
-                  : getProportionateScreenWidth(24),
-            ),
-            child: SingleChildScrollView(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: kIsWeb
+                    ? getWebProportionateScreenWidth(24)
+                    : getProportionateScreenWidth(24),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(27)
-                        : getProportionateScreenWidth(27),
-                  ),
+                  VerticalSizedBox(height: 24),
                   Center(
-                    child: Text(
-                      "Pengiriman",
-                      style: TextStyle(
-                        fontSize: kIsWeb
-                            ? getWebProportionateScreenWidth(14)
-                            : getProportionateScreenWidth(14),
-                        fontWeight: FontWeight.w700,
-                        color: cColorNeutralBlack50,
-                      ),
+                    child: CustomText(
+                      teks: "Pengiriman",
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      teksColor: cColorNeutralBlack50,
                     ),
                   ),
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(20)
-                        : getProportionateScreenWidth(20),
-                  ),
+                  VerticalSizedBox(height: 20),
                   LinearPercentIndicator(
                     barRadius: const Radius.circular(20.0),
                     lineHeight: kIsWeb
@@ -71,41 +61,22 @@ class _BodyState extends State<Body> {
                     progressColor: cColorPrimary50,
                     backgroundColor: cColorNeutral50,
                   ),
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(24)
-                        : getProportionateScreenWidth(24),
+                  VerticalSizedBox(height: 24),
+                  CustomText(
+                    teks: "Lokasi Pengiriman",
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    teksColor: cColorNeutralBlack50,
                   ),
-                  Text(
-                    "Lokasi Pengiriman",
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(16)
-                          : getProportionateScreenWidth(16),
-                      fontWeight: FontWeight.w700,
-                      color: cColorNeutralBlack50,
-                    ),
+                  VerticalSizedBox(height: 8),
+                  CustomText(
+                    teks:
+                        "Lokasi yang kamu isi nantinya akan menjadi titik lokasi pengiriman",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    teksColor: cColorExpired50,
                   ),
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(8)
-                        : getProportionateScreenWidth(8),
-                  ),
-                  Text(
-                    "Lokasi yang kamu isi nantinya akan menjadi titik lokasi pengiriman",
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w400,
-                      color: cColorExpired50,
-                    ),
-                  ),
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(16)
-                        : getProportionateScreenWidth(16),
-                  ),
+                  VerticalSizedBox(height: 16),
                   Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: kIsWeb
@@ -125,33 +96,23 @@ class _BodyState extends State<Body> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "Jati Wetan",
-                              overflow: TextOverflow.ellipsis,
+                            CustomText(
+                              teks: "Jati Wetan",
+                              fontSize: 12,
                               maxLines: 1,
-                              style: TextStyle(
-                                  fontSize: kIsWeb
-                                      ? getWebProportionateScreenWidth(14)
-                                      : getProportionateScreenWidth(14),
-                                  fontWeight: FontWeight.w700,
-                                  color: cColorNeutralBlack50),
+                              textOverflow: TextOverflow.ellipsis,
+                              fontWeight: FontWeight.bold,
+                              teksColor: cColorNeutralBlack50,
                             ),
-                            SizedBox(
-                              height: kIsWeb
-                                  ? getWebProportionateScreenWidth(8)
-                                  : getProportionateScreenWidth(8),
-                            ),
-                            Text(
-                              "RT 1 RW 3 lorem ipsum",
-                              overflow: TextOverflow.ellipsis,
+                            VerticalSizedBox(height: 8),
+                            CustomText(
+                              teks: "RT 1 RW 3 lorem ipsum",
+                              fontSize: 10,
                               maxLines: 1,
-                              style: TextStyle(
-                                  fontSize: kIsWeb
-                                      ? getWebProportionateScreenWidth(12)
-                                      : getProportionateScreenWidth(12),
-                                  fontWeight: FontWeight.w400,
-                                  color: cColorExpired50),
-                            )
+                              textOverflow: TextOverflow.ellipsis,
+                              fontWeight: FontWeight.w400,
+                              teksColor: cColorExpired50,
+                            ),
                           ],
                         ),
                         PrimaryButton(
@@ -175,58 +136,35 @@ class _BodyState extends State<Body> {
                                 ),
                               ),
                               builder: (BuildContext context) {
-                                return ProvinsiBottomSheet();
+                                return AlamatBottomSheet();
                               },
                             );
                           },
-                          button_width: kIsWeb
-                              ? getWebProportionateScreenWidth(110)
-                              : getProportionateScreenWidth(110),
+                          button_width: 110,
                           color: cColorNeutral10,
                           textColor: cColorPrimary50,
                           customFontWeight: FontWeight.w700,
-                          button_height: kIsWeb
-                              ? getWebProportionateScreenWidth(32)
-                              : getProportionateScreenWidth(32),
+                          button_height: 32,
                         )
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(24)
-                        : getProportionateScreenWidth(24),
+                  VerticalSizedBox(height: 24),
+                  CustomText(
+                    teks: "Metode Pengiriman",
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    teksColor: cColorNeutralBlack50,
                   ),
-                  Text(
-                    "Metode Pengiriman",
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(16)
-                          : getProportionateScreenWidth(16),
-                      fontWeight: FontWeight.w700,
-                      color: cColorNeutralBlack50,
-                    ),
+                  VerticalSizedBox(height: 8),
+                  CustomText(
+                    teks:
+                        "Kamu dapat memilih jasa  pengiriman yang kami sediakan",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    teksColor: cColorExpired50,
                   ),
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(8)
-                        : getProportionateScreenWidth(8),
-                  ),
-                  Text(
-                    "Kamu dapat memilih jasa  pengiriman yang kami sediakan",
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(12)
-                          : getProportionateScreenWidth(12),
-                      fontWeight: FontWeight.w400,
-                      color: cColorExpired50,
-                    ),
-                  ),
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(16)
-                        : getProportionateScreenWidth(16),
-                  ),
+                  VerticalSizedBox(height: 16),
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(color: cColorNeutral50),
@@ -339,11 +277,7 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(24)
-                        : getProportionateScreenWidth(24),
-                  ),
+                  VerticalSizedBox(height: 24),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -365,40 +299,24 @@ class _BodyState extends State<Body> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Ambil Sendiri",
-                            style: TextStyle(
-                              fontSize: kIsWeb
-                                  ? getWebProportionateScreenWidth(14)
-                                  : getProportionateScreenWidth(14),
-                              fontWeight: FontWeight.w700,
-                              color: cColorNeutralBlack50,
-                            ),
+                          CustomText(
+                            teks: "Ambil Sendiri",
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            teksColor: cColorNeutralBlack50,
                           ),
-                          SizedBox(
-                            height: kIsWeb
-                                ? getWebProportionateScreenWidth(8)
-                                : getProportionateScreenWidth(8),
-                          ),
-                          Text(
-                            "Ambil pesananmu sendiri ke tempat penjual",
-                            style: TextStyle(
-                              fontSize: kIsWeb
-                                  ? getWebProportionateScreenWidth(12)
-                                  : getProportionateScreenWidth(12),
-                              fontWeight: FontWeight.w400,
-                              color: cColorExpired50,
-                            ),
+                          VerticalSizedBox(height: 8),
+                          CustomText(
+                            teks: "Ambil pesananmu sendiri ke tempat penjual",
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            teksColor: cColorExpired50,
                           ),
                         ],
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(16)
-                        : getProportionateScreenWidth(16),
-                  ),
+                  VerticalSizedBox(height: 16),
                   isChecked
                       ? Container(
                           padding: EdgeInsets.symmetric(
@@ -432,11 +350,7 @@ class _BodyState extends State<Body> {
                           ),
                         )
                       : Container(),
-                  SizedBox(
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(32)
-                        : getProportionateScreenWidth(32),
-                  ),
+                  VerticalSizedBox(height: 32),
                 ],
               ),
             ),
@@ -461,15 +375,11 @@ class _BodyState extends State<Body> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Total",
-                    style: TextStyle(
-                      fontSize: kIsWeb
-                          ? getWebProportionateScreenWidth(14)
-                          : getProportionateScreenWidth(14),
-                      fontWeight: FontWeight.w700,
-                      color: cColorNeutralBlack50,
-                    ),
+                  CustomText(
+                    teks: "Total",
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    teksColor: cColorNeutralBlack50,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -494,26 +404,18 @@ class _BodyState extends State<Body> {
                     child: Row(
                       children: [
                         Icon(Icons.keyboard_arrow_down, color: cColorPrimary50),
-                        Text(
-                          "Rp 80.000",
-                          style: TextStyle(
-                            fontSize: kIsWeb
-                                ? getWebProportionateScreenWidth(14)
-                                : getProportionateScreenWidth(14),
-                            fontWeight: FontWeight.w700,
-                            color: cColorError50,
-                          ),
+                        CustomText(
+                          teks: "Rp 80.000",
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          teksColor: cColorError50,
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(20)
-                    : getProportionateScreenWidth(20),
-              ),
+              VerticalSizedBox(height: 20),
               PrimaryButton(
                 text: "Pesan Sekarang",
                 press: () {
@@ -523,9 +425,7 @@ class _BodyState extends State<Body> {
                 color: cColorPrimary50,
                 textColor: Colors.white,
                 customFontWeight: FontWeight.w700,
-                button_height: kIsWeb
-                    ? getWebProportionateScreenWidth(32)
-                    : getProportionateScreenWidth(32),
+                button_height: 32,
               )
             ],
           ),

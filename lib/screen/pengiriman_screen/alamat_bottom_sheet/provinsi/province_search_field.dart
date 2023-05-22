@@ -3,6 +3,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../components/sized_box/vertical_sized_box.dart';
+import '../../../../components/teks/custom_teks.dart';
 import '../../../../consts/colors.dart';
 import '../../../../size_config.dart';
 
@@ -88,21 +90,13 @@ class _ProvinceSearchFieldState extends State<ProvinceSearchField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Nama Provinsi",
-          style: TextStyle(
-            color: cColorNeutralBlack50,
-            fontWeight: FontWeight.w700,
-            fontSize: kIsWeb
-                ? getWebProportionateScreenWidth(14)
-                : getProportionateScreenWidth(14),
-          ),
+        CustomText(
+          teks: "Nama Provinsi",
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          teksColor: cColorNeutralBlack50,
         ),
-        SizedBox(
-          height: kIsWeb
-              ? getWebProportionateScreenWidth(8)
-              : getProportionateScreenWidth(8),
-        ),
+        VerticalSizedBox(height: 8),
         TextField(
           onTap: _toggleSearchField,
           controller: _controller,
