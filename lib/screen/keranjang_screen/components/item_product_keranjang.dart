@@ -14,7 +14,7 @@ import '../../../models/Product.dart';
 import '../../../size_config.dart';
 import '../../../utils/currency_formatter.dart';
 
-class ItemProductKeranjang extends StatelessWidget {
+class ItemProductKeranjang extends StatefulWidget {
   final Product product; // Add product parameter
 
   const ItemProductKeranjang({
@@ -22,6 +22,11 @@ class ItemProductKeranjang extends StatelessWidget {
     required this.product, // Assign product parameter to a field
   }) : super(key: key);
 
+  @override
+  State<ItemProductKeranjang> createState() => _ItemProductKeranjangState();
+}
+
+class _ItemProductKeranjangState extends State<ItemProductKeranjang> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,7 +43,7 @@ class ItemProductKeranjang extends StatelessWidget {
         children: [
           Image.asset(
             // Use product.images[0] instead of "assets/images/sepatu_merah.png"
-            product.images[0],
+            widget.product.images[0],
             height: kIsWeb
                 ? getWebProportionateScreenWidth(75)
                 : getProportionateScreenWidth(75),
@@ -52,7 +57,7 @@ class ItemProductKeranjang extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomText(
-                teks: product.title,
+                teks: widget.product.title,
                 fontSize: 10,
                 textOverflow: TextOverflow.ellipsis,
                 maxLines: 1,
@@ -61,7 +66,8 @@ class ItemProductKeranjang extends StatelessWidget {
               ),
               VerticalSizedBox(height: 8),
               CustomText(
-                teks: CurrencyFormat.convertToIdr(product.price, 0).toString(),
+                teks: CurrencyFormat.convertToIdr(widget.product.price, 0)
+                    .toString(),
                 fontSize: 14,
                 maxLines: 1,
                 textOverflow: TextOverflow.ellipsis,
@@ -88,7 +94,7 @@ class ItemProductKeranjang extends StatelessWidget {
               ),
               VerticalSizedBox(height: 8),
               CustomText(
-                teks: "${product.colors[0]}, ${product.size[0]}",
+                teks: "${widget.product.colors[0]}, ${widget.product.size[0]}",
                 fontSize: 8,
                 maxLines: 1,
                 textOverflow: TextOverflow.ellipsis,
@@ -106,7 +112,7 @@ class ItemProductKeranjang extends StatelessWidget {
 
               onChanged: (value) {
                 if (value == 0) {
-                  CartModel().removeFromCart(product);
+                  CartModel().removeFromCart(widget.product);
                 }
               },
             ),

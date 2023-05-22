@@ -10,7 +10,6 @@ import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/components/teks/text_field_with_counter.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/front_store/components/contact_banner/contact_banner.dart';
-import 'package:shoparea_app/screen/front_store/components/home_banner/home_banner.dart';
 import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
 import 'package:shoparea_app/screen/keranjang_screen/components/item_product_keranjang.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/pengiriman_screen.dart';
@@ -27,9 +26,17 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  List<Product> cartItems = CartModel().getCartItems();
-  bool isEmptyStateVisible = CartModel().getCartItems().isEmpty;
-  bool isListKeranjangVisible = CartModel().getCartItems().isNotEmpty;
+  late List<Product> cartItems;
+  bool isEmptyStateVisible = false;
+  bool isListKeranjangVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    cartItems = CartModel().getCartItems();
+    isEmptyStateVisible = cartItems.isEmpty;
+    isListKeranjangVisible = cartItems.isNotEmpty;
+  }
 
   @override
   Widget build(BuildContext context) {
