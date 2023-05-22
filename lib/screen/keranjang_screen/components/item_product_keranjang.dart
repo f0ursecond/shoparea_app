@@ -4,14 +4,23 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/outlined_button_50.dart';
 import 'package:shoparea_app/components/numeric_step_button.dart';
+import 'package:shoparea_app/components/sized_box/horizontal_sized_box.dart';
+import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';
 
+import '../../../models/CartItems.dart';
+import '../../../models/Product.dart';
 import '../../../size_config.dart';
+import '../../../utils/currency_formatter.dart';
 
 class ItemProductKeranjang extends StatelessWidget {
+  final Product product; // Add product parameter
+
   const ItemProductKeranjang({
-    super.key,
-  });
+    Key? key,
+    required this.product, // Assign product parameter to a field
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +37,8 @@ class ItemProductKeranjang extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            "assets/images/sepatu_merah.png",
+            // Use product.images[0] instead of "assets/images/sepatu_merah.png"
+            product.images[0],
             height: kIsWeb
                 ? getWebProportionateScreenWidth(75)
                 : getProportionateScreenWidth(75),
@@ -36,105 +46,69 @@ class ItemProductKeranjang extends StatelessWidget {
                 ? getWebProportionateScreenWidth(75)
                 : getProportionateScreenWidth(75),
           ),
-          SizedBox(
-            width: kIsWeb
-                ? getWebProportionateScreenWidth(8)
-                : getProportionateScreenWidth(8),
-          ),
+          HorizontalSizedBox(width: 8),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Sepatu layang",
+              CustomText(
+                teks: product.title,
+                fontSize: 10,
+                textOverflow: TextOverflow.ellipsis,
                 maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    fontSize: kIsWeb
-                        ? getWebProportionateScreenWidth(10)
-                        : getProportionateScreenWidth(10),
-                    fontWeight: FontWeight.w400,
-                    color: cColorNeutralBlack50),
+                fontWeight: FontWeight.w400,
+                teksColor: cColorNeutralBlack50,
               ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(8)
-                    : getProportionateScreenWidth(8),
-              ),
-              Text(
-                "Rp 100.000.00",
+              VerticalSizedBox(height: 8),
+              CustomText(
+                teks: CurrencyFormat.convertToIdr(product.price, 0).toString(),
+                fontSize: 14,
                 maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    fontSize: kIsWeb
-                        ? getWebProportionateScreenWidth(14)
-                        : getProportionateScreenWidth(14),
-                    fontWeight: FontWeight.w700,
-                    color: cColorError50),
+                textOverflow: TextOverflow.ellipsis,
+                fontWeight: FontWeight.w700,
+                teksColor: cColorError50,
               ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(8)
-                    : getProportionateScreenWidth(8),
-              ),
+              VerticalSizedBox(height: 8),
               Row(
                 children: [
-                  Text(
-                    "Variasi",
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        fontSize: kIsWeb
-                            ? getWebProportionateScreenWidth(10)
-                            : getProportionateScreenWidth(10),
-                        fontWeight: FontWeight.w400,
-                        color: cColorNeutralBlack50),
+                  CustomText(
+                    teks: "Variasi",
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
+                    teksColor: cColorNeutralBlack50,
                   ),
-                  SizedBox(
-                    width: kIsWeb
-                        ? getWebProportionateScreenWidth(8)
-                        : getProportionateScreenWidth(8),
-                  ),
+                  HorizontalSizedBox(width: 8),
                   OutlinedButton50(
                     text: "Edit",
-                    height: kIsWeb
-                        ? getWebProportionateScreenWidth(28)
-                        : getProportionateScreenWidth(28),
+                    height: 28,
                     press: () {},
-                    width: kIsWeb
-                        ? getWebProportionateScreenWidth(55)
-                        : getProportionateScreenWidth(55),
+                    width: 55,
                   )
                 ],
               ),
-              SizedBox(
-                height: kIsWeb
-                    ? getWebProportionateScreenWidth(8)
-                    : getProportionateScreenWidth(8),
-              ),
-              Text(
-                "(Warna Kuning, Ukuran L)",
+              VerticalSizedBox(height: 8),
+              CustomText(
+                teks: "${product.colors[0]}, ${product.size[0]}",
+                fontSize: 8,
                 maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    fontSize: kIsWeb
-                        ? getWebProportionateScreenWidth(8)
-                        : getProportionateScreenWidth(8),
-                    fontWeight: FontWeight.w400,
-                    color: cColorExpired50),
+                textOverflow: TextOverflow.ellipsis,
+                fontWeight: FontWeight.w400,
+                teksColor: cColorExpired50,
               ),
             ],
           ),
           Spacer(),
           SizedBox(
-            width: kIsWeb
-                ? getWebProportionateScreenWidth(65)
-                : getProportionateScreenWidth(65),
+            width: 65,
             child: NumericStepButton(
-              minValue: 1,
+              minValue: 0,
               // maxValue: 20,
 
-              onChanged: (value) {},
+              onChanged: (value) {
+                if (value == 0) {
+                  CartModel().removeFromCart(product);
+                }
+              },
             ),
           ),
         ],

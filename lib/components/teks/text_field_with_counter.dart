@@ -2,12 +2,22 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 
-import '../../../../consts/colors.dart';
-import '../../../../size_config.dart';
+import '../../consts/colors.dart';
+import '../../size_config.dart';
 
 class TextFieldWithCounter extends StatefulWidget {
-  const TextFieldWithCounter({Key? key}) : super(key: key);
+  final String teksTitle;
+  final String teksHint;
+  final int maxChar;
+
+  const TextFieldWithCounter({
+    Key? key,
+    required this.teksTitle,
+    required this.teksHint,
+    required this.maxChar,
+  }) : super(key: key);
 
   @override
   _TextFieldWithCounterState createState() => _TextFieldWithCounterState();
@@ -40,24 +50,17 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "Alamat Pengiriman*",
-              style: TextStyle(
-                color: cColorNeutralBlack50,
-                fontWeight: FontWeight.w700,
-                fontSize: kIsWeb
-                    ? getWebProportionateScreenWidth(14)
-                    : getProportionateScreenWidth(14),
-              ),
+            CustomText(
+              teks: widget.teksTitle,
+              fontSize: 14,
+              fontWeight: FontWeight.w700,
+              teksColor: cColorNeutralBlack50,
             ),
-            Text(
-              '${_controller.text.length} / 100',
-              style: TextStyle(
-                fontSize: kIsWeb
-                    ? getWebProportionateScreenWidth(12)
-                    : getProportionateScreenWidth(12),
-                color: cColorNeutral70,
-              ),
+            CustomText(
+              teks: '${_controller.text.length} / ${widget.maxChar}',
+              fontSize: 12,
+              fontWeight: FontWeight.normal,
+              teksColor: cColorNeutral70,
             ),
           ],
         ),
@@ -75,7 +78,7 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
           ),
           child: TextField(
             controller: _controller,
-            maxLength: 100, //
+            maxLength: 100,
             decoration: InputDecoration(
               counterStyle: TextStyle(
                 height: double.minPositive,
@@ -97,7 +100,7 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
                 borderRadius: BorderRadius.all(Radius.circular(8)),
                 borderSide: BorderSide(color: cColorError50),
               ),
-              hintText: 'Masukkan alamat pengiriman kamu',
+              hintText: widget.teksHint,
               hintStyle: TextStyle(
                 color: cColorExpired30,
                 fontWeight: FontWeight.w400,

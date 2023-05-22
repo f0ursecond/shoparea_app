@@ -17,6 +17,7 @@ import 'package:shoparea_app/utils/currency_formatter.dart';
 
 import '../../../components/numeric_step_button.dart';
 import '../../../components/sized_box/horizontal_sized_box.dart';
+import '../../../models/CartItems.dart';
 import '../../../size_config.dart';
 
 class Body extends StatefulWidget {
@@ -30,11 +31,11 @@ class Body extends StatefulWidget {
 
 late int? counterProduct;
 
-List<Product> cartItems = [];
-
 class _BodyState extends State<Body> {
   int selectedIndexWarna = 0;
   int selectedIndexUkuran = 0;
+
+  final CartModel _cartModel = CartModel(); // Membuat instance dari CartModel
 
   void _addToCart() {
     // Periksa apakah produk sudah ada di dalam keranjang
@@ -42,8 +43,7 @@ class _BodyState extends State<Body> {
 
     // Jika produk belum ada di dalam keranjang, tambahkan ke dalam keranjang
     if (!isProductInCart) {
-      cartItems.add(widget.product!);
-
+      _cartModel.addToCart(widget.product!);
       // Setelah berhasil ditambahkan, tampilkan pesan atau notifikasi
       showDialog(
         context: context,
@@ -444,7 +444,7 @@ class _BodyState extends State<Body> {
                       fontWeight: FontWeight.w700,
                       teksColor: cColorNeutralBlack50,
                     ),
-                    Container(
+                    SizedBox(
                       width: 100,
                       child: NumericStepButton(
                         // maxValue: 20,

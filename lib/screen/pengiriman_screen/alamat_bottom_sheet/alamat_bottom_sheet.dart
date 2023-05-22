@@ -10,7 +10,7 @@ import 'package:shoparea_app/screen/pengiriman_screen/alamat_bottom_sheet/kecama
 import 'package:shoparea_app/screen/pengiriman_screen/alamat_bottom_sheet/kelurahan/kelurahan_search_field.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/alamat_bottom_sheet/kode_pos/kode_pos_search_field.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/alamat_bottom_sheet/provinsi/province_search_field.dart';
-import 'package:shoparea_app/screen/pengiriman_screen/alamat_bottom_sheet/provinsi/text_field_with_counter.dart';
+import 'package:shoparea_app/components/teks/text_field_with_counter.dart';
 
 import '../../../size_config.dart';
 
@@ -52,7 +52,11 @@ class _ProvinsiBottomSheetState extends State<ProvinsiBottomSheet> {
                       ? getWebProportionateScreenWidth(24)
                       : getProportionateScreenWidth(24),
                 ),
-                TextFieldWithCounter(),
+                TextFieldWithCounter(
+                  teksTitle: "Alamat pengiriman*",
+                  teksHint: "Masukan alamat pengirimanmu",
+                  maxChar: 100,
+                ),
                 ProvinceSearchField(
                   onProvinceSelected: (String province) {},
                 ),
