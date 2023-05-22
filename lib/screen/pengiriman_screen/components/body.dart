@@ -97,7 +97,8 @@ class _BodyState extends State<Body> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CustomText(
-                              teks: "Jati Wetan",
+                              teks:
+                                  "Jati Wetan", // ini adalah alamat yang harusnya dikasih nilai dari bottom sheet
                               fontSize: 12,
                               maxLines: 1,
                               textOverflow: TextOverflow.ellipsis,

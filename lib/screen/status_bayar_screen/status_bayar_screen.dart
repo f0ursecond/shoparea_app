@@ -2,11 +2,11 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
 import 'package:shoparea_app/screen/status_bayar_screen/components/body.dart';
 
 import '../../consts/colors.dart';
-import '../../size_config.dart';
 
 class StatusBayarScreen extends StatelessWidget {
   const StatusBayarScreen({super.key});
@@ -28,14 +28,11 @@ class StatusBayarScreen extends StatelessWidget {
                 Navigator.pushNamed(context, FrontStoreScreen.routeName);
               },
             ),
-            title: Text(
-              "Checkout",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: kIsWeb
-                    ? getWebProportionateScreenWidth(16)
-                    : getProportionateScreenWidth(16),
-              ),
+            title: CustomText(
+              teks: "Checkout",
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              teksColor: Colors.white,
             ),
           ),
           body: Body(),
