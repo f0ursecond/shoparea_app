@@ -45,62 +45,64 @@ class _BodyState extends State<Body> {
     if (!isProductInCart) {
       _cartModel.addToCart(widget.product!);
       // Setelah berhasil ditambahkan, tampilkan pesan atau notifikasi
-      showDialog(
+      showModalBottomSheet(
         context: context,
-        barrierColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        isScrollControlled: true,
+        constraints: BoxConstraints(
+          maxWidth: kIsWeb ? 352 : double.infinity,
+        ),
         builder: (BuildContext context) {
-          return Dialog(
-            elevation: 2,
-            backgroundColor: Colors.transparent,
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.85,
             child: Stack(
-              alignment: Alignment.topCenter,
+              alignment: Alignment.bottomCenter,
               children: [
-                Opacity(
-                  opacity: 0.8,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
                   child: Container(
-                    height: double.maxFinite,
-                    width: kIsWeb ? 400.0 : double.infinity,
-                    color: Colors.black,
+                    color: Colors.transparent,
                   ),
                 ),
-                Column(
-                  children: [
-                    VerticalSizedBox(height: 100),
-                    Container(
-                      width: kIsWeb ? 352.0 : double.infinity,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF0FAF7),
-                        border: Border.all(
-                          color: cColorPrimary50,
-                        ),
-                        borderRadius: BorderRadius.circular(8),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF0FAF7),
+                      border: Border.all(
+                        color: cColorPrimary50,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 12),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Image.asset("assets/images/check.png"),
-                            HorizontalSizedBox(width: 24),
-                            CustomText(
-                              teks: "Produk Berhasil Ditambahkan",
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                              teksColor: cColorNeutralBlack50,
-                            ),
-                            Spacer(),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Image.asset("assets/images/cross.png"),
-                            ),
-                          ],
-                        ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset("assets/images/check.png"),
+                          HorizontalSizedBox(width: 24),
+                          CustomText(
+                            teks: "Produk Berhasil Ditambahkan",
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            teksColor: cColorNeutralBlack50,
+                          ),
+                          Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Image.asset("assets/images/cross.png"),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),
@@ -109,64 +111,66 @@ class _BodyState extends State<Body> {
       );
     } else {
       // Jika produk sudah ada di dalam keranjang, tampilkan pesan atau notifikasi
-      showDialog(
+      showModalBottomSheet(
         context: context,
-        barrierColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        isScrollControlled: true,
+        constraints: BoxConstraints(
+          maxWidth: kIsWeb ? 352 : double.infinity,
+        ),
         builder: (BuildContext context) {
-          return Dialog(
-            elevation: 2,
-            backgroundColor: Colors.transparent,
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.85,
             child: Stack(
-              alignment: Alignment.topCenter,
+              alignment: Alignment.bottomCenter,
               children: [
-                Opacity(
-                  opacity: 0.8,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
                   child: Container(
-                    height: double.maxFinite,
-                    width: kIsWeb ? 400.0 : double.infinity,
-                    color: Colors.black,
+                    color: Colors.transparent,
                   ),
                 ),
-                Column(
-                  children: [
-                    VerticalSizedBox(height: 100),
-                    Container(
-                      width: kIsWeb ? 352.0 : double.infinity,
-                      decoration: BoxDecoration(
-                        color: const Color(
-                            0xFFFDF1F0), // Ubah #FDF1F0 menjadi 0xFFFDF1F0
-                        border: Border.all(
-                          color: cColorError50,
-                        ),
-                        borderRadius: BorderRadius.circular(8),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color(
+                          0xFFFDF1F0), // Ubah #FDF1F0 menjadi 0xFFFDF1F0
+                      border: Border.all(
+                        color: cColorError50,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 12),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Image.asset("assets/images/cross_red.png"),
-                            HorizontalSizedBox(width: 24),
-                            CustomText(
-                              teks: "Produk Sudah Ada di Keranjang!",
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                              teksColor: cColorNeutralBlack50,
-                            ),
-                            Spacer(),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Image.asset(
-                                  "assets/images/cross_red_line.png"),
-                            ),
-                          ],
-                        ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset("assets/images/cross_red.png"),
+                          HorizontalSizedBox(width: 24),
+                          CustomText(
+                            teks: "Produk Sudah Ada di Keranjang!",
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            teksColor: cColorNeutralBlack50,
+                          ),
+                          Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
+                            child:
+                                Image.asset("assets/images/cross_red_line.png"),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),

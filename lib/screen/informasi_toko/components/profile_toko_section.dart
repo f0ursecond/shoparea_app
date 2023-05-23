@@ -59,7 +59,7 @@ class _ProfileTokoSectionState extends State<ProfileTokoSection> {
                       backgroundColor: Colors.transparent,
                       isScrollControlled: true,
                       constraints: BoxConstraints(
-                        maxWidth: kIsWeb ? 400 : double.infinity,
+                        maxWidth: kIsWeb ? 352 : double.infinity,
                       ),
                       builder: (BuildContext context) {
                         return SizedBox(
@@ -81,10 +81,11 @@ class _ProfileTokoSectionState extends State<ProfileTokoSection> {
                                 right: 0,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(8),
+                                    color: Color(0xFFF0FAF7),
+                                    border: Border.all(
+                                      color: cColorPrimary50,
                                     ),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(16.0),
