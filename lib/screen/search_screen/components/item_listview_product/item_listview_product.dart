@@ -100,18 +100,6 @@ class _ItemListProductState extends State<ItemListProduct> {
                   ),
                 ),
               ),
-              Expanded(
-                flex: 1,
-                child: PrimaryButton(
-                  text: "Pilih Item",
-                  press: () {},
-                  button_width: 84,
-                  color: cColorPrimary50,
-                  textColor: Colors.white,
-                  customFontWeight: FontWeight.w400,
-                  button_height: 24,
-                ),
-              )
             ],
           ),
         ),

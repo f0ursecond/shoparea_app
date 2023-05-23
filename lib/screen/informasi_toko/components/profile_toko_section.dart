@@ -12,8 +12,8 @@ import '../../../consts/colors.dart';
 
 class ProfileTokoSection extends StatefulWidget {
   ProfileTokoSection({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<ProfileTokoSection> createState() => _ProfileTokoSectionState();
@@ -32,7 +32,7 @@ class _ProfileTokoSectionState extends State<ProfileTokoSection> {
             backgroundImage: AssetImage(
               "assets/images/iv_avatar_profile_2.png",
             ),
-            radius: (100),
+            radius: 100,
           ),
           VerticalSizedBox(height: 16),
           CustomText(
@@ -54,65 +54,64 @@ class _ProfileTokoSectionState extends State<ProfileTokoSection> {
                       isClicked = false;
                     });
 
-                    showDialog(
+                    showModalBottomSheet(
                       context: context,
-                      barrierColor: Colors.transparent,
+                      backgroundColor: Colors.transparent,
+                      isScrollControlled: true,
+                      constraints: BoxConstraints(
+                        maxWidth: kIsWeb ? 400 : double.infinity,
+                      ),
                       builder: (BuildContext context) {
-                        return Dialog(
-                          elevation: 2,
-                          backgroundColor: Colors.transparent,
+                        return SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.85,
                           child: Stack(
-                            alignment: Alignment.topCenter,
+                            alignment: Alignment.bottomCenter,
                             children: [
-                              Opacity(
-                                opacity: 0.8,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pop();
+                                },
                                 child: Container(
-                                  height: double.maxFinite,
-                                  width: kIsWeb ? 400.0 : double.infinity,
-                                  color: Colors.black,
+                                  color: Colors.transparent,
                                 ),
                               ),
-                              Column(
-                                children: [
-                                  VerticalSizedBox(height: 100),
-                                  Container(
-                                    width: kIsWeb ? 352.0 : double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      border: Border.all(
-                                        color: cColorPrimary50,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 16, vertical: 12),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Image.asset(
-                                              "assets/images/check.png"),
-                                          HorizontalSizedBox(width: 24),
-                                          CustomText(
-                                            teks: "Copied to Clipboard",
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w700,
-                                            teksColor: cColorNeutralBlack50,
-                                          ),
-                                          Spacer(),
-                                          GestureDetector(
-                                            onTap: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            child: Image.asset(
-                                                "assets/images/cross.png"),
-                                          ),
-                                        ],
-                                      ),
+                              Positioned(
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(8),
                                     ),
                                   ),
-                                ],
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Image.asset("assets/images/check.png"),
+                                        HorizontalSizedBox(width: 24),
+                                        CustomText(
+                                          teks: "Copied to Clipboard",
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w700,
+                                          teksColor: cColorNeutralBlack50,
+                                        ),
+                                        Spacer(),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Image.asset(
+                                              "assets/images/cross.png"),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -127,9 +126,7 @@ class _ProfileTokoSectionState extends State<ProfileTokoSection> {
                     borderRadius: BorderRadius.circular(8),
                     color: isClicked ? cColorPrimary50 : Colors.transparent,
                   ),
-                  child: SvgPicture.asset(
-                    "assets/icons/icon_links.svg",
-                  ),
+                  child: SvgPicture.asset("assets/icons/icon_links.svg"),
                 ),
               ),
               HorizontalSizedBox(width: 8),
