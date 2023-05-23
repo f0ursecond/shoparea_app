@@ -4,7 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shoparea_app/components/button_style/primary_button.dart';
+import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
+import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/models/Transaction.dart';
+import 'package:shoparea_app/screen/semua_pesanan_screen/components/search_transaction.dart';
 import 'package:shoparea_app/screen/status_bayar_screen/status_bayar_screen.dart';
 import 'package:shoparea_app/screen/tracking_pesanan/tracking_pesanan_screen.dart';
 
@@ -28,58 +31,7 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: kIsWeb
-              ? getWebProportionateScreenWidth(84)
-              : getProportionateScreenWidth(84),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.4),
-                spreadRadius: 3,
-                blurRadius: 10,
-                offset: Offset(0, 10), // changes position of shadow
-              ),
-            ],
-          ),
-          child: Align(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: (24)),
-              child: TextField(
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    borderSide: BorderSide(color: cColorPrimary10),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    borderSide: BorderSide(color: cColorNeutral70),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    borderSide: BorderSide(color: cColorError50),
-                  ),
-                  hintText: 'Mau cari apa?',
-                  hintStyle: TextStyle(
-                    color: cColorExpired30,
-                    fontWeight: FontWeight.w400,
-                    fontSize: (12),
-                  ),
-                  prefixIcon: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                keyboardType: TextInputType.text,
-              ),
-            ),
-          ),
-        ),
+        SearchTransaction(),
         Expanded(
           child: Stack(
             children: [
@@ -153,116 +105,62 @@ class _BodyState extends State<Body> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            transaction.namaToko,
-                                            style: TextStyle(
-                                              fontSize: kIsWeb
-                                                  ? getWebProportionateScreenWidth(
-                                                      14)
-                                                  : getProportionateScreenWidth(
-                                                      14),
-                                              fontWeight: FontWeight.w700,
-                                              color: cColorNeutralBlack50,
-                                            ),
+                                          CustomText(
+                                            teks: transaction.namaToko,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
+                                            teksColor: cColorNeutralBlack50,
                                           ),
-                                          SizedBox(
-                                            height: kIsWeb
-                                                ? getWebProportionateScreenWidth(
-                                                    4)
-                                                : getProportionateScreenWidth(
-                                                    4),
+                                          VerticalSizedBox(height: 4),
+                                          CustomText(
+                                            teks: product.title,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            teksColor: cColorExpired50,
                                           ),
-                                          Text(
-                                            product.title,
-                                            style: TextStyle(
-                                              fontSize: kIsWeb
-                                                  ? getWebProportionateScreenWidth(
-                                                      12)
-                                                  : getProportionateScreenWidth(
-                                                      12),
-                                              fontWeight: FontWeight.w400,
-                                              color: cColorExpired50,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: kIsWeb
-                                                ? getWebProportionateScreenWidth(
-                                                    4)
-                                                : getProportionateScreenWidth(
-                                                    4),
-                                          ),
-                                          Text(
-                                            "Total Produk: ${transaction.totalProducts}",
-                                            style: TextStyle(
-                                              fontSize: kIsWeb
-                                                  ? getWebProportionateScreenWidth(
-                                                      10)
-                                                  : getProportionateScreenWidth(
-                                                      10),
-                                              fontWeight: FontWeight.w400,
-                                              color: cColorError50,
-                                            ),
+                                          VerticalSizedBox(height: 4),
+                                          CustomText(
+                                            teks:
+                                                "Total Produk: ${transaction.totalProducts}",
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.w400,
+                                            teksColor: cColorError50,
                                           ),
                                         ],
                                       ),
                                       Column(
                                         children: [
-                                          Text(
-                                            waktu,
-                                            style: TextStyle(
-                                              fontSize: kIsWeb
-                                                  ? getWebProportionateScreenWidth(
-                                                      12)
-                                                  : getProportionateScreenWidth(
-                                                      12),
-                                              fontWeight: FontWeight.w500,
-                                              color: cColorWarning50,
-                                            ),
+                                          CustomText(
+                                            teks: waktu,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500,
+                                            teksColor: cColorWarning50,
                                           ),
-                                          Text(
-                                            jamTampil,
-                                            style: TextStyle(
-                                              fontSize: kIsWeb
-                                                  ? getWebProportionateScreenWidth(
-                                                      12)
-                                                  : getProportionateScreenWidth(
-                                                      12),
-                                              fontWeight: FontWeight.w500,
-                                              color: cColorWarning50,
-                                            ),
+                                          CustomText(
+                                            teks: jamTampil,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500,
+                                            teksColor: cColorWarning50,
                                           ),
                                         ],
                                       )
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: kIsWeb
-                                        ? getWebProportionateScreenWidth(16)
-                                        : getProportionateScreenWidth(16),
-                                  ),
+                                  VerticalSizedBox(height: 16),
                                   Divider(
                                     color: cColorNeutral30,
                                     thickness: 1,
                                   ),
-                                  SizedBox(
-                                    height: kIsWeb
-                                        ? getWebProportionateScreenWidth(16)
-                                        : getProportionateScreenWidth(16),
-                                  ),
+                                  VerticalSizedBox(height: 16),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        "Status Pembayaran",
-                                        style: TextStyle(
-                                          fontSize: kIsWeb
-                                              ? getWebProportionateScreenWidth(
-                                                  12)
-                                              : getProportionateScreenWidth(12),
-                                          fontWeight: FontWeight.w400,
-                                          color: cColorExpired50,
-                                        ),
+                                      CustomText(
+                                        teks: "Status Pembayaran",
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        teksColor: cColorExpired50,
                                       ),
                                       Container(
                                         padding: EdgeInsets.symmetric(
@@ -301,77 +199,46 @@ class _BodyState extends State<Body> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: kIsWeb
-                                        ? getWebProportionateScreenWidth(16)
-                                        : getProportionateScreenWidth(16),
-                                  ),
+                                  VerticalSizedBox(height: 16),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        "Jasa Pengiriman",
-                                        style: TextStyle(
-                                          fontSize: kIsWeb
-                                              ? getWebProportionateScreenWidth(
-                                                  12)
-                                              : getProportionateScreenWidth(12),
-                                          fontWeight: FontWeight.w400,
-                                          color: cColorExpired50,
-                                        ),
+                                      CustomText(
+                                        teks: "Jasa Pengiriman",
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        teksColor: cColorExpired50,
                                       ),
-                                      Text(
-                                        transaction.jasaPengiriman,
-                                        style: TextStyle(
-                                          fontSize: kIsWeb
-                                              ? getWebProportionateScreenWidth(
-                                                  10)
-                                              : getProportionateScreenWidth(10),
-                                          fontWeight: FontWeight.w600,
-                                          color: cColorPrimary50,
-                                        ),
+                                      CustomText(
+                                        teks: transaction.jasaPengiriman,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w600,
+                                        teksColor: cColorPrimary50,
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: kIsWeb
-                                        ? getWebProportionateScreenWidth(16)
-                                        : getProportionateScreenWidth(16),
-                                  ),
+                                  VerticalSizedBox(height: 16),
                                   Divider(
                                     color: cColorNeutral30,
                                     thickness: 1,
                                   ),
-                                  SizedBox(
-                                    height: kIsWeb
-                                        ? getWebProportionateScreenWidth(16)
-                                        : getProportionateScreenWidth(16),
-                                  ),
+                                  VerticalSizedBox(height: 16),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        CurrencyFormat.convertToIdr(
+                                      CustomText(
+                                        teks: CurrencyFormat.convertToIdr(
                                                 transaction.totalHarga, 0)
                                             .toString(),
-                                        style: TextStyle(
-                                          fontSize: kIsWeb
-                                              ? getWebProportionateScreenWidth(
-                                                  16)
-                                              : getProportionateScreenWidth(16),
-                                          fontWeight: FontWeight.w700,
-                                          color: cColorNeutralBlack50,
-                                        ),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w700,
+                                        teksColor: cColorNeutralBlack50,
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: kIsWeb
-                                        ? getWebProportionateScreenWidth(24)
-                                        : getProportionateScreenWidth(24),
-                                  ),
+                                  VerticalSizedBox(height: 24),
                                   PrimaryButton(
                                     text:
                                         transaction.statusBayar == "Sudah Bayar"
@@ -395,9 +262,7 @@ class _BodyState extends State<Body> {
                                             ? cColorPrimary50
                                             : Colors.white,
                                     customFontWeight: FontWeight.w700,
-                                    button_height: kIsWeb
-                                        ? getWebProportionateScreenWidth(32)
-                                        : getProportionateScreenWidth(32),
+                                    button_height: 32,
                                   )
                                 ],
                               );
@@ -416,25 +281,19 @@ class _BodyState extends State<Body> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset("assets/images/iv_empty_state.png"),
-                      Text(
-                        "Hasil Tidak Ditemukan",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: (20),
-                          color: cColorNeutralBlack50,
-                        ),
+                      CustomText(
+                        teks: "Hasil Tidak Ditemukan",
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        teksColor: cColorNeutralBlack50,
                       ),
-                      SizedBox(
-                        height: (8),
+                      VerticalSizedBox(height: 8),
+                      CustomText(
+                        teks: "Coba dengan keyword lain",
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        teksColor: cColorExpired50,
                       ),
-                      Text(
-                        "Coba dengan keyword lain",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: (14),
-                          color: cColorExpired50,
-                        ),
-                      )
                     ],
                   ),
                 ),

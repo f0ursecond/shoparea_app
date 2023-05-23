@@ -2,7 +2,6 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
 import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';

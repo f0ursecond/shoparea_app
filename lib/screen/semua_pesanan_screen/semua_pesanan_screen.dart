@@ -3,6 +3,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shoparea_app/components/sized_box/horizontal_sized_box.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/keranjang_screen/keranjang_screen.dart';
 import 'package:shoparea_app/screen/search_screen/search_screen.dart';
@@ -50,11 +51,7 @@ class SemuaPesananScreen extends StatelessWidget {
                   Navigator.pushNamed(context, KeranjangScreen.routeName);
                 },
               ),
-              SizedBox(
-                width: kIsWeb
-                    ? getWebProportionateScreenWidth(10)
-                    : getProportionateScreenWidth(10),
-              )
+              HorizontalSizedBox(width: 10),
             ],
           ),
           body: Body(),
