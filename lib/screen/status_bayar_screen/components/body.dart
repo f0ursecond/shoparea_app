@@ -29,11 +29,57 @@ class _BodyState extends State<Body> {
     final transaction =
         ModalRoute.of(context)?.settings.arguments as Transaction?;
 
+    if (transaction == null) {
+      // Tampilkan pesan atau lakukan penanganan lain ketika data product null
+      return Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: kIsWeb
+              ? getWebProportionateScreenWidth(24)
+              : getProportionateScreenWidth(24),
+        ),
+        child: Column(
+          children: [
+            VerticalSizedBox(height: 100),
+            Image.asset("assets/images/iv_bag_cart.png"),
+            VerticalSizedBox(height: 32),
+            CustomText(
+              teks: "Transaksi Tidak Ditemukan",
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              teksColor: cColorNeutralBlack50,
+              maxLines: 1,
+              textOverflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+            ),
+            VerticalSizedBox(height: 16),
+            CustomText(
+              teks: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+              fontSize: 14,
+              textAlign: TextAlign.center,
+              fontWeight: FontWeight.w400,
+              teksColor: cColorExpired50,
+            ),
+            VerticalSizedBox(height: 24),
+            PrimaryButton(
+              text: "Lihat produk yang tersedia",
+              press: () {
+                Navigator.pushNamed(context, FrontStoreScreen.routeName);
+              },
+              button_width: double.infinity,
+              color: cColorPrimary50,
+              textColor: Colors.white,
+              customFontWeight: FontWeight.w700,
+              button_height: 32,
+            ),
+          ],
+        ),
+      );
+    }
+
     final int ongkosKirim = 20000;
     final int biayaAdmin = 4000;
     // Hitung total biaya
-    final totalBiaya =
-        transaction!.products[0].price + ongkosKirim + biayaAdmin;
+    final totalBiaya = transaction.products[0].price + ongkosKirim + biayaAdmin;
 
     return SingleChildScrollView(
       child: Padding(
