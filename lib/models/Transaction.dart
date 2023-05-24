@@ -9,149 +9,53 @@ class Transaction {
   final String namaToko;
   final int totalProducts;
   final double totalHarga;
-  final String statusBayar;
+  String? statusBayar;
   final DateTime waktuPesan;
   final String jasaPengiriman;
+  final int ongkosKirim;
+  final int biayaAdmin;
 
   Transaction({
     required this.products,
     required this.namaToko,
     required this.totalProducts,
     required this.totalHarga,
-    required this.statusBayar,
+    this.statusBayar,
     required this.waktuPesan,
     required this.jasaPengiriman,
+    required this.ongkosKirim,
+    required this.biayaAdmin,
   });
-}
 
-List<Transaction> transactions = [
-  Transaction(
-    products: [
-      Product(
-        id: 3,
-        images: [
-          "assets/images/sepatu_coklat.png",
-        ],
-        title: "Sepatu Coklat",
-        category: "Sepatu",
-        description:
-            "Ini adalah deskripsi sepatu coklat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        price: 600000,
-        size: [
-          "S(20x30)",
-          "M(30x40)",
-          "L(40x50)",
-        ],
-        stok: 22,
-        colors: [
-          "Merah",
-          "Biru",
-          "Hijau",
-          "Kuning",
-        ],
-      ),
-    ],
-    namaToko: "Nama Toko 1",
-    totalProducts: 2,
-    totalHarga: 700000,
-    statusBayar: 'Belum Bayar',
-    waktuPesan: DateTime.now(),
-    jasaPengiriman: 'JNE',
-  ),
-  Transaction(
-    products: [
-      Product(
-        id: 4,
-        images: [
-          "assets/images/sepatu_bola.png",
-        ],
-        title: "Sepatu Bola",
-        category: "Sepatu",
-        description:
-            "Ini adalah deskripsi sepatu bola. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        price: 7000000,
-        size: [
-          "S(20x30)",
-          "M(30x40)",
-          "L(40x50)",
-          "XL(50x60)",
-        ],
-        stok: 33,
-        colors: [
-          "Hijau",
-          "Kuning",
-        ],
-      ),
-    ],
-    namaToko: "Nama Toko 2",
-    totalProducts: 2,
-    totalHarga: 700000,
-    statusBayar: 'Belum Bayar',
-    waktuPesan: DateTime.now(),
-    jasaPengiriman: 'JNE',
-  ),
-  Transaction(
-    products: [
-      Product(
-        id: 4,
-        images: [
-          "assets/images/sepatu_bola.png",
-        ],
-        title: "Sepatu Bola",
-        category: "Sepatu",
-        description:
-            "Ini adalah deskripsi sepatu bola. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        price: 7000000,
-        size: [
-          "S(20x30)",
-          "M(30x40)",
-          "L(40x50)",
-          "XL(50x60)",
-        ],
-        stok: 33,
-        colors: [
-          "Hijau",
-          "Kuning",
-        ],
-      ),
-    ],
-    namaToko: "Nama Toko 3",
-    totalProducts: 2,
-    totalHarga: 700000,
-    statusBayar: 'Belum Bayar',
-    waktuPesan: DateTime.now(),
-    jasaPengiriman: 'JNE',
-  ),
-  Transaction(
-    products: [
-      Product(
-        id: 5,
-        images: [
-          "assets/images/sendal_ayam.png",
-        ],
-        title: "Sendal Ayam",
-        category: "Sendal",
-        description:
-            "Ini adalah deskripsi sendal ayam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        price: 250000,
-        size: [
-          "S(20x30)",
-          "M(30x40)",
-          "L(40x50)",
-          "XL(50x60)",
-        ],
-        stok: 33,
-        colors: [
-          "Hijau",
-          "Kuning",
-        ],
-      ),
-    ],
-    namaToko: "Nama Toko 4",
-    totalProducts: 2,
-    totalHarga: 650000,
-    statusBayar: 'Sudah Bayar',
-    waktuPesan: DateTime.now(),
-    jasaPengiriman: 'J&T',
-  ),
-];
+  static List<Transaction> transactions = [];
+
+  static List<Transaction> getAllData() {
+    return transactions;
+  }
+
+  void addData(Transaction transaction) {
+    transactions.add(transaction);
+  }
+
+  static void editData(int idProduct, Transaction newTransaction) {
+    int index = transactions.indexWhere((transaction) {
+      return transaction.products.any((product) => product.id == idProduct);
+    });
+
+    if (index != -1) {
+      transactions[index] = newTransaction;
+    }
+  }
+
+  static void hapusData(int idProduct) {
+    transactions.removeWhere((transaction) {
+      return transaction.products.any((product) => product.id == idProduct);
+    });
+  }
+
+  Transaction getOneDataByProductId(int productId) {
+    return transactions.firstWhere((transaction) {
+      return transaction.products.any((product) => product.id == productId);
+    });
+  }
+}

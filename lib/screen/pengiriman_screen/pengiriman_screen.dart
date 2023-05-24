@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/components/body.dart';
-import 'package:shoparea_app/size_config.dart';
 
 class PengirimanScreen extends StatelessWidget {
   const PengirimanScreen({super.key});

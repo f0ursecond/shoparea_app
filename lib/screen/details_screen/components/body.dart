@@ -324,7 +324,12 @@ class _BodyState extends State<Body> {
                   textColor: Colors.white,
                   customFontWeight: FontWeight.bold,
                   press: () {
-                    Navigator.pushNamed(context, PengirimanScreen.routeName);
+                    Navigator.pushNamed(
+                      context,
+                      PengirimanScreen.routeName,
+                      arguments: widget
+                          .product, // Pass the 'product' data as an argument
+                    );
                   },
                   button_width: 125,
                   button_height: 32,

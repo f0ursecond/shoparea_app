@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, unused_import
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, unused_import, prefer_const_declarations
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,11 @@ import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/alamat_bottom_sheet/alamat_bottom_sheet.dart';
 import 'package:shoparea_app/screen/status_bayar_screen/status_bayar_screen.dart';
 
+import '../../../components/sized_box/horizontal_sized_box.dart';
+import '../../../models/Product.dart';
+import '../../../models/Transaction.dart';
 import '../../../size_config.dart';
+import '../../../utils/currency_formatter.dart';
 import 'harga_bottom_sheet.dart';
 
 class Body extends StatefulWidget {
@@ -29,6 +33,25 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    final product = ModalRoute.of(context)?.settings.arguments as Product?;
+    final int ongkosKirim = 20000;
+    final int biayaAdmin = 4000;
+
+    // Hitung total biaya
+    final totalBiaya = product!.price + ongkosKirim + biayaAdmin;
+
+    final transactions = Transaction(
+      products: [product],
+      biayaAdmin: biayaAdmin,
+      namaToko: "Nama Toko",
+      jasaPengiriman: "JNE",
+      ongkosKirim: ongkosKirim,
+      statusBayar: "Belum Bayar",
+      totalHarga: totalBiaya.toDouble(),
+      totalProducts: 1,
+      waktuPesan: DateTime.now(),
+    );
+
     return Column(
       children: [
         Expanded(
@@ -398,7 +421,11 @@ class _BodyState extends State<Body> {
                           ),
                         ),
                         builder: (BuildContext context) {
-                          return HargaBottomSheet();
+                          return HargaBottomSheet(
+                            ongkosKirim: ongkosKirim,
+                            biayaAdmin: biayaAdmin,
+                            subTotal: product.price,
+                          );
                         },
                       );
                     },
@@ -406,7 +433,8 @@ class _BodyState extends State<Body> {
                       children: [
                         Icon(Icons.keyboard_arrow_down, color: cColorPrimary50),
                         CustomText(
-                          teks: "Rp 80.000",
+                          teks: CurrencyFormat.convertToIdr(totalBiaya, 0)
+                              .toString(),
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                           teksColor: cColorError50,
@@ -420,7 +448,80 @@ class _BodyState extends State<Body> {
               PrimaryButton(
                 text: "Pesan Sekarang",
                 press: () {
-                  Navigator.pushNamed(context, StatusBayarScreen.routeName);
+                  Navigator.pushNamed(
+                    context,
+                    StatusBayarScreen.routeName,
+                    arguments:
+                        transactions, // Pass the 'product' data as an argument
+                  );
+
+                  transactions.addData(transactions);
+
+                  showModalBottomSheet(
+                    context: context,
+                    backgroundColor: Colors.transparent,
+                    isScrollControlled: true,
+                    constraints: BoxConstraints(
+                      maxWidth: kIsWeb ? 352 : double.infinity,
+                    ),
+                    builder: (BuildContext context) {
+                      return SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.85,
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Container(
+                                color: Colors.transparent,
+                              ),
+                            ),
+                            Positioned(
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFF0FAF7),
+                                  border: Border.all(
+                                    color: cColorPrimary50,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Image.asset("assets/images/check.png"),
+                                      HorizontalSizedBox(width: 24),
+                                      CustomText(
+                                        teks: "Sukses memesan produk!",
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                        teksColor: cColorNeutralBlack50,
+                                      ),
+                                      Spacer(),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Image.asset(
+                                            "assets/images/cross.png"),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
                 },
                 button_width: double.infinity,
                 color: cColorPrimary50,

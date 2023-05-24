@@ -1,15 +1,20 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import, prefer_const_declarations
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shoparea_app/components/button_style/primary_button.dart';
 import 'package:shoparea_app/components/sized_box/vertical_sized_box.dart';
 import 'package:shoparea_app/components/teks/custom_teks.dart';
 import 'package:shoparea_app/consts/colors.dart';
+import 'package:shoparea_app/models/Transaction.dart';
+import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/components/body.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/components/harga_bottom_sheet.dart';
 
+import '../../../components/button_style/primary_button.dart';
+import '../../../components/sized_box/horizontal_sized_box.dart';
+import '../../../models/Product.dart';
 import '../../../size_config.dart';
+import '../../../utils/currency_formatter.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -21,6 +26,15 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
+    final transaction =
+        ModalRoute.of(context)?.settings.arguments as Transaction?;
+
+    final int ongkosKirim = 20000;
+    final int biayaAdmin = 4000;
+    // Hitung total biaya
+    final totalBiaya =
+        transaction!.products[0].price + ongkosKirim + biayaAdmin;
+
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(
@@ -82,7 +96,8 @@ class _BodyState extends State<Body> {
                             ),
                             VerticalSizedBox(height: 8),
                             CustomText(
-                              teks: "Rp. 18.000",
+                              teks: CurrencyFormat.convertToIdr(totalBiaya, 0)
+                                  .toString(),
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
                               teksColor: cColorNeutralBlack50,
@@ -106,7 +121,11 @@ class _BodyState extends State<Body> {
                                 ),
                               ),
                               builder: (BuildContext context) {
-                                return HargaBottomSheet();
+                                return HargaBottomSheet(
+                                  subTotal: transaction.products[0].price,
+                                  biayaAdmin: biayaAdmin,
+                                  ongkosKirim: ongkosKirim,
+                                );
                               },
                             );
                           },
@@ -189,7 +208,78 @@ class _BodyState extends State<Body> {
               VerticalSizedBox(height: 32),
               PrimaryButton(
                 text: "Bayar Sekarang",
-                press: () {},
+                press: () {
+                  setState(() {
+                    transaction.statusBayar = "Sudah Bayar";
+                  });
+
+                  Navigator.pushNamed(context, FrontStoreScreen.routeName);
+                  showModalBottomSheet(
+                    context: context,
+                    backgroundColor: Colors.transparent,
+                    isScrollControlled: true,
+                    constraints: BoxConstraints(
+                      maxWidth: kIsWeb ? 352 : double.infinity,
+                    ),
+                    builder: (BuildContext context) {
+                      return SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.85,
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Container(
+                                color: Colors.transparent,
+                              ),
+                            ),
+                            Positioned(
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFF0FAF7),
+                                  border: Border.all(
+                                    color: cColorPrimary50,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Image.asset("assets/images/check.png"),
+                                      HorizontalSizedBox(width: 24),
+                                      CustomText(
+                                        teks: "Sukses membayar produk!",
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                        teksColor: cColorNeutralBlack50,
+                                      ),
+                                      Spacer(),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Image.asset(
+                                            "assets/images/cross.png"),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
                 button_width: double.infinity,
                 color: cColorPrimary50,
                 textColor: Colors.white,
