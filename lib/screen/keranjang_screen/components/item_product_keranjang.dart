@@ -89,7 +89,7 @@ class _ItemProductKeranjangState extends State<ItemProductKeranjang> {
                     height: 28,
                     press: () {},
                     width: 55,
-                  )
+                  ),
                 ],
               ),
               VerticalSizedBox(height: 8),
@@ -109,10 +109,36 @@ class _ItemProductKeranjangState extends State<ItemProductKeranjang> {
             child: NumericStepButton(
               minValue: 0,
               // maxValue: 20,
-
               onChanged: (value) {
-                if (value == 0) {
-                  CartModel().removeFromCart(widget.product);
+                if (value == 1) {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Konfirmasi"),
+                        content: Text(
+                            "Apakah Anda yakin ingin menghapus produk ini?"),
+                        actions: [
+                          TextButton(
+                            child: Text("Ya"),
+                            onPressed: () {
+                              CartModel().removeFromCart(widget.product);
+                              Navigator.of(context).pop();
+                              setState(() {
+                                value = 0;
+                              });
+                            },
+                          ),
+                          TextButton(
+                            child: Text("Tidak"),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 }
               },
             ),

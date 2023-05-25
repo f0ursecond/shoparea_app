@@ -12,6 +12,7 @@ import 'package:shoparea_app/screen/pengiriman_screen/alamat_bottom_sheet/alamat
 import 'package:shoparea_app/screen/status_bayar_screen/status_bayar_screen.dart';
 
 import '../../../components/sized_box/horizontal_sized_box.dart';
+import '../../../models/Ekspedisi.dart';
 import '../../../models/Product.dart';
 import '../../../models/Transaction.dart';
 import '../../../size_config.dart';
@@ -242,111 +243,102 @@ class _BodyState extends State<Body> {
                       border: Border.all(color: cColorNeutral50),
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: Expanded(
-                      child: ListView.builder(
-                        itemCount: 5,
-                        shrinkWrap: true,
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedItemIndex =
-                                    selectedItemIndex == index ? -1 : index;
-                              });
-                            },
-                            child: Container(
-                              height: kIsWeb
-                                  ? getWebProportionateScreenWidth(70)
-                                  : getProportionateScreenWidth(70),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: cColorNeutral30),
-                                color: index == selectedItemIndex
-                                    ? cColorNeutral50
-                                    : Colors.white,
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: kIsWeb
-                                          ? getWebProportionateScreenWidth(16)
-                                          : getProportionateScreenWidth(16),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(
-                                          height: kIsWeb
-                                              ? getWebProportionateScreenWidth(
-                                                  24)
-                                              : getProportionateScreenWidth(24),
-                                          width: kIsWeb
-                                              ? getWebProportionateScreenWidth(
-                                                  24)
-                                              : getProportionateScreenWidth(24),
-                                          child: Image.asset(
-                                            "assets/images/ekspedisi.png",
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: kIsWeb
-                                              ? getWebProportionateScreenWidth(
-                                                  8)
-                                              : getProportionateScreenWidth(8),
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              "JNE Ekspress",
-                                              style: TextStyle(
-                                                fontSize: kIsWeb
-                                                    ? getWebProportionateScreenWidth(
-                                                        14)
-                                                    : getProportionateScreenWidth(
-                                                        14),
-                                                fontWeight: FontWeight.w700,
-                                                color: cColorNeutralBlack50,
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: kIsWeb
-                                                  ? getWebProportionateScreenWidth(
-                                                      8)
-                                                  : getProportionateScreenWidth(
-                                                      8),
-                                            ),
-                                            Text(
-                                              "Paket Regular: 20.000",
-                                              style: TextStyle(
-                                                fontSize: kIsWeb
-                                                    ? getWebProportionateScreenWidth(
-                                                        10)
-                                                    : getProportionateScreenWidth(
-                                                        10),
-                                                fontWeight: FontWeight.w400,
-                                                color: cColorExpired50,
-                                              ),
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Icon(
-                                    Icons.keyboard_arrow_right,
-                                    color: cColorPrimary50,
-                                  )
-                                ],
-                              ),
+                    child: ListView.builder(
+                      itemCount: 5,
+                      shrinkWrap: true,
+                      itemBuilder: (BuildContext context, int index) {
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selectedItemIndex =
+                                  selectedItemIndex == index ? -1 : index;
+                            });
+                          },
+                          child: Container(
+                            height: kIsWeb
+                                ? getWebProportionateScreenWidth(70)
+                                : getProportionateScreenWidth(70),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: cColorNeutral30),
+                              color: index == selectedItemIndex
+                                  ? cColorNeutral50
+                                  : Colors.white,
                             ),
-                          );
-                        },
-                      ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: kIsWeb
+                                        ? getWebProportionateScreenWidth(16)
+                                        : getProportionateScreenWidth(16),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        height: kIsWeb
+                                            ? getWebProportionateScreenWidth(24)
+                                            : getProportionateScreenWidth(24),
+                                        width: kIsWeb
+                                            ? getWebProportionateScreenWidth(24)
+                                            : getProportionateScreenWidth(24),
+                                        child: Image.asset(
+                                          "assets/images/ekspedisi.png",
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                      HorizontalSizedBox(width: 8),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "JNE Ekspress",
+                                            style: TextStyle(
+                                              fontSize: kIsWeb
+                                                  ? getWebProportionateScreenWidth(
+                                                      14)
+                                                  : getProportionateScreenWidth(
+                                                      14),
+                                              fontWeight: FontWeight.w700,
+                                              color: cColorNeutralBlack50,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: kIsWeb
+                                                ? getWebProportionateScreenWidth(
+                                                    8)
+                                                : getProportionateScreenWidth(
+                                                    8),
+                                          ),
+                                          Text(
+                                            "Paket Regular: 20.000",
+                                            style: TextStyle(
+                                              fontSize: kIsWeb
+                                                  ? getWebProportionateScreenWidth(
+                                                      10)
+                                                  : getProportionateScreenWidth(
+                                                      10),
+                                              fontWeight: FontWeight.w400,
+                                              color: cColorExpired50,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Spacer(),
+                                Icon(
+                                  Icons.keyboard_arrow_right,
+                                  color: cColorPrimary50,
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                   VerticalSizedBox(height: 24),

@@ -30,17 +30,15 @@ class _HomeBannerState extends State<HomeBanner> {
           height: kIsWeb
               ? getWebProportionateScreenWidth(173)
               : getProportionateScreenWidth(173),
-          child: Expanded(
-            child: PageView.builder(
-              onPageChanged: (value) {
-                setState(() {
-                  currentPage = value;
-                });
-              },
-              itemCount: bannerData.length,
-              itemBuilder: (context, index) => BannerContent(
-                image: bannerData[index].toString(),
-              ),
+          child: PageView.builder(
+            onPageChanged: (value) {
+              setState(() {
+                currentPage = value;
+              });
+            },
+            itemCount: bannerData.length,
+            itemBuilder: (context, index) => BannerContent(
+              image: bannerData[index].toString(),
             ),
           ),
         ),

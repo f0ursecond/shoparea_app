@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, prefer_final_fields, prefer_const_constructors
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields, prefer_const_constructors, unused_local_variable
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

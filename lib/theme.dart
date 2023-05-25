@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shoparea_app/constants.dart';
 import 'package:shoparea_app/consts/colors.dart';
 
@@ -49,15 +50,21 @@ AppBarTheme appBarTheme() {
   return AppBarTheme(
     color: cColorPrimary50,
     elevation: 5,
-    brightness: Brightness.light,
     iconTheme: IconThemeData(
       color: Colors.white,
     ),
-    textTheme: TextTheme(
+    systemOverlayStyle: SystemUiOverlayStyle.dark,
+    toolbarTextStyle: TextTheme(
       headline6: TextStyle(
         color: Colors.white,
         fontSize: 16,
       ),
-    ),
+    ).bodyText2,
+    titleTextStyle: TextTheme(
+      headline6: TextStyle(
+        color: Colors.white,
+        fontSize: 16,
+      ),
+    ).headline6,
   );
 }
