@@ -27,6 +27,9 @@ class ItemProductKeranjang extends StatefulWidget {
 }
 
 class _ItemProductKeranjangState extends State<ItemProductKeranjang> {
+  int numericStepValue =
+      1; // Tambahkan variabel untuk menyimpan nilai NumericStepButton
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -94,7 +97,8 @@ class _ItemProductKeranjangState extends State<ItemProductKeranjang> {
               ),
               VerticalSizedBox(height: 8),
               CustomText(
-                teks: "${widget.product.colors[0]}, ${widget.product.size[0]}",
+                teks:
+                    "${widget.product.colors[widget.product.selectedColor!]}, ${widget.product.size[widget.product.selectedSize!]}",
                 fontSize: 8,
                 maxLines: 1,
                 textOverflow: TextOverflow.ellipsis,
@@ -108,9 +112,8 @@ class _ItemProductKeranjangState extends State<ItemProductKeranjang> {
             width: 65,
             child: NumericStepButton(
               minValue: 0,
-              // maxValue: 20,
               onChanged: (value) {
-                if (value == 1) {
+                if (value == 0) {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
@@ -125,7 +128,8 @@ class _ItemProductKeranjangState extends State<ItemProductKeranjang> {
                               CartModel().removeFromCart(widget.product);
                               Navigator.of(context).pop();
                               setState(() {
-                                value = 0;
+                                numericStepValue =
+                                    0; // Perbarui nilai menjadi 0
                               });
                             },
                           ),
@@ -141,6 +145,7 @@ class _ItemProductKeranjangState extends State<ItemProductKeranjang> {
                   );
                 }
               },
+              counter: widget.product.numOfItems!,
             ),
           ),
         ],

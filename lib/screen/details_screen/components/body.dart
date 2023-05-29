@@ -40,10 +40,23 @@ class _BodyState extends State<Body> {
   void _addToCart() {
     // Periksa apakah produk sudah ada di dalam keranjang
     bool isProductInCart = cartItems.contains(widget.product);
-
+    Product productToCart = Product(
+      id: widget.product!.id,
+      images: widget.product!.images,
+      title: widget.product!.title,
+      category: widget.product!.category,
+      description: widget.product!.description,
+      price: widget.product!.price,
+      size: widget.product!.size,
+      colors: widget.product!.colors,
+      stok: widget.product!.stok,
+      numOfItems: counterProduct,
+      selectedColor: selectedIndexWarna,
+      selectedSize: selectedIndexUkuran,
+    );
     // Jika produk belum ada di dalam keranjang, tambahkan ke dalam keranjang
     if (!isProductInCart) {
-      _cartModel.addToCart(widget.product!);
+      _cartModel.addToCart(productToCart);
       // Setelah berhasil ditambahkan, tampilkan pesan atau notifikasi
       showModalBottomSheet(
         context: context,
@@ -314,7 +327,26 @@ class _BodyState extends State<Body> {
                   text: "Keranjang",
                   button_width: 125,
                   button_height: 32,
-                  press: _addToCart,
+                  press: () {
+                    showModalBottomSheet(
+                      isScrollControlled: true,
+                      useSafeArea: true,
+                      constraints: BoxConstraints(
+                        maxWidth: kIsWeb ? 400 : double.infinity,
+                      ),
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          topRight: Radius.circular(8),
+                        ),
+                      ),
+                      context: context,
+                      builder: (context) {
+                        return showBottomSheet();
+                      },
+                    );
+                  },
                   icon: Icons.add,
                 ),
                 Spacer(),
@@ -414,7 +446,7 @@ class _BodyState extends State<Body> {
                       : getProportionateScreenWidth(28),
                   child: ListView.builder(
                     shrinkWrap: true,
-                    itemCount: widget.product?.colors.length ?? 0,
+                    itemCount: widget.product?.size.length ?? 0,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
                       return buildUkuran(index, setState);
@@ -461,6 +493,7 @@ class _BodyState extends State<Body> {
                           counterProduct = value;
                           setState(() {});
                         },
+                        counter: 1,
                       ),
                     ),
                   ],

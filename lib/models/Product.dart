@@ -6,6 +6,9 @@ class Product {
   final List<String> images;
   final List<String> colors;
   final List<String> size;
+  int? selectedColor;
+  int? selectedSize;
+  int? numOfItems;
 
   Product({
     required this.id,
@@ -17,6 +20,9 @@ class Product {
     required this.size,
     required this.colors,
     required this.stok,
+    this.selectedColor,
+    this.selectedSize,
+    this.numOfItems,
   });
 }
 

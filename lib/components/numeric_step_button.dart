@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -8,15 +8,16 @@ import '../size_config.dart';
 
 class NumericStepButton extends StatefulWidget {
   final int minValue;
+  final int counter; // Tambahkan variabel counter di sini
 
   final ValueChanged<int> onChanged;
 
-  NumericStepButton(
-      {Key? key,
-      this.minValue = 0,
-      // this.maxValue = 10,
-      required this.onChanged})
-      : super(key: key);
+  NumericStepButton({
+    Key? key,
+    this.minValue = 0,
+    required this.counter,
+    required this.onChanged,
+  }) : super(key: key);
 
   @override
   State<NumericStepButton> createState() {
@@ -25,8 +26,21 @@ class NumericStepButton extends StatefulWidget {
 }
 
 class _NumericStepButtonState extends State<NumericStepButton> {
-  int counter = 1;
-  TextEditingController counterController = TextEditingController();
+  late TextEditingController counterController;
+  late int counter;
+
+  @override
+  void initState() {
+    super.initState();
+    counter = widget.counter;
+    counterController = TextEditingController(text: counter.toString());
+  }
+
+  @override
+  void dispose() {
+    counterController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +74,7 @@ class _NumericStepButtonState extends State<NumericStepButton> {
               setState(() {
                 if (counter > widget.minValue) {
                   counter--;
+                  counterController.text = counter.toString();
                 }
                 widget.onChanged(counter);
               });
@@ -68,7 +83,8 @@ class _NumericStepButtonState extends State<NumericStepButton> {
         ),
         Spacer(),
         Text(
-          '$counter',
+          counterController
+              .text, // Gunakan nilai dari controller sebagai teks counter
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.black,
@@ -104,7 +120,7 @@ class _NumericStepButtonState extends State<NumericStepButton> {
             onPressed: () {
               setState(() {
                 counter++;
-
+                counterController.text = counter.toString();
                 widget.onChanged(counter);
               });
             },

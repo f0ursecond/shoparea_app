@@ -140,6 +140,7 @@ class _ItemProductCardState extends State<ItemProductCard> {
                       }
                     });
                   },
+                  counter: 1,
                 ),
               ),
             ),
