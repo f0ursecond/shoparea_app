@@ -86,7 +86,7 @@ class _BodyState extends State<Body> {
                     itemCount: productsPerPage,
                     shrinkWrap: true,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 275,
+                      mainAxisExtent: 300,
                       crossAxisCount: 2,
                       childAspectRatio: kIsWeb
                           ? getWebProportionateScreenWidth(0.6)
