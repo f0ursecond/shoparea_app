@@ -29,7 +29,7 @@ class Body extends StatefulWidget {
   State<Body> createState() => _BodyState();
 }
 
-late int? counterProduct;
+int counterProduct = 1;
 
 class _BodyState extends State<Body> {
   int selectedIndexWarna = 0;
@@ -39,7 +39,6 @@ class _BodyState extends State<Body> {
 
   void _addToCart() {
     // Periksa apakah produk sudah ada di dalam keranjang
-    bool isProductInCart = cartItems.contains(widget.product);
     Product productToCart = Product(
       id: widget.product!.id,
       images: widget.product!.images,
@@ -54,6 +53,8 @@ class _BodyState extends State<Body> {
       selectedColor: selectedIndexWarna,
       selectedSize: selectedIndexUkuran,
     );
+    bool isProductInCart = cartItems.any((item) => item.id == productToCart.id);
+
     // Jika produk belum ada di dalam keranjang, tambahkan ke dalam keranjang
     if (!isProductInCart) {
       _cartModel.addToCart(productToCart);
