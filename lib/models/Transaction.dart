@@ -4,20 +4,42 @@ import 'package:flutter/material.dart';
 
 import 'Product.dart';
 
-class TransactionModel {
-  List<Product> transactions = [];
+class Transaction {
+  final List<Product> products;
+  final String namaToko;
+  final int totalProducts;
+  final double totalHarga;
+  String? statusBayar;
+  final DateTime waktuPesan;
+  final String jasaPengiriman;
+  final int ongkosKirim;
+  final int biayaAdmin;
 
-  List<Product> getAllData() {
+  Transaction({
+    required this.products,
+    required this.namaToko,
+    required this.totalProducts,
+    required this.totalHarga,
+    this.statusBayar,
+    required this.waktuPesan,
+    required this.jasaPengiriman,
+    required this.ongkosKirim,
+    required this.biayaAdmin,
+  });
+
+  static List<Transaction> transactions = [];
+
+  static List<Transaction> getAllData() {
     return transactions;
   }
 
-  void addData(Product transaction) {
+  void addData(Transaction transaction) {
     transactions.add(transaction);
   }
 
-  void editData(int idProduct, Product newTransaction) {
+  static void editData(int idProduct, Transaction newTransaction) {
     int index = transactions.indexWhere((transaction) {
-      return transaction.products.id == idProduct;
+      return transaction.products.any((product) => product.id == idProduct);
     });
 
     if (index != -1) {
@@ -25,15 +47,15 @@ class TransactionModel {
     }
   }
 
-  void hapusData(int idProduct) {
+  static void hapusData(int idProduct) {
     transactions.removeWhere((transaction) {
-      return transaction.id == idProduct;
+      return transaction.products.any((product) => product.id == idProduct);
     });
   }
 
   Transaction getOneDataByProductId(int productId) {
     return transactions.firstWhere((transaction) {
-      return transaction.id == productId;
+      return transaction.products.any((product) => product.id == productId);
     });
   }
 }
