@@ -27,6 +27,7 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Column(
       children: [
         Expanded(
@@ -86,7 +87,7 @@ class _BodyState extends State<Body> {
                     itemCount: productsPerPage,
                     shrinkWrap: true,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 300,
+                      mainAxisExtent: kIsWeb ? 250 : 320,
                       crossAxisCount: 2,
                       childAspectRatio: kIsWeb
                           ? getWebProportionateScreenWidth(0.6)
@@ -162,7 +163,6 @@ class _BodyState extends State<Body> {
   nextPage() {
     if ((productsPerPage) < products.length) {
       int nextPageItem = products.length - productsPerPage;
-
       if (nextPageItem >= 4) {
         setState(() {
           productsPerPage += 4;

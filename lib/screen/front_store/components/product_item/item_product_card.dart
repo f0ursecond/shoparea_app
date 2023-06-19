@@ -59,8 +59,8 @@ class _ItemProductCardState extends State<ItemProductCard> {
                 widget.product!.images[0],
                 fit: BoxFit.fill,
                 height: kIsWeb
-                    ? getWebProportionateScreenWidth(154)
-                    : getProportionateScreenWidth(154),
+                    ? getWebProportionateScreenHeight(154)
+                    : getProportionateScreenHeight(154),
                 width: kIsWeb
                     ? getWebProportionateScreenWidth(154)
                     : getProportionateScreenWidth(154),
@@ -97,7 +97,7 @@ class _ItemProductCardState extends State<ItemProductCard> {
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                         teksColor: Colors.black),
-                    VerticalSizedBox(height: 16)
+                    VerticalSizedBox(height: 16),
                   ],
                 ),
               ),
@@ -127,45 +127,47 @@ class _ItemProductCardState extends State<ItemProductCard> {
               ),
             ),
           ),
-          Visibility(
-            visible: isCounterVisible,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  Container(
-                    child: NumericStepButton(
-                      // maxValue: 20,
-                      onChanged: (value) {
-                        counterProduct = value;
-                        setState(() {
-                          if (counterProduct == 0) {
-                            isCounterVisible = !isCounterVisible;
-                            isButtonVisible = !isButtonVisible;
-                          }
-                        });
-                      },
-                      counter: 1,
+          Expanded(
+            child: Visibility(
+              visible: isCounterVisible,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    Container(
+                      child: NumericStepButton(
+                        // maxValue: 20,
+                        onChanged: (value) {
+                          counterProduct = value;
+                          setState(() {
+                            if (counterProduct == 0) {
+                              isCounterVisible = !isCounterVisible;
+                              isButtonVisible = !isButtonVisible;
+                            }
+                          });
+                        },
+                        counter: 1,
+                      ),
                     ),
-                  ),
-                  VerticalSizedBox(height: 8),
-                  PrimaryButton(
-                    text: "Beli",
-                    press: () {
-                      Navigator.pushNamed(
-                        context,
-                        PengirimanScreen.routeName,
-                        arguments: widget
-                            .product, // Pass the 'product' data as an argument
-                      );
-                    },
-                    button_width: 131,
-                    color: cColorPrimary50,
-                    textColor: Colors.white,
-                    customFontWeight: FontWeight.w700,
-                    button_height: 32,
-                  ),
-                ],
+                    VerticalSizedBox(height: 8),
+                    PrimaryButton(
+                      text: "Beli",
+                      press: () {
+                        Navigator.pushNamed(
+                          context,
+                          PengirimanScreen.routeName,
+                          arguments: widget
+                              .product, // Pass the 'product' data as an argument
+                        );
+                      },
+                      button_width: 131,
+                      color: cColorPrimary50,
+                      textColor: Colors.white,
+                      customFontWeight: FontWeight.w700,
+                      button_height: 32,
+                    ),
+                  ],
+                ),
               ),
             ),
           )

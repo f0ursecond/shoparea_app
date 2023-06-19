@@ -6,7 +6,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/front_store/components/body.dart';
 import 'package:shoparea_app/screen/informasi_toko/informasi_toko_screen.dart';
-
 import '../../components/sized_box/horizontal_sized_box.dart';
 import '../../components/teks/custom_teks.dart';
 import '../keranjang_screen/keranjang_screen.dart';

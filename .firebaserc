@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "shoparea-bc33a",
+    "shoparea": "shoparea-bc33a"
+  },
+  "targets": {},
+  "etags": {}
+}

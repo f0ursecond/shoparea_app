@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "469622410392",
+    "project_id": "shoparea-bc33a",
+    "storage_bucket": "shoparea-bc33a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469622410392:android:0d9087d7d59a06870194ed",
+        "android_client_info": {
+          "package_name": "com.example.shoparea_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469622410392-q495tt5elc9rcb2q0de5keaha2bmg0r7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAK2Mv79mFTWIfQEuIpWL8qK2pNuckafA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469622410392-q495tt5elc9rcb2q0de5keaha2bmg0r7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

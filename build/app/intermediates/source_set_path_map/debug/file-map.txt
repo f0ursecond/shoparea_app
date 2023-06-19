@@ -1,0 +1,13 @@
+com.example.shoparea_app-jetified-annotation-experimental-1.1.0-0 /home/f0ursecond/.gradle/caches/transforms-3/3795200b4ef80330da39fee63b1e3f99/transformed/jetified-annotation-experimental-1.1.0/res
+com.example.shoparea_app-jetified-window-java-1.0.0-beta04-1 /home/f0ursecond/.gradle/caches/transforms-3/4f8a10da11d41b9ccabff01515190014/transformed/jetified-window-java-1.0.0-beta04/res
+com.example.shoparea_app-core-1.6.0-2 /home/f0ursecond/.gradle/caches/transforms-3/ae42e6c01585f28a5adeac7499fca147/transformed/core-1.6.0/res
+com.example.shoparea_app-jetified-window-1.0.0-beta04-3 /home/f0ursecond/.gradle/caches/transforms-3/fa8aad42c825af1f34f93ab9a34c8ecb/transformed/jetified-window-1.0.0-beta04/res
+com.example.shoparea_app-debug-4 /home/f0ursecond/Documents/shoparea_app/android/app/src/debug/res
+com.example.shoparea_app-main-5 /home/f0ursecond/Documents/shoparea_app/android/app/src/main/res
+com.example.shoparea_app-google-services-6 /home/f0ursecond/Documents/shoparea_app/build/app/generated/res/google-services/debug
+com.example.shoparea_app-pngs-7 /home/f0ursecond/Documents/shoparea_app/build/app/generated/res/pngs/debug
+com.example.shoparea_app-resValues-8 /home/f0ursecond/Documents/shoparea_app/build/app/generated/res/resValues/debug
+com.example.shoparea_app-rs-9 /home/f0ursecond/Documents/shoparea_app/build/app/generated/res/rs/debug
+com.example.shoparea_app-mergeDebugResources-10 /home/f0ursecond/Documents/shoparea_app/build/app/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.example.shoparea_app-mergeDebugResources-11 /home/f0ursecond/Documents/shoparea_app/build/app/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.example.shoparea_app-merged_res-12 /home/f0ursecond/Documents/shoparea_app/build/app/intermediates/merged_res/debug
