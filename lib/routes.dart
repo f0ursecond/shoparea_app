@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:shoparea_app/screen/account_settings_screen/account_settings_screen.dart';
 import 'package:shoparea_app/screen/details_screen/detail_screen.dart';
 import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
+import 'package:shoparea_app/screen/home_screen/components/home_body.dart';
+import 'package:shoparea_app/screen/home_screen/home_screen.dart';
 import 'package:shoparea_app/screen/informasi_toko/informasi_toko_screen.dart';
 import 'package:shoparea_app/screen/keranjang_screen/keranjang_screen.dart';
 import 'package:shoparea_app/screen/onboarding_screen/onboarding_screen.dart';
@@ -23,6 +25,7 @@ final Map<String, WidgetBuilder> routes = {
   OnboardingScreen.routeName: (context) => OnboardingScreen(),
   WelcomeScreen.routeName: (context) => WelcomeScreen(),
   AccountSettingsScreen.routeName: (context) => AccountSettingsScreen(),
+  HomeBody.routeName: (context) => HomeBody(),
 
   // INI ADALAH ROUTES UNTUK USER
 
