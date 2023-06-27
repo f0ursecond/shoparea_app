@@ -11,7 +11,7 @@ ThemeData themeData() {
       scaffoldBackgroundColor: Colors.white,
       fontFamily: "PlusJakartaSans",
       textTheme: textTheme(),
-      inputDecorationTheme: inputDecorationTheme(),
+      // inputDecorationTheme: inputDecorationTheme(),
       visualDensity: VisualDensity.adaptivePlatformDensity);
 }
 

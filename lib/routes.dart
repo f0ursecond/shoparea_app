@@ -12,6 +12,7 @@ import 'package:shoparea_app/screen/semua_pesanan_screen/semua_pesanan_screen.da
 import 'package:shoparea_app/screen/splash_screen/splash_screen.dart';
 import 'package:shoparea_app/screen/status_bayar_screen/status_bayar_screen.dart';
 import 'package:shoparea_app/screen/tracking_pesanan/tracking_pesanan_screen.dart';
+import 'package:shoparea_app/screen/welcome_screen/welcome_screen.dart';
 
 // we use name route, all our routes will be available here
 final Map<String, WidgetBuilder> routes = {
@@ -19,6 +20,7 @@ final Map<String, WidgetBuilder> routes = {
 
   SplashScreen.routeName: (context) => SplashScreen(),
   OnboardingScreen.routeName: (context) => OnboardingScreen(),
+  WelcomeScreen.routeName: (context) => WelcomeScreen(),
 
   // INI ADALAH ROUTES UNTUK USER
 
