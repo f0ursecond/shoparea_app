@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/widgets.dart';
+import 'package:shoparea_app/screen/account_settings_screen/account_settings_screen.dart';
 import 'package:shoparea_app/screen/details_screen/detail_screen.dart';
 import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
 import 'package:shoparea_app/screen/informasi_toko/informasi_toko_screen.dart';
@@ -21,6 +22,7 @@ final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(),
   OnboardingScreen.routeName: (context) => OnboardingScreen(),
   WelcomeScreen.routeName: (context) => WelcomeScreen(),
+  AccountSettingsScreen.routeName: (context) => AccountSettingsScreen(),
 
   // INI ADALAH ROUTES UNTUK USER
 

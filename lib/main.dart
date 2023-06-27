@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shoparea_app/routes.dart';
+import 'package:shoparea_app/screen/account_settings_screen/account_settings_screen.dart';
 
-import 'package:shoparea_app/screen/welcome_screen/welcome_screen.dart';
 import 'package:shoparea_app/theme.dart';
 
 void main() {
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Shoparea',
       theme: themeData(),
-      initialRoute: WelcomeScreen.routeName,
+      initialRoute: AccountSettingsScreen.routeName,
       routes: routes,
     );
   }

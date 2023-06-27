@@ -10,13 +10,15 @@ import '../../size_config.dart';
 class TextFieldWithCounter extends StatefulWidget {
   final String teksTitle;
   final String teksHint;
-  final int maxChar;
+  final int? maxChar;
+  final IconData? suffixIcon;
 
   const TextFieldWithCounter({
     Key? key,
     required this.teksTitle,
     required this.teksHint,
-    required this.maxChar,
+    this.maxChar,
+    this.suffixIcon,
   }) : super(key: key);
 
   @override
@@ -56,11 +58,14 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
               fontWeight: FontWeight.w700,
               teksColor: cColorNeutralBlack50,
             ),
-            CustomText(
-              teks: '${_controller.text.length} / ${widget.maxChar}',
-              fontSize: 12,
-              fontWeight: FontWeight.normal,
-              teksColor: cColorNeutral70,
+            Visibility(
+              visible: widget.maxChar == null ? false : true,
+              child: CustomText(
+                teks: '${_controller.text.length} / ${widget.maxChar}',
+                fontSize: 12,
+                fontWeight: FontWeight.normal,
+                teksColor: cColorNeutral70,
+              ),
             ),
           ],
         ),
@@ -71,8 +76,8 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
         ),
         Container(
           height: kIsWeb
-              ? getWebProportionateScreenWidth(84)
-              : getProportionateScreenWidth(84),
+              ? getWebProportionateScreenWidth(74)
+              : getProportionateScreenWidth(74),
           decoration: BoxDecoration(
             color: Colors.white,
           ),
@@ -80,6 +85,7 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
             controller: _controller,
             maxLength: 100,
             decoration: InputDecoration(
+              suffixIcon: Icon(widget.suffixIcon),
               counterStyle: TextStyle(
                 height: double.minPositive,
               ),

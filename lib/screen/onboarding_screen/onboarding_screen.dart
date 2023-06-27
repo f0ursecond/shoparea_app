@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/button_style/default_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/consts/consts.dart';
 import 'package:shoparea_app/models/onboarding_content.dart';
@@ -32,7 +33,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           body: SafeArea(
             child: Column(
               children: [
-                Logo(),
+                const Logo(),
                 const Spacer(),
                 Expanded(
                   flex: 3,
@@ -97,9 +98,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ],
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24.0),
-                  child: DefaultButton(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: DefaultButton(
+                    text: 'Mulai Sekarang',
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const WelcomeScreen(),
+                        ),
+                      );
+                    },
+                  ),
                 ),
                 const Spacer(),
               ],
@@ -135,37 +146,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ? getWebProportionateScreenWidth(3)
               : getProportionateScreenWidth(3),
         ),
-      ),
-    );
-  }
-}
-
-class DefaultButton extends StatelessWidget {
-  const DefaultButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-      ),
-      width: kIsWeb ? 400.0 : double.infinity,
-      height: kIsWeb ? 48.0 : 48.0,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.green,
-        ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const WelcomeScreen(),
-            ),
-          );
-        },
-        child: Text('Mulai Sekarang'),
       ),
     );
   }
