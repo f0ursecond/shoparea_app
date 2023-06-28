@@ -1,7 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
+import 'package:shoparea_app/screen/history_screen/history_screen.dart';
 import 'package:shoparea_app/screen/home_screen/home_screen.dart';
+import 'package:shoparea_app/screen/katalog_screen/katalog_screen.dart';
+import 'package:shoparea_app/screen/transaksi_screen/transaksi_screen.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
@@ -13,12 +16,13 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 3;
 
   static const List<Widget> body = [
     HomeScreen(),
-    Text('Transaksi Screen'),
-    Text('History Screen'),
+    TransaksiScreen(),
+    KatalogScreen(),
+    HistoryScreen(),
     Text('Profile Screen')
   ];
 
@@ -63,6 +67,16 @@ class _HomeBodyState extends State<HomeBody> {
                   Icons.shopping_cart_checkout_outlined,
                 ),
                 label: 'Transaksi',
+              ),
+              BottomNavigationBarItem(
+                activeIcon: Icon(
+                  Icons.add_box_rounded,
+                  color: Colors.green,
+                ),
+                icon: Icon(
+                  Icons.add_box_rounded,
+                ),
+                label: 'Katalog',
               ),
               BottomNavigationBarItem(
                 activeIcon: Icon(

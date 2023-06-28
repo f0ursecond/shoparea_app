@@ -8,6 +8,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Center(
       child: Container(
         decoration: BoxDecoration(
@@ -16,14 +17,16 @@ class HomeScreen extends StatelessWidget {
         child: Scaffold(
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(184),
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(60),
+            child: SafeArea(
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(60),
+                  ),
                 ),
+                child: const HomeAppBarContent(),
               ),
-              child: const HomeAppBarContent(),
             ),
           ),
           body: SingleChildScrollView(
@@ -106,60 +109,169 @@ class HomeScreen extends StatelessWidget {
                         ? getWebProportionateScreenHeight(24)
                         : getProportionateScreenHeight(24),
                   ),
-                  SizedBox(
-                    height: 140,
-                    child: GridView.count(
-                      physics: const NeverScrollableScrollPhysics(),
-                      primary: false,
-                      childAspectRatio: 5 / 2,
-                      crossAxisSpacing: 4,
-                      mainAxisSpacing: 4,
-                      crossAxisCount: 2,
-                      children: <Widget>[
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.teal[100],
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(child: const Text("Total Penjualan")),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.teal[100],
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(child: const Text("Total Pesanan")),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.teal[100],
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(child: const Text("Total Dilihat")),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.teal[100],
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(child: const Text("Total Produksi")),
-                        ),
-                      ],
-                    ),
-                  ),
+                  const ShopAnalytics(),
                   SizedBox(
                     height: kIsWeb
                         ? getWebProportionateScreenHeight(16)
-                        : getProportionateScreenHeight(16),
+                        : getProportionateScreenHeight(32),
                   ),
                   Container(
                     height: 150,
-                    color: Colors.grey[400],
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 1,
+                        color: const Color(0xFFE9F0F8),
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
+                      child: Row(
+                        children: [
+                          Image.asset('assets/images/icon_verification.png'),
+                          SizedBox(
+                            width: kIsWeb
+                                ? getWebProportionateScreenWidth(12)
+                                : getProportionateScreenWidth(12),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                'Lakukan verifikasi KTP untuk\naktifkan semua akses penjualan di\ntokomu',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              SizedBox(
+                                height: kIsWeb
+                                    ? getWebProportionateScreenHeight(20)
+                                    : getProportionateScreenHeight(20),
+                              ),
+                              const Text(
+                                'Siapkan KTP dan koneksi internet yang stabil',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                ),
+                              )
+                            ],
+                          ),
+                          const Expanded(
+                            child: Icon(
+                              Icons.arrow_right_sharp,
+                              color: Colors.green,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class ShopAnalytics extends StatelessWidget {
+  const ShopAnalytics({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: kIsWeb
+          ? getWebProportionateScreenHeight(205)
+          : getProportionateScreenHeight(145),
+      child: GridView.count(
+        physics: const NeverScrollableScrollPhysics(),
+        primary: false,
+        childAspectRatio: 5 / 2,
+        crossAxisSpacing: 4,
+        mainAxisSpacing: 4,
+        crossAxisCount: 2,
+        children: const [
+          SummaryContainer(
+            title: 'Total Penjualan',
+            subtitle: '20x',
+          ),
+          SummaryContainer(
+            title: 'Total Pesanan',
+            subtitle: '10x',
+          ),
+          SummaryContainer(
+            title: 'Total Dilihat',
+            subtitle: '20x',
+          ),
+          SummaryContainer(
+            title: 'Total Produksi',
+            subtitle: '10x',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SummaryContainer extends StatelessWidget {
+  const SummaryContainer({
+    super.key,
+    required this.title,
+    required this.subtitle,
+  });
+
+  final String title;
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: 1,
+          color: const Color(0xFFE9F0F8),
+        ),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: 16,
+          right: 16,
+        ),
+        child: Row(
+          children: [
+            Expanded(
+                flex: 3,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(title),
+                    Text(
+                      subtitle,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                )),
+            const Expanded(
+              flex: -1,
+              child: Icon(
+                Icons.arrow_right_sharp,
+                color: Colors.green,
+              ),
+            )
+          ],
         ),
       ),
     );

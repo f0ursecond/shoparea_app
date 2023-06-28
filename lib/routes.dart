@@ -7,6 +7,7 @@ import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
 import 'package:shoparea_app/screen/home_screen/components/home_body.dart';
 import 'package:shoparea_app/screen/home_screen/home_screen.dart';
 import 'package:shoparea_app/screen/informasi_toko/informasi_toko_screen.dart';
+import 'package:shoparea_app/screen/katalog_screen/katalog_screen.dart';
 import 'package:shoparea_app/screen/keranjang_screen/keranjang_screen.dart';
 import 'package:shoparea_app/screen/onboarding_screen/onboarding_screen.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/pengiriman_screen.dart';
@@ -15,6 +16,7 @@ import 'package:shoparea_app/screen/semua_pesanan_screen/semua_pesanan_screen.da
 import 'package:shoparea_app/screen/splash_screen/splash_screen.dart';
 import 'package:shoparea_app/screen/status_bayar_screen/status_bayar_screen.dart';
 import 'package:shoparea_app/screen/tracking_pesanan/tracking_pesanan_screen.dart';
+import 'package:shoparea_app/screen/transaksi_screen/transaksi_screen.dart';
 import 'package:shoparea_app/screen/welcome_screen/welcome_screen.dart';
 
 // we use name route, all our routes will be available here
@@ -26,6 +28,8 @@ final Map<String, WidgetBuilder> routes = {
   WelcomeScreen.routeName: (context) => WelcomeScreen(),
   AccountSettingsScreen.routeName: (context) => AccountSettingsScreen(),
   HomeBody.routeName: (context) => HomeBody(),
+  TransaksiScreen.routeName: (context) => TransaksiScreen(),
+  KatalogScreen.routeName: (context) => KatalogScreen(),
 
   // INI ADALAH ROUTES UNTUK USER
 

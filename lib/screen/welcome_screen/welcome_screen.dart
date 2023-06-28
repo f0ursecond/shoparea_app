@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
+import 'package:shoparea_app/size_config.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -143,6 +144,13 @@ class LoginBottomSheet extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
+              child: SizedBox(
+                height: kIsWeb
+                    ? getWebProportionateScreenHeight(5)
+                    : getProportionateScreenHeight(5),
+              ),
+            ),
+            SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.only(
                   top: 3,
@@ -157,6 +165,13 @@ class LoginBottomSheet extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: kIsWeb
+                    ? getWebProportionateScreenHeight(30)
+                    : getProportionateScreenHeight(10),
               ),
             ),
             const SliverToBoxAdapter(
