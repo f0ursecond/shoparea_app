@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Shoparea',
       theme: themeData(),
-      initialRoute: HomeBody.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: routes,
     );
   }

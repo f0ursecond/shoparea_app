@@ -4,26 +4,27 @@ import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/history_screen/history_screen.dart';
 import 'package:shoparea_app/screen/home_screen/home_screen.dart';
 import 'package:shoparea_app/screen/katalog_screen/katalog_screen.dart';
+import 'package:shoparea_app/screen/store_profile_screen/store_profile_screen.dart';
 import 'package:shoparea_app/screen/transaksi_screen/transaksi_screen.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
 
-  static String routeName = '/home_screen/';
+  static String routeName = '/initial_screen/';
 
   @override
   State<HomeBody> createState() => _HomeBodyState();
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 0;
 
   static const List<Widget> body = [
     HomeScreen(),
     TransaksiScreen(),
     KatalogScreen(),
     HistoryScreen(),
-    Text('Profile Screen')
+    StoreProfileScreen(),
   ];
 
   void _onTap(int index) {

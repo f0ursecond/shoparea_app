@@ -221,7 +221,9 @@ class LoginBottomSheet extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: LoginButton(
-                press: () {},
+                press: () {
+                  Navigator.pushNamed(context, '/account_settings/');
+                },
                 text: 'Verifikasi dengan Whatsapp',
                 bgcolor: Colors.green,
                 textcolor: Colors.white,

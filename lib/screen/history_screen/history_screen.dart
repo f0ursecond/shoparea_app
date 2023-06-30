@@ -28,23 +28,27 @@ class HistoryScreen extends StatelessWidget {
               ),
             ],
           ),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 24,
-            ),
-            child: SizedBox(
-              child: ListView.separated(
-                  separatorBuilder: (context, index) {
-                    return const Padding(
-                      padding: EdgeInsets.only(bottom: 10),
-                    );
-                  },
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return const HistoryContent();
-                  }),
-            ),
+          body: SizedBox(
+            child: ListView.separated(
+                separatorBuilder: (context, index) {
+                  return const Padding(
+                    padding: EdgeInsets.only(
+                      bottom: 0,
+                      left: 0,
+                    ),
+                  );
+                },
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return const Padding(
+                    padding: EdgeInsets.only(
+                      top: 24,
+                      left: 20,
+                      right: 20,
+                    ),
+                    child: HistoryContent(),
+                  );
+                }),
           ),
         ),
       ),

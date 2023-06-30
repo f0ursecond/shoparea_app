@@ -6,6 +6,8 @@ import 'package:shoparea_app/size_config.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  static String routesName = '/home_screen/';
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

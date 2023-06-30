@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/widgets.dart';
+
 import 'package:shoparea_app/screen/account_settings_screen/account_settings_screen.dart';
 import 'package:shoparea_app/screen/details_screen/detail_screen.dart';
 import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
+import 'package:shoparea_app/screen/history_screen/history_screen.dart';
 import 'package:shoparea_app/screen/home_screen/components/home_body.dart';
 import 'package:shoparea_app/screen/home_screen/home_screen.dart';
 import 'package:shoparea_app/screen/informasi_toko/informasi_toko_screen.dart';
@@ -15,6 +17,7 @@ import 'package:shoparea_app/screen/search_screen/search_screen.dart';
 import 'package:shoparea_app/screen/semua_pesanan_screen/semua_pesanan_screen.dart';
 import 'package:shoparea_app/screen/splash_screen/splash_screen.dart';
 import 'package:shoparea_app/screen/status_bayar_screen/status_bayar_screen.dart';
+import 'package:shoparea_app/screen/store_profile_screen/store_profile_screen.dart';
 import 'package:shoparea_app/screen/tracking_pesanan/tracking_pesanan_screen.dart';
 import 'package:shoparea_app/screen/transaksi_screen/transaksi_screen.dart';
 import 'package:shoparea_app/screen/welcome_screen/welcome_screen.dart';
@@ -28,8 +31,11 @@ final Map<String, WidgetBuilder> routes = {
   WelcomeScreen.routeName: (context) => WelcomeScreen(),
   AccountSettingsScreen.routeName: (context) => AccountSettingsScreen(),
   HomeBody.routeName: (context) => HomeBody(),
+  HomeScreen.routesName: (context) => HomeScreen(),
   TransaksiScreen.routeName: (context) => TransaksiScreen(),
   KatalogScreen.routeName: (context) => KatalogScreen(),
+  HistoryScreen.routeName: (content) => HistoryScreen(),
+  StoreProfileScreen.routeName: (context) => StoreProfileScreen(),
 
   // INI ADALAH ROUTES UNTUK USER
 

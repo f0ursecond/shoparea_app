@@ -103,12 +103,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: DefaultButton(
                     text: 'Mulai Sekarang',
                     press: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const WelcomeScreen(),
-                        ),
-                      );
+                      Navigator.popAndPushNamed(context, '/welcome_screen/');
                     },
                   ),
                 ),

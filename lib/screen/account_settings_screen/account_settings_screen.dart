@@ -111,7 +111,9 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                   ),
                   DefaultButton(
                     text: 'Lanjut',
-                    press: () {},
+                    press: () {
+                      Navigator.popAndPushNamed(context, '/initial_screen/');
+                    },
                   ),
                 ],
               ),
