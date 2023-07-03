@@ -3,6 +3,7 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:shoparea_app/screen/account_settings_screen/account_settings_screen.dart';
+import 'package:shoparea_app/screen/add_product_screen/addproduct_screen.dart';
 import 'package:shoparea_app/screen/details_screen/detail_screen.dart';
 import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
 import 'package:shoparea_app/screen/history_screen/history_screen.dart';
@@ -36,6 +37,7 @@ final Map<String, WidgetBuilder> routes = {
   KatalogScreen.routeName: (context) => KatalogScreen(),
   HistoryScreen.routeName: (content) => HistoryScreen(),
   StoreProfileScreen.routeName: (context) => StoreProfileScreen(),
+  AddProductScreen.routeName: (context) => AddProductScreen(),
 
   // INI ADALAH ROUTES UNTUK USER
 

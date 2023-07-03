@@ -4,6 +4,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:shoparea_app/components/button_style/default_button.dart';
 import 'package:shoparea_app/components/teks/text_field_with_counter.dart';
 import 'package:shoparea_app/consts/colors.dart';
+import 'package:shoparea_app/screen/account_settings_screen/components/modal_bottom_sheet_content.dart';
 import 'package:shoparea_app/size_config.dart';
 
 class AccountSettingsScreen extends StatefulWidget {
@@ -60,35 +61,120 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                         ? getWebProportionateScreenHeight(26)
                         : getProportionateScreenHeight(26),
                   ),
-                  const TextFieldWithCounter(
+                  TextFieldWithCounter(
                     teksTitle: 'Nama Toko',
                     teksHint: 'Masukan nama toko kamu',
                     maxChar: 10,
+                    ontap: () {
+                      showModalBottomSheet(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                            ),
+                          ),
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const ModalBottomSheetContent(
+                              title: 'Rekomendasi nama toko kamu',
+                              hinttext: 'Cari nama toko kamu',
+                              textbtn: 'nama toko',
+                            );
+                          });
+                    },
                   ),
-                  const TextFieldWithCounter(
+                  TextFieldWithCounter(
                     teksTitle: 'Kategori',
                     teksHint: 'Pilih tipe bisnis kamu',
                     suffixIcon: Icons.arrow_drop_down,
+                    ontap: () {
+                      showModalBottomSheet(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                            ),
+                          ),
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const ModalBottomSheetContent(
+                              title: 'Kategori Bisnis',
+                              hinttext: 'Cari kategori bisnis kamu',
+                              textbtn: 'kategori bisnis',
+                            );
+                          });
+                    },
                   ),
                   const TextFieldWithCounter(
                     teksTitle: 'Nama Bisnis',
                     teksHint: 'Masukan nama toko kamu',
                     maxChar: 10,
                   ),
-                  const TextFieldWithCounter(
+                  TextFieldWithCounter(
                     teksTitle: 'Nama Provinsi',
                     teksHint: 'Pilih asal kota kamu',
                     suffixIcon: Icons.arrow_drop_down,
+                    ontap: () {
+                      showModalBottomSheet(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                            ),
+                          ),
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const ModalBottomSheetContent(
+                              title: 'Nama provinsi kamu',
+                              hinttext: 'Cari nama provinsi kamu',
+                              textbtn: 'nama provinsi',
+                            );
+                          });
+                    },
                   ),
-                  const TextFieldWithCounter(
+                  TextFieldWithCounter(
                     teksTitle: 'Nama kota',
                     teksHint: 'Pilih asal kecamatan kamu',
                     suffixIcon: Icons.arrow_drop_down,
+                    ontap: () {
+                      showModalBottomSheet(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                            ),
+                          ),
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const ModalBottomSheetContent(
+                              title: 'Nama kecamatan',
+                              hinttext: 'Cari nama kecamatan kamu',
+                              textbtn: 'nama kecamatan',
+                            );
+                          });
+                    },
                   ),
-                  const TextFieldWithCounter(
+                  TextFieldWithCounter(
                     teksTitle: 'Kode pos',
                     teksHint: 'Pilih asal kode pos kamu',
                     suffixIcon: Icons.arrow_drop_down,
+                    ontap: () {
+                      showModalBottomSheet(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                            ),
+                          ),
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const ModalBottomSheetContent(
+                              title: 'Kode Pos kamu',
+                              hinttext: 'Cari kode pos kamu',
+                              textbtn: 'kode pos',
+                            );
+                          });
+                    },
                   ),
                   const TextFieldWithCounter(
                     teksTitle: 'Nomor Whatsapp',

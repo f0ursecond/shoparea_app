@@ -54,16 +54,18 @@ class HomeScreen extends StatelessWidget {
                         ? getWebProportionateScreenHeight(16)
                         : getProportionateScreenHeight(16),
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ButtonFast(
                         icon: Icons.shopping_bag_outlined,
                         text: 'Tambah Produk',
+                        press: () {},
                       ),
                       ButtonFast(
                         icon: Icons.shopping_cart_outlined,
                         text: 'Buat Order',
+                        press: () {},
                       ),
                     ],
                   ),
@@ -285,16 +287,17 @@ class ButtonFast extends StatelessWidget {
     super.key,
     required this.icon,
     required this.text,
+    required this.press,
   });
 
   final IconData icon;
   final String text;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.green,
         borderRadius: BorderRadius.circular(8),
       ),
       width: kIsWeb
@@ -303,27 +306,33 @@ class ButtonFast extends StatelessWidget {
       height: kIsWeb
           ? getWebProportionateScreenHeight(53)
           : getProportionateScreenHeight(53),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            color: Colors.white,
-          ),
-          SizedBox(
-            width: kIsWeb
-                ? getWebProportionateScreenWidth(8)
-                : getProportionateScreenWidth(8),
-          ),
-          Text(
-            text,
-            style: const TextStyle(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.green,
+        ),
+        onPressed: press,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
               color: Colors.white,
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
             ),
-          )
-        ],
+            SizedBox(
+              width: kIsWeb
+                  ? getWebProportionateScreenWidth(8)
+                  : getProportionateScreenWidth(8),
+            ),
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

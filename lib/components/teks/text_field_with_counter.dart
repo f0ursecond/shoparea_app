@@ -12,6 +12,7 @@ class TextFieldWithCounter extends StatefulWidget {
   final String teksHint;
   final int? maxChar;
   final IconData? suffixIcon;
+  final VoidCallback? ontap;
 
   const TextFieldWithCounter({
     Key? key,
@@ -19,6 +20,7 @@ class TextFieldWithCounter extends StatefulWidget {
     required this.teksHint,
     this.maxChar,
     this.suffixIcon,
+    this.ontap,
   }) : super(key: key);
 
   @override
@@ -82,6 +84,7 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
             color: Colors.white,
           ),
           child: TextField(
+            onTap: widget.ontap,
             controller: _controller,
             maxLength: 100,
             decoration: InputDecoration(

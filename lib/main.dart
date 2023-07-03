@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shoparea_app/routes.dart';
+import 'package:shoparea_app/screen/add_product_screen/addproduct_screen.dart';
 import 'package:shoparea_app/screen/home_screen/components/home_body.dart';
 import 'package:shoparea_app/screen/home_screen/home_screen.dart';
 import 'package:shoparea_app/screen/splash_screen/splash_screen.dart';
@@ -51,7 +52,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Shoparea',
       theme: themeData(),
-      initialRoute: SplashScreen.routeName,
+      initialRoute: AddProductScreen.routeName,
       routes: routes,
     );
   }
