@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/components/button_style/default_button.dart';
 import 'package:shoparea_app/components/teks/text_field_with_counter.dart';
+import 'package:shoparea_app/size_config.dart';
 
 enum Stock { ready, limited }
 
@@ -130,6 +132,38 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       ],
                     ),
                   ),
+                  Container(
+                    width: 118,
+                    height: 23,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(color: Colors.green),
+                    ),
+                    child: const Row(
+                      children: [
+                        Icon(Icons.add),
+                        Text(
+                          'Tambah Variasi',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: kIsWeb
+                        ? getWebProportionateScreenHeight(24)
+                        : getProportionateScreenHeight(24),
+                  ),
+                  DefaultButton(
+                      press: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/pengaturan_pengiriman/',
+                        );
+                      },
+                      text: 'Tambah Produk'),
                 ],
               ),
             ),

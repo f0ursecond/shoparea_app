@@ -3,7 +3,9 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:shoparea_app/screen/account_settings_screen/account_settings_screen.dart';
+import 'package:shoparea_app/screen/add_account_bank/add_account_bank.dart';
 import 'package:shoparea_app/screen/add_product_screen/addproduct_screen.dart';
+import 'package:shoparea_app/screen/alamat_pengiriman_screen/alamat_pengiriman_screen.dart';
 import 'package:shoparea_app/screen/details_screen/detail_screen.dart';
 import 'package:shoparea_app/screen/front_store/front_store_screen.dart';
 import 'package:shoparea_app/screen/history_screen/history_screen.dart';
@@ -13,9 +15,11 @@ import 'package:shoparea_app/screen/informasi_toko/informasi_toko_screen.dart';
 import 'package:shoparea_app/screen/katalog_screen/katalog_screen.dart';
 import 'package:shoparea_app/screen/keranjang_screen/keranjang_screen.dart';
 import 'package:shoparea_app/screen/onboarding_screen/onboarding_screen.dart';
+import 'package:shoparea_app/screen/pengaturan_pengiriman_screen/pengaturan_pengriman_screen.dart';
 import 'package:shoparea_app/screen/pengiriman_screen/pengiriman_screen.dart';
 import 'package:shoparea_app/screen/search_screen/search_screen.dart';
 import 'package:shoparea_app/screen/semua_pesanan_screen/semua_pesanan_screen.dart';
+import 'package:shoparea_app/screen/settings_pin_screen/settings_pin_screen.dart';
 import 'package:shoparea_app/screen/splash_screen/splash_screen.dart';
 import 'package:shoparea_app/screen/status_bayar_screen/status_bayar_screen.dart';
 import 'package:shoparea_app/screen/store_profile_screen/store_profile_screen.dart';
@@ -38,7 +42,11 @@ final Map<String, WidgetBuilder> routes = {
   HistoryScreen.routeName: (content) => HistoryScreen(),
   StoreProfileScreen.routeName: (context) => StoreProfileScreen(),
   AddProductScreen.routeName: (context) => AddProductScreen(),
-
+  PengaturanPengirimanScreen.routeName: (context) =>
+      PengaturanPengirimanScreen(),
+  AlamatPengirimanScreen.routeName: (context) => AlamatPengirimanScreen(),
+  AddAccountBankScreen.routeName: (context) => AddAccountBankScreen(),
+  PinSettingsScreen.routeName: (context) => PinSettingsScreen(),
   // INI ADALAH ROUTES UNTUK USER
 
   FrontStoreScreen.routeName: (context) => FrontStoreScreen(),

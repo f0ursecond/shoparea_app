@@ -15,7 +15,7 @@ class DefaultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(30),
       ),
       width: kIsWeb ? 400.0 : double.infinity,
       height: kIsWeb ? 48.0 : 48.0,
