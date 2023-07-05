@@ -58,18 +58,22 @@ class KatalogScreen extends StatelessWidget {
                 Expanded(
                     child: Column(
                   children: [
-                    const KatalogContainer(
+                    KatalogContainer(
                       title: 'Buat Produk Baru',
                       subtitle: 'Lorem Ipsum Dolor Sir Amet',
+                      press: () {},
                     ),
                     SizedBox(
                       height: kIsWeb
                           ? getWebProportionateScreenHeight(24.62)
                           : getProportionateScreenHeight(24.62),
                     ),
-                    const KatalogContainer(
+                    KatalogContainer(
                       title: 'Buat Promosi Produk ',
                       subtitle: 'Lorem Ipsum Dolor Sir Amet',
+                      press: () {
+                        Navigator.pushNamed(context, '/add_promosi_produk/');
+                      },
                     ),
                   ],
                 ))
@@ -87,66 +91,71 @@ class KatalogContainer extends StatelessWidget {
     super.key,
     required this.title,
     required this.subtitle,
+    required this.press,
   });
 
   final String title;
   final String subtitle;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.grey,
+    return GestureDetector(
+      onTap: press,
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.grey,
+          ),
+          borderRadius: BorderRadius.circular(4),
         ),
-        borderRadius: BorderRadius.circular(4),
-      ),
-      height: 89,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Row(
-          children: [
-            Image.asset(
-              'assets/images/message.png',
-              width: 78,
-              height: 55,
-            ),
-            SizedBox(
-              width: kIsWeb
-                  ? getWebProportionateScreenWidth(18)
-                  : getProportionateScreenWidth(18),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 14,
-                  ),
-                ),
-                SizedBox(
-                  height: kIsWeb
-                      ? getWebProportionateScreenHeight(8)
-                      : getProportionateScreenHeight(8),
-                ),
-                Text(
-                  subtitle,
-                  style: const TextStyle(
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            const Expanded(
-              child: Icon(
-                Icons.arrow_right_sharp,
+        height: 89,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              Image.asset(
+                'assets/images/message.png',
+                width: 78,
+                height: 55,
               ),
-            )
-          ],
+              SizedBox(
+                width: kIsWeb
+                    ? getWebProportionateScreenWidth(18)
+                    : getProportionateScreenWidth(18),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                    ),
+                  ),
+                  SizedBox(
+                    height: kIsWeb
+                        ? getWebProportionateScreenHeight(8)
+                        : getProportionateScreenHeight(8),
+                  ),
+                  Text(
+                    subtitle,
+                    style: const TextStyle(
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+              const Expanded(
+                child: Icon(
+                  Icons.arrow_right_sharp,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

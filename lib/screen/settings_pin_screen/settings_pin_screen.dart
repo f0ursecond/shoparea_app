@@ -46,7 +46,7 @@ class PinSettingsScreen extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  'BCA | Wahyu Rizqy Saputra',
+                  'Bank Muamalat | Wahyu Rizqy Saputra',
                 ),
                 const Divider(),
                 const Text(
@@ -78,7 +78,9 @@ class PinSettingsScreen extends StatelessWidget {
                   flex: 4,
                 ),
                 DefaultButton(
-                  press: () {},
+                  press: () {
+                    Navigator.pushNamed(context, '/make_order/');
+                  },
                   text: 'Buat kode pin',
                 ),
                 const Spacer(),

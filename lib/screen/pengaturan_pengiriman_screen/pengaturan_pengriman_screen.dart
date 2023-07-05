@@ -213,7 +213,7 @@ class _SemuaKurirState extends State<SemuaKurir> {
         ),
         DefaultButton(
           press: () {
-            Navigator.pushNamed(context, '/alamat_pengirman/');
+            Navigator.pushNamed(context, '/alamat_tersimpan/');
           },
           text: 'Simpan',
         ),

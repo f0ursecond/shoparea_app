@@ -60,12 +60,16 @@ class HomeScreen extends StatelessWidget {
                       ButtonFast(
                         icon: Icons.shopping_bag_outlined,
                         text: 'Tambah Produk',
-                        press: () {},
+                        press: () {
+                          Navigator.pushNamed(context, '/add_product_screen/');
+                        },
                       ),
                       ButtonFast(
                         icon: Icons.shopping_cart_outlined,
                         text: 'Buat Order',
-                        press: () {},
+                        press: () {
+                          Navigator.pushNamed(context, '/make_order/');
+                        },
                       ),
                     ],
                   ),

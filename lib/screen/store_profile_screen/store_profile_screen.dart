@@ -242,6 +242,7 @@ class AccountSection extends StatelessWidget {
           Icons.receipt,
           color: Colors.black,
         ),
+        "link": '/'
       },
       {
         "title": "Alamat Tersimpan",
@@ -249,6 +250,7 @@ class AccountSection extends StatelessWidget {
           Icons.home_outlined,
           color: Colors.black,
         ),
+        "link": '/alamat_tersimpan/'
       },
       {
         "title": "Pilihan Bahasa",
@@ -256,6 +258,7 @@ class AccountSection extends StatelessWidget {
           Icons.translate,
           color: Colors.black,
         ),
+        "link": '/'
       },
     ];
 
