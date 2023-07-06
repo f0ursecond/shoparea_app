@@ -41,11 +41,11 @@ class _PromosiProductScreenState extends State<PromosiProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
+      child: SizedBox(
         width: kIsWeb ? 400 : double.infinity,
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Promosi produk'),
+            title: const Text('Promosi produk'),
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(
@@ -71,7 +71,7 @@ class _PromosiProductScreenState extends State<PromosiProductScreen> {
                     border: OutlineInputBorder(),
                   ),
                 ),
-                Categories(),
+                const Categories(),
                 Expanded(
                   child: ListView.separated(
                     separatorBuilder: (BuildContext context, index) {

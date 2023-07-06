@@ -67,6 +67,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                     maxChar: 10,
                     ontap: () {
                       showModalBottomSheet(
+                          isScrollControlled: true,
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(15),

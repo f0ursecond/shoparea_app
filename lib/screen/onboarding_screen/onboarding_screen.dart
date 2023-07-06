@@ -6,7 +6,6 @@ import 'package:shoparea_app/consts/consts.dart';
 import 'package:shoparea_app/models/onboarding_content.dart';
 
 import 'package:shoparea_app/screen/onboarding_screen/components/title_text.dart';
-import 'package:shoparea_app/screen/welcome_screen/welcome_screen.dart';
 import 'package:shoparea_app/size_config.dart';
 
 class OnboardingScreen extends StatefulWidget {

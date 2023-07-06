@@ -2,8 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/welcome_screen/components/login_button.dart';
-import 'package:shoparea_app/screen/welcome_screen/components/verification_bottom_sheet.dart';
-import 'package:shoparea_app/size_config.dart';
 
 import 'components/login_modal_bottom_sheet.dart';
 

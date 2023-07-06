@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/size_config.dart';
 
 class TitleText extends StatelessWidget {
   const TitleText({
@@ -10,14 +12,23 @@ class TitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      textAlign: TextAlign.center,
-      title,
-      style: const TextStyle(
-        fontSize: 24,
-        color: Colors.black,
-        fontWeight: FontWeight.w700,
-      ),
+    return Column(
+      children: [
+        SizedBox(
+          height: kIsWeb
+              ? getWebProportionateScreenHeight(10)
+              : getProportionateScreenHeight(10),
+        ),
+        Text(
+          textAlign: TextAlign.center,
+          title,
+          style: const TextStyle(
+            fontSize: 16,
+            color: Colors.black,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -44,8 +44,8 @@ class ModalBottomSheetContent extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                   hintText: hinttext,
-                  prefixIcon: Icon(Icons.search),
-                  border: OutlineInputBorder()),
+                  prefixIcon: const Icon(Icons.search),
+                  border: const OutlineInputBorder()),
             ),
             SizedBox(
               height: kIsWeb

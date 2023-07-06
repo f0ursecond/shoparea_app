@@ -1,4 +1,3 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/screen/total_penjualan_screen/components/charts.dart';
@@ -18,16 +17,16 @@ class TotalPenjualanScreen extends StatelessWidget {
         width: kIsWeb ? 400.0 : double.infinity,
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Penjualan'),
+            title: const Text('Penjualan'),
           ),
           body: Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 24,
               vertical: 24,
             ),
             child: Column(
               children: [
-                StatistikContainer(),
+                const StatistikContainer(),
                 SizedBox(
                   height: kIsWeb
                       ? getWebProportionateScreenHeight(24)

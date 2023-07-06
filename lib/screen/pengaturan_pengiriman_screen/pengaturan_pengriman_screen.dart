@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 import 'package:shoparea_app/components/button_style/default_button.dart';
 import 'package:shoparea_app/size_config.dart';
 
@@ -26,7 +25,6 @@ class _PengaturanPengirimanScreenState extends State<PengaturanPengirimanScreen>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _tabController.dispose();
     super.dispose();
   }

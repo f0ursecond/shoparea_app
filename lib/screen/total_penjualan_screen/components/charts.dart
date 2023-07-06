@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/screen/total_penjualan_screen/components/legend.dart';
 
+// ignore: must_be_immutable
 class BarChartSample6 extends StatelessWidget {
   BarChartSample6({super.key});
 

@@ -16,7 +16,7 @@ class AlamatPengirimanScreen extends StatelessWidget {
         width: kIsWeb ? 400.0 : double.infinity,
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Alamat Pengiriman'),
+            title: const Text('Alamat Pengiriman'),
           ),
           body: SingleChildScrollView(
             child: Padding(

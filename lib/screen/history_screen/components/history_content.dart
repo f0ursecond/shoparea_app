@@ -9,14 +9,17 @@ class HistoryContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.grey,
-        ),
-        borderRadius: BorderRadius.circular(4),
-      ),
-      height: 207,
+    return Card(
+      // decoration: BoxDecoration(
+      //   border: Border.all(
+      //     color: Colors.grey,
+      //   ),
+      //   borderRadius: BorderRadius.circular(4),
+      // ),
+      // height: 207,
+      shape: RoundedRectangleBorder(
+          side: const BorderSide(color: Colors.black),
+          borderRadius: BorderRadius.circular(4)),
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,

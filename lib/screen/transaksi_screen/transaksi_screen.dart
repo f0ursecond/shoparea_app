@@ -270,7 +270,7 @@ class ProductDescription extends StatelessWidget {
           height: 18,
           decoration: BoxDecoration(
             border: Border.all(
-              color: Color(0xFF2DBE78),
+              color: const Color(0xFF2DBE78),
             ),
             borderRadius: BorderRadius.circular(4),
           ),

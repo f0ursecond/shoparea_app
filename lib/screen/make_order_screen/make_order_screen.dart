@@ -18,7 +18,7 @@ class MakeOrderScreen extends StatelessWidget {
         width: kIsWeb ? 400.0 : double.infinity,
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Buat Order'),
+            title: const Text('Buat Order'),
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(
@@ -48,12 +48,12 @@ class MakeOrderScreen extends StatelessWidget {
                   suffixIcon: Icons.arrow_right,
                   maxLength: 10,
                 ),
-                Spacer(),
+                const Spacer(),
                 DefaultButton(
                   press: () {},
                   text: 'Selanjutnya',
                 ),
-                Spacer(),
+                const Spacer(),
               ],
             ),
           ),

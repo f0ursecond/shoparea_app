@@ -223,7 +223,7 @@ class OtpField extends StatelessWidget {
           FilteringTextInputFormatter.digitsOnly
         ],
         textAlign: TextAlign.center,
-        decoration: InputDecoration(border: OutlineInputBorder()),
+        decoration: const InputDecoration(border: OutlineInputBorder()),
       ),
     );
   }
