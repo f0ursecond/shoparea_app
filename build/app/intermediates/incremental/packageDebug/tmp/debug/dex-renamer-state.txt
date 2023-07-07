@@ -1,4 +1,4 @@
-#Thu Jul 06 14:56:10 WIB 2023
+#Fri Jul 07 11:45:34 WIB 2023
 base.0=/home/f0ursecond/Documents/shoparea_app/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

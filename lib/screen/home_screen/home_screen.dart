@@ -78,38 +78,17 @@ class HomeScreen extends StatelessWidget {
                         ? getWebProportionateScreenHeight(36)
                         : getProportionateScreenHeight(36),
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'Ringkasan',
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
                             color: Colors.black),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF6DB5CB),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        width: kIsWeb
-                            ? getWebProportionateScreenWidth(153)
-                            : getProportionateScreenWidth(153),
-                        height: kIsWeb
-                            ? getWebProportionateScreenHeight(53)
-                            : getProportionateScreenHeight(53),
-                        child: const Center(
-                          child: Text(
-                            'Cek Analitik Toko Kamu',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                      ),
+                      AnalyticsButton(),
                     ],
                   ),
                   SizedBox(
@@ -123,64 +102,113 @@ class HomeScreen extends StatelessWidget {
                         ? getWebProportionateScreenHeight(16)
                         : getProportionateScreenHeight(32),
                   ),
-                  Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: const Color(0xFFE9F0F8),
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 12),
-                      child: Row(
-                        children: [
-                          Image.asset('assets/images/icon_verification.png'),
-                          SizedBox(
-                            width: kIsWeb
-                                ? getWebProportionateScreenWidth(12)
-                                : getProportionateScreenWidth(12),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text(
-                                'Lakukan verifikasi KTP untuk\naktifkan semua akses penjualan di\ntokomu',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              SizedBox(
-                                height: kIsWeb
-                                    ? getWebProportionateScreenHeight(20)
-                                    : getProportionateScreenHeight(20),
-                              ),
-                              const Text(
-                                'Siapkan KTP dan koneksi internet yang stabil',
-                                style: TextStyle(
-                                  fontSize: 10,
-                                ),
-                              )
-                            ],
-                          ),
-                          const Expanded(
-                            child: Icon(
-                              Icons.arrow_right_sharp,
-                              color: Colors.green,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  const VerificationContainer(),
                 ],
               ),
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class VerificationContainer extends StatelessWidget {
+  const VerificationContainer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 150,
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: 1,
+          color: const Color(0xFFE9F0F8),
+        ),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Row(
+          children: [
+            Image.asset('assets/images/icon_verification.png'),
+            SizedBox(
+              width: kIsWeb
+                  ? getWebProportionateScreenWidth(12)
+                  : getProportionateScreenWidth(12),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Lakukan verifikasi KTP untuk\naktifkan semua akses penjualan di\ntokomu',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(
+                  height: kIsWeb
+                      ? getWebProportionateScreenHeight(20)
+                      : getProportionateScreenHeight(20),
+                ),
+                const Text(
+                  'Siapkan KTP dan koneksi internet yang stabil',
+                  style: TextStyle(
+                    fontSize: 10,
+                  ),
+                )
+              ],
+            ),
+            const Expanded(
+              child: Icon(
+                Icons.arrow_right_sharp,
+                color: Colors.green,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AnalyticsButton extends StatelessWidget {
+  const AnalyticsButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/total_penjualan/');
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xFF6DB5CB),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        width: kIsWeb
+            ? getWebProportionateScreenWidth(180)
+            : getProportionateScreenWidth(180),
+        height: kIsWeb
+            ? getWebProportionateScreenHeight(53)
+            : getProportionateScreenHeight(53),
+        child: const Chip(
+          shape: StadiumBorder(side: BorderSide(color: Color(0xFF6DB5CB))),
+          backgroundColor: Color(0xFF6DB5CB),
+          label: Text(
+            'Cek Analitik Toko Kamu',
+            style: TextStyle(color: Colors.white),
+          ),
+          avatar: Icon(
+            Icons.info_outline,
+            color: Colors.white,
           ),
         ),
       ),

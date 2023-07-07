@@ -10,13 +10,17 @@ class TitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: const TextStyle(
-        fontSize: 16,
-        color: Colors.black,
-        fontWeight: FontWeight.w700,
-      ),
+    return Row(
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 16,
+            color: Colors.black,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ],
     );
   }
 }

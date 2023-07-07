@@ -75,7 +75,12 @@ class StoreProfileScreen extends StatelessWidget {
                       : MediaQuery.of(context).size.height / 4.2,
                   child: const AnotherInfo(),
                 ),
-                const LogOutButton(),
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    LogOutButton(),
+                  ],
+                ),
               ],
             ),
           ),

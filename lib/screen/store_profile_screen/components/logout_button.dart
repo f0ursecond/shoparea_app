@@ -13,15 +13,25 @@ class LogOutButton extends StatelessWidget {
         right: 20,
         bottom: 60,
       ),
-      child: Container(
+      child: SizedBox(
         height: 50,
-        decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.red,
+        // decoration: BoxDecoration(
+        //     border: Border.all(
+        //       color: Colors.red,
+        //     ),
+        //     borderRadius: BorderRadius.circular(8)),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            foregroundColor: Colors.red,
+            elevation: 0,
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+              side: const BorderSide(color: Colors.red),
             ),
-            borderRadius: BorderRadius.circular(8)),
-        child: const Center(
-          child: Text(
+          ),
+          onPressed: () {},
+          child: const Text(
             'Keluar',
             style: TextStyle(
               color: Colors.red,

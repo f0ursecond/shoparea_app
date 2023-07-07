@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 
-class AccountSection extends StatelessWidget {
+class AccountSection extends StatefulWidget {
   const AccountSection({
     super.key,
   });
 
   @override
+  State<AccountSection> createState() => _AccountSectionState();
+}
+
+enum SelectLanguage { english, indonesia }
+
+class _AccountSectionState extends State<AccountSection> {
+  final SelectLanguage _language = SelectLanguage.indonesia;
+  @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {});
+
     List<Map<String, dynamic>> accountList = [
       {
         "title": "Pesananku",
@@ -14,7 +24,7 @@ class AccountSection extends StatelessWidget {
           Icons.receipt,
           color: Colors.black,
         ),
-        "link": '/'
+        "link": '/transaksi_screen/'
       },
       {
         "title": "Alamat Tersimpan",
@@ -30,7 +40,7 @@ class AccountSection extends StatelessWidget {
           Icons.translate,
           color: Colors.black,
         ),
-        "link": '/'
+        "link": '/ganti_bahasa',
       },
     ];
 
@@ -57,7 +67,9 @@ class AccountSection extends StatelessWidget {
             ),
           ),
           trailing: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, list['link']);
+            },
             icon: const Icon(Icons.arrow_right_sharp),
           ),
         );
