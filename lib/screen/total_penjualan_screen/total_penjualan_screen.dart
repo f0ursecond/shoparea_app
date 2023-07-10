@@ -34,7 +34,18 @@ class TotalPenjualanScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: BarChartSample6(),
-                )
+                ),
+                SizedBox(
+                  height: kIsWeb
+                      ? getWebProportionateScreenHeight(24)
+                      : getProportionateScreenHeight(24),
+                ),
+                Container(
+                  color: Colors.greenAccent,
+                  height: kIsWeb
+                      ? getWebProportionateScreenHeight(138)
+                      : getProportionateScreenHeight(138),
+                ),
               ],
             ),
           ),
@@ -51,24 +62,34 @@ class StatistikContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       height: 60,
       child: Row(
         children: [
-          Expanded(
+          const Expanded(
               flex: 1,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Statistik'),
+                  Text(
+                    'Statistics',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                   Text('7 Feb - 14 Feb 2023 '),
                 ],
               )),
           Expanded(
             flex: -1,
             child: Chip(
-              label: Text('7 Hari terakhir'),
+              onDeleted: () {},
+              backgroundColor: const Color(0xFF6DB5CB),
+              deleteIcon: const Icon(Icons.arrow_drop_down),
+              label: const Text('7 Hari terakhir'),
             ),
           ),
         ],

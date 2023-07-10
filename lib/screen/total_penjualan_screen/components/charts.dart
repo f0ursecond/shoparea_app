@@ -6,7 +6,7 @@ import 'package:shoparea_app/screen/total_penjualan_screen/components/legend.dar
 class BarChartSample6 extends StatelessWidget {
   BarChartSample6({super.key});
 
-  final pilateColor = Colors.purple;
+  final pilateColor = const Color(0xFF4A3AFF);
   final cyclingColor = Colors.cyan;
   final quickWorkoutColor = Colors.blue;
   final betweenSpace = 0.2;
@@ -22,22 +22,16 @@ class BarChartSample6 extends StatelessWidget {
       groupVertically: true,
       barRods: [
         BarChartRodData(
-          fromY: 0,
+          fromY: -2,
           toY: pilates,
           color: pilateColor,
-          width: 5,
+          width: 8,
         ),
         BarChartRodData(
           fromY: pilates + betweenSpace,
           toY: pilates + betweenSpace + quickWorkout,
-          color: quickWorkoutColor,
-          width: 5,
-        ),
-        BarChartRodData(
-          fromY: pilates + betweenSpace + quickWorkout + betweenSpace,
-          toY: pilates + betweenSpace + quickWorkout + betweenSpace + cycling,
-          color: cyclingColor,
-          width: 5,
+          color: Colors.grey[400],
+          width: 8,
         ),
       ],
     );
@@ -82,32 +76,18 @@ class BarChartSample6 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 8),
-          LegendsListWidget(
-            legends: [
-              Legend('Pilates', pilateColor),
-              Legend('Quick workouts', quickWorkoutColor),
-              Legend('Cycling', cyclingColor),
-            ],
-          ),
-          const SizedBox(height: 14),
           AspectRatio(
-            aspectRatio: 2,
+            aspectRatio: 1,
             child: BarChart(
               BarChartData(
                 alignment: BarChartAlignment.spaceBetween,
                 titlesData: FlTitlesData(
-                  leftTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                    showTitles: true,
-                    getTitlesWidget: bottomTitles,
-                    reservedSize: 20,
-                  )),
+                  leftTitles: const AxisTitles(),
                   rightTitles: const AxisTitles(),
                   topTitles: const AxisTitles(),
                   bottomTitles: AxisTitles(
@@ -121,32 +101,44 @@ class BarChartSample6 extends StatelessWidget {
                 borderData: FlBorderData(show: false),
                 gridData: const FlGridData(show: false),
                 barGroups: [
-                  generateGroupData(0, 2, 3, 2),
-                  generateGroupData(1, 2, 5, 1.7),
-                  generateGroupData(2, 1.3, 3.1, 2.8),
-                  generateGroupData(3, 3.1, 4, 3.1),
-                  generateGroupData(4, 0.8, 3.3, 3.4),
-                  generateGroupData(5, 2, 5.6, 1.8),
-                  generateGroupData(6, 1.3, 3.2, 2),
+                  generateGroupData(0, 2, 6.8, 2),
+                  generateGroupData(1, 4, 4.8, 1.7),
+                  generateGroupData(2, 1.3, 7.5, 2.8),
+                  generateGroupData(3, 4.8, 4.0, 3.1),
+                  generateGroupData(4, 3, 5.8, 3.4),
+                  generateGroupData(5, 2, 6.8, 1.8),
+                  generateGroupData(6, 6, 2.9, 2),
                 ],
-                maxY: 11 + (betweenSpace * 3),
+                maxY: 11 + (betweenSpace * 2),
                 extraLinesData: ExtraLinesData(
                   horizontalLines: [
                     HorizontalLine(
-                      y: 3.3,
-                      color: pilateColor,
+                      y: 1.3,
+                      color: Colors.grey[400],
+                      strokeWidth: 0.5,
+                      dashArray: [20, 4],
+                    ),
+                    HorizontalLine(
+                      y: 3,
+                      color: Colors.grey[400],
                       strokeWidth: 1,
                       dashArray: [20, 4],
                     ),
                     HorizontalLine(
-                      y: 8,
-                      color: quickWorkoutColor,
+                      y: 5,
+                      color: Colors.grey[400],
                       strokeWidth: 1,
                       dashArray: [20, 4],
                     ),
                     HorizontalLine(
-                      y: 11,
-                      color: cyclingColor,
+                      y: 7,
+                      color: Colors.grey[400],
+                      strokeWidth: 1,
+                      dashArray: [20, 4],
+                    ),
+                    HorizontalLine(
+                      y: 9,
+                      color: Colors.grey[400],
                       strokeWidth: 1,
                       dashArray: [20, 4],
                     ),

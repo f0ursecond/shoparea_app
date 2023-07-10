@@ -204,7 +204,10 @@ class AnalyticsButton extends StatelessWidget {
           backgroundColor: Color(0xFF6DB5CB),
           label: Text(
             'Cek Analitik Toko Kamu',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: kIsWeb ? 12 : 14,
+            ),
           ),
           avatar: Icon(
             Icons.info_outline,
