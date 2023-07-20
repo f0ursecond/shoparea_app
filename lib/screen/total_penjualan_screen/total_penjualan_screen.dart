@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/screen/total_penjualan_screen/components/charts.dart';
 import 'package:shoparea_app/size_config.dart';
 
-class TotalPenjualanScreen extends StatelessWidget {
-  const TotalPenjualanScreen({super.key});
+class TotalSalesScreen extends StatelessWidget {
+  const TotalSalesScreen({super.key});
 
   static String routeName = '/total_penjualan/';
 

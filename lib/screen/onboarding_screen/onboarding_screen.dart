@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/default_button.dart';
 import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/consts/consts.dart';
-import 'package:shoparea_app/models/onboarding_content.dart';
-
-import 'package:shoparea_app/screen/onboarding_screen/components/title_text.dart';
+import 'package:shoparea_app/models/Onboarding.dart';
+import 'package:shoparea_app/screen/onboarding_screen/components/pageview_item.dart';
 import 'package:shoparea_app/size_config.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -49,10 +48,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           });
                         },
                         itemCount: content.length,
-                        itemBuilder: (context, index) => Image(
-                          image: AssetImage(
-                            content[index].image,
-                          ),
+                        itemBuilder: (context, index) => PageViewItem(
+                          index: index,
                         ),
                       ),
                     ),
@@ -73,36 +70,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 SizedBox(
                   height: getWebProportionateScreenHeight(50),
                 ),
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: getProportionateScreenHeight(10),
-                      ),
-                      const TitleText(
-                        title: 'Buat Toko Online Kamu\n Sendiri Dengan Mudah',
-                      ),
-                      SizedBox(
-                        height: getProportionateScreenHeight(8),
-                      ),
-                      const Text(
-                        textAlign: TextAlign.center,
-                        'Lorem ipsum is placeholder text commonly used\nin the graphic, print, and publishing industries for',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24.0),
                   child: DefaultButton(
                     text: 'Mulai Sekarang',
                     press: () {
-                      Navigator.popAndPushNamed(context, '/welcome_screen/');
+                      Navigator.pushNamed(context, '/welcome_screen/');
                     },
                   ),
                 ),

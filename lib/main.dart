@@ -43,6 +43,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(const AssetImage('assets/images/background.png'), context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Shoparea',

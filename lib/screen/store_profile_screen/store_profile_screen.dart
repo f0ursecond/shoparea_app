@@ -1,11 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shoparea_app/screen/onboarding_screen/components/title_text.dart';
 import 'package:shoparea_app/screen/store_profile_screen/components/account_section.dart';
 import 'package:shoparea_app/screen/store_profile_screen/components/another_info.dart';
 import 'package:shoparea_app/screen/store_profile_screen/components/logout_button.dart';
 import 'package:shoparea_app/screen/store_profile_screen/components/profile_section.dart';
 import 'package:shoparea_app/size_config.dart';
+
+import '../onboarding_screen/components/pageview_item.dart';
 
 class StoreProfileScreen extends StatelessWidget {
   const StoreProfileScreen({super.key});
@@ -23,6 +24,7 @@ class StoreProfileScreen extends StatelessWidget {
           // ignore: use_full_hex_values_for_flutter_colors
           backgroundColor: const Color(0xFFFFAFAFA),
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             elevation: 0,
             title: const Text('Profil'),
             actions: [

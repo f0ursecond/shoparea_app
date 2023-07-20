@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/screen/front_store/components/categories/categories.dart';
 import 'package:shoparea_app/size_config.dart';
 
-class PromosiProductScreen extends StatefulWidget {
-  const PromosiProductScreen({super.key});
+class PromotionProductsScreen extends StatefulWidget {
+  const PromotionProductsScreen({super.key});
 
   static String routeName = '/add_promosi_produk/';
 
   @override
-  State<PromosiProductScreen> createState() => _PromosiProductScreenState();
+  State<PromotionProductsScreen> createState() =>
+      _PromotionProductsScreenState();
 }
 
-class _PromosiProductScreenState extends State<PromosiProductScreen> {
+class _PromotionProductsScreenState extends State<PromotionProductsScreen> {
   bool isChecked = false;
 
   List<Map<String, dynamic>> product = [

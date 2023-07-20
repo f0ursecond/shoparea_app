@@ -41,20 +41,20 @@ final Map<String, WidgetBuilder> routes = {
   AccountSettingsScreen.routeName: (context) => AccountSettingsScreen(),
   HomeBody.routeName: (context) => HomeBody(),
   HomeScreen.routesName: (context) => HomeScreen(),
-  TransaksiScreen.routeName: (context) => TransaksiScreen(),
+  TransactionScreen.routeName: (context) => TransactionScreen(),
   KatalogScreen.routeName: (context) => KatalogScreen(),
   HistoryScreen.routeName: (content) => HistoryScreen(),
   StoreProfileScreen.routeName: (context) => StoreProfileScreen(),
   AddProductScreen.routeName: (context) => AddProductScreen(),
-  PengaturanPengirimanScreen.routeName: (context) =>
-      PengaturanPengirimanScreen(),
-  AlamatPengirimanScreen.routeName: (context) => AlamatPengirimanScreen(),
+  ShippingSettingsScreen.routeName: (context) => ShippingSettingsScreen(),
+  ShippingAddressScreen.routeName: (context) => ShippingAddressScreen(),
   AddAccountBankScreen.routeName: (context) => AddAccountBankScreen(),
   PinSettingsScreen.routeName: (context) => PinSettingsScreen(),
-  TotalPenjualanScreen.routeName: (context) => TotalPenjualanScreen(),
+  TotalSalesScreen.routeName: (context) => TotalSalesScreen(),
   MakeOrderScreen.routeName: (context) => MakeOrderScreen(),
-  AlamatTersimpanScreen.routeName: (context) => AlamatTersimpanScreen(),
-  PromosiProductScreen.routeName: (context) => PromosiProductScreen(),
+  SavedAddressScreen.routeName: (context) => SavedAddressScreen(),
+  PromotionProductsScreen.routeName: (context) => PromotionProductsScreen(),
+
   // INI ADALAH ROUTES UNTUK USER
 
   FrontStoreScreen.routeName: (context) => FrontStoreScreen(),

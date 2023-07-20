@@ -1,20 +1,21 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/front_store/components/categories/categories.dart';
 import 'package:shoparea_app/screen/transaksi_screen/components/container_cart.dart';
 import 'package:shoparea_app/screen/transaksi_screen/components/search_products.dart';
 import 'package:shoparea_app/size_config.dart';
 
-class TransaksiScreen extends StatefulWidget {
-  const TransaksiScreen({super.key});
+class TransactionScreen extends StatefulWidget {
+  const TransactionScreen({super.key});
 
   static String routeName = '/transaksi_screen/';
 
   @override
-  State<TransaksiScreen> createState() => _TransaksiScreenState();
+  State<TransactionScreen> createState() => _TransactionScreenState();
 }
 
-class _TransaksiScreenState extends State<TransaksiScreen> {
+class _TransactionScreenState extends State<TransactionScreen> {
   final initialDate = DateTime.now();
 
   bool isEmpty = false;
@@ -28,6 +29,7 @@ class _TransaksiScreenState extends State<TransaksiScreen> {
         width: kIsWeb ? 400.0 : double.infinity,
         child: Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             elevation: 0,
             title: const Text('Pesanan'),
             actions: [
@@ -35,7 +37,7 @@ class _TransaksiScreenState extends State<TransaksiScreen> {
                 onPressed: () {},
                 icon: const Icon(
                   Icons.notifications,
-                  color: Colors.white,
+                  color: cColorShadesWhite,
                 ),
               ),
             ],
@@ -56,7 +58,7 @@ class _TransaksiScreenState extends State<TransaksiScreen> {
                       'Pesananmu',
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: cColorShadesBlack,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -85,8 +87,8 @@ class _TransaksiScreenState extends State<TransaksiScreen> {
                         ? const EmptyOrder()
                         : ListView.separated(
                             itemCount: 5,
-                            separatorBuilder: (context, index) => Divider(
-                              color: Colors.grey[500],
+                            separatorBuilder: (context, index) => const Divider(
+                              color: cColorNeutral70,
                             ),
                             itemBuilder: (context, index) {
                               return const CartContainer();

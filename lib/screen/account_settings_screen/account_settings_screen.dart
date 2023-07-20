@@ -31,12 +31,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
           ),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(
-                top: 32.0,
-                left: 24,
-                right: 24,
-                bottom: 20,
-              ),
+              padding: const EdgeInsets.all(32),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -45,7 +40,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
-                        color: Colors.black),
+                        color: cColorShadesBlack),
                   ),
                   SizedBox(
                     height: kIsWeb

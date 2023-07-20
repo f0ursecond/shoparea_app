@@ -4,8 +4,8 @@ import 'package:shoparea_app/screen/welcome_screen/components/login_button.dart'
 import 'package:shoparea_app/screen/welcome_screen/components/verification_bottom_sheet.dart';
 import 'package:shoparea_app/size_config.dart';
 
-class LoginBottomSheet extends StatelessWidget {
-  const LoginBottomSheet({
+class LoginWithNumberBottomSheet extends StatelessWidget {
+  const LoginWithNumberBottomSheet({
     super.key,
   });
 

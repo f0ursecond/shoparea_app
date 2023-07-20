@@ -3,17 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/default_button.dart';
 import 'package:shoparea_app/size_config.dart';
 
-class PengaturanPengirimanScreen extends StatefulWidget {
-  const PengaturanPengirimanScreen({super.key});
+class ShippingSettingsScreen extends StatefulWidget {
+  const ShippingSettingsScreen({super.key});
 
   static String routeName = '/pengaturan_pengiriman/';
 
   @override
-  State<PengaturanPengirimanScreen> createState() =>
-      _PengaturanPengirimanScreenState();
+  State<ShippingSettingsScreen> createState() => _ShippingSettingsScreenState();
 }
 
-class _PengaturanPengirimanScreenState extends State<PengaturanPengirimanScreen>
+class _ShippingSettingsScreenState extends State<ShippingSettingsScreen>
     with TickerProviderStateMixin {
   late final TabController _tabController;
 

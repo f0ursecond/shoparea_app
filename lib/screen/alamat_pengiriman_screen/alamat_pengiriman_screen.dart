@@ -4,8 +4,8 @@ import 'package:shoparea_app/components/button_style/default_button.dart';
 import 'package:shoparea_app/components/teks/text_field_with_counter.dart';
 import 'package:shoparea_app/size_config.dart';
 
-class AlamatPengirimanScreen extends StatelessWidget {
-  const AlamatPengirimanScreen({super.key});
+class ShippingAddressScreen extends StatelessWidget {
+  const ShippingAddressScreen({super.key});
   static String routeName = '/alamat_pengirman/';
   @override
   Widget build(BuildContext context) {

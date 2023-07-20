@@ -12,7 +12,7 @@ class AccountSection extends StatefulWidget {
 enum SelectLanguage { english, indonesia }
 
 class _AccountSectionState extends State<AccountSection> {
-  final SelectLanguage _language = SelectLanguage.indonesia;
+  final SelectLanguage language = SelectLanguage.indonesia;
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {});

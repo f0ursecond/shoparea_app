@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shoparea_app/components/button_style/default_button.dart';
 
-class AlamatTersimpanScreen extends StatelessWidget {
-  const AlamatTersimpanScreen({super.key});
+class SavedAddressScreen extends StatelessWidget {
+  const SavedAddressScreen({super.key});
 
   static String routeName = '/alamat_tersimpan/';
 

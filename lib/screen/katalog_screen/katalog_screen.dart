@@ -16,6 +16,7 @@ class KatalogScreen extends StatelessWidget {
         width: kIsWeb ? 400.0 : double.infinity,
         child: Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             elevation: 0,
             title: const Text('Katalog'),
             actions: [

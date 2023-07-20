@@ -21,7 +21,7 @@ class _HomeBodyState extends State<HomeBody> {
 
   static const List<Widget> body = [
     HomeScreen(),
-    TransaksiScreen(),
+    TransactionScreen(),
     KatalogScreen(),
     HistoryScreen(),
     StoreProfileScreen(),
@@ -44,10 +44,12 @@ class _HomeBodyState extends State<HomeBody> {
           body: body.elementAt(_selectedIndex),
           extendBody: true,
           bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: cColorShadesWhite,
             type: BottomNavigationBarType.fixed,
             unselectedItemColor: Colors.grey,
-            unselectedLabelStyle: const TextStyle(color: Colors.black),
-            selectedLabelStyle: const TextStyle(color: Colors.green),
+            unselectedLabelStyle: const TextStyle(color: cColorShadesBlack),
+            selectedLabelStyle: const TextStyle(color: cColorPrimary50),
+            selectedItemColor: cColorPrimary50,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 activeIcon: Icon(
