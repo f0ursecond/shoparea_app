@@ -18,6 +18,19 @@ class AccountSettingsScreen extends StatefulWidget {
 
 class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
   bool status = false;
+  List<String> category = ['Otomotif', 'Fashion', 'Elektronik', 'Material'];
+  List<String> provinceName = [
+    'Jawa Tengah',
+    'Jawa Barat',
+    'Jawir',
+    'Jawa Timur'
+  ];
+  List<String> cityName = ['Semarang', 'Bandung', 'Konoha', 'Surabaya'];
+
+  final kategoriCtrl = TextEditingController();
+  final provinceCtrl = TextEditingController();
+  final cityCtrl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -56,47 +69,25 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                         ? getWebProportionateScreenHeight(26)
                         : getProportionateScreenHeight(26),
                   ),
-                  TextFieldWithCounter(
+                  const TextFieldWithCounter(
                     teksTitle: 'Nama Toko',
                     teksHint: 'Masukan nama toko kamu',
-                    maxChar: 10,
-                    ontap: () {
-                      showModalBottomSheet(
-                          isScrollControlled: true,
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                          ),
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const ModalBottomSheetContent(
-                              title: 'Rekomendasi nama toko kamu',
-                              hinttext: 'Cari nama toko kamu',
-                              textbtn: 'nama toko',
-                            );
-                          });
-                    },
                   ),
                   TextFieldWithCounter(
+                    controller: kategoriCtrl,
+                    txtInputType: TextInputType.none,
+                    teksHint: 'Masukan Kategori Toko Kamu',
                     teksTitle: 'Kategori',
-                    teksHint: 'Pilih tipe bisnis kamu',
                     suffixIcon: Icons.arrow_drop_down,
                     ontap: () {
                       showModalBottomSheet(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                          ),
                           context: context,
-                          builder: (BuildContext context) {
-                            return const ModalBottomSheetContent(
-                              title: 'Kategori Bisnis',
-                              hinttext: 'Cari kategori bisnis kamu',
-                              textbtn: 'kategori bisnis',
+                          builder: (context) {
+                            return CustomBottomSheet(
+                              txtBtn: 'Kategori Toko',
+                              controller: kategoriCtrl,
+                              itemCount: category.length,
+                              name: category,
                             );
                           });
                     },
@@ -104,73 +95,49 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                   const TextFieldWithCounter(
                     teksTitle: 'Nama Bisnis',
                     teksHint: 'Masukan nama toko kamu',
-                    maxChar: 10,
                   ),
                   TextFieldWithCounter(
+                    controller: provinceCtrl,
+                    txtInputType: TextInputType.none,
                     teksTitle: 'Nama Provinsi',
                     teksHint: 'Pilih asal kota kamu',
                     suffixIcon: Icons.arrow_drop_down,
                     ontap: () {
                       showModalBottomSheet(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                          ),
                           context: context,
-                          builder: (BuildContext context) {
-                            return const ModalBottomSheetContent(
-                              title: 'Nama provinsi kamu',
-                              hinttext: 'Cari nama provinsi kamu',
-                              textbtn: 'nama provinsi',
+                          builder: (context) {
+                            return CustomBottomSheet(
+                              txtBtn: 'Asal Provinsi Kamu',
+                              itemCount: provinceName.length,
+                              controller: provinceCtrl,
+                              name: provinceName,
                             );
                           });
                     },
                   ),
                   TextFieldWithCounter(
+                    controller: cityCtrl,
+                    txtInputType: TextInputType.none,
                     teksTitle: 'Nama kota',
-                    teksHint: 'Pilih asal kecamatan kamu',
+                    teksHint: 'Pilih asal Kota',
                     suffixIcon: Icons.arrow_drop_down,
                     ontap: () {
                       showModalBottomSheet(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                          ),
                           context: context,
-                          builder: (BuildContext context) {
-                            return const ModalBottomSheetContent(
-                              title: 'Nama kecamatan',
-                              hinttext: 'Cari nama kecamatan kamu',
-                              textbtn: 'nama kecamatan',
+                          builder: (context) {
+                            return CustomBottomSheet(
+                              txtBtn: 'Asal Kota Kamu ',
+                              controller: cityCtrl,
+                              itemCount: cityName.length,
+                              name: cityName,
                             );
                           });
                     },
                   ),
-                  TextFieldWithCounter(
+                  const TextFieldWithCounter(
+                    txtInputType: TextInputType.number,
                     teksTitle: 'Kode pos',
                     teksHint: 'Pilih asal kode pos kamu',
-                    suffixIcon: Icons.arrow_drop_down,
-                    ontap: () {
-                      showModalBottomSheet(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                          ),
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const ModalBottomSheetContent(
-                              title: 'Kode Pos kamu',
-                              hinttext: 'Cari kode pos kamu',
-                              textbtn: 'kode pos',
-                            );
-                          });
-                    },
                   ),
                   const TextFieldWithCounter(
                     teksTitle: 'Nomor Whatsapp',

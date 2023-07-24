@@ -9,20 +9,24 @@ import '../../size_config.dart';
 
 class TextFieldWithCounter extends StatefulWidget {
   final String teksTitle;
-  final String teksHint;
+  final String? teksHint;
   final int? maxChar;
   final IconData? suffixIcon;
   final VoidCallback? ontap;
   final int? maxLength;
+  final TextInputType? txtInputType;
+  final TextEditingController? controller;
 
   const TextFieldWithCounter({
     Key? key,
     required this.teksTitle,
-    required this.teksHint,
+    this.teksHint,
     this.maxChar,
     this.suffixIcon,
     this.ontap,
     this.maxLength,
+    this.txtInputType,
+    this.controller,
   }) : super(key: key);
 
   @override
@@ -88,7 +92,7 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
           child: TextField(
             maxLines: widget.maxLength ?? 1,
             onTap: widget.ontap,
-            controller: _controller,
+            controller: widget.controller,
             maxLength: 100,
             decoration: InputDecoration(
               suffixIcon: Icon(widget.suffixIcon),
@@ -121,7 +125,7 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
                     : getProportionateScreenWidth(12),
               ),
             ),
-            keyboardType: TextInputType.text,
+            keyboardType: widget.txtInputType ?? TextInputType.text,
           ),
         ),
       ],
