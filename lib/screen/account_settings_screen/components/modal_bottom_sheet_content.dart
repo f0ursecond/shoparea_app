@@ -10,12 +10,14 @@ class CustomBottomSheet extends StatefulWidget {
     required this.itemCount,
     required this.controller,
     required this.txtBtn,
+    required this.title,
   });
 
   final List<String> name;
   final int itemCount;
   final TextEditingController controller;
   final String txtBtn;
+  final String title;
 
   @override
   State<CustomBottomSheet> createState() => _CustomBottomSheetState();
@@ -29,9 +31,9 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text(
-            'Pilih Kategori Toko',
-            style: TextStyle(
+          Text(
+            widget.title,
+            style: const TextStyle(
                 color: Colors.black, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           const Text(
@@ -44,7 +46,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
           ),
           const TextField(
             decoration: InputDecoration(
-                hintText: 'Cari Kategori',
+                hintText: 'Cari',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder()),
           ),

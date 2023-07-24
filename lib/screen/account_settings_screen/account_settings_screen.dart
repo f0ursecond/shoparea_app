@@ -84,6 +84,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                           context: context,
                           builder: (context) {
                             return CustomBottomSheet(
+                              title: 'Pilih Kategori Toko',
                               txtBtn: 'Kategori Toko',
                               controller: kategoriCtrl,
                               itemCount: category.length,
@@ -107,6 +108,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                           context: context,
                           builder: (context) {
                             return CustomBottomSheet(
+                              title: 'Pilih Provinsi Kamu',
                               txtBtn: 'Asal Provinsi Kamu',
                               itemCount: provinceName.length,
                               controller: provinceCtrl,
@@ -126,6 +128,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                           context: context,
                           builder: (context) {
                             return CustomBottomSheet(
+                              title: 'Pilih Nama Kota Kamu',
                               txtBtn: 'Asal Kota Kamu ',
                               controller: cityCtrl,
                               itemCount: cityName.length,
