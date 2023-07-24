@@ -36,6 +36,8 @@ class TextFieldWithCounter extends StatefulWidget {
 class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
   final TextEditingController _controller = TextEditingController();
 
+  get teksTitle => widget.teksTitle;
+
   @override
   void initState() {
     super.initState();
@@ -89,7 +91,8 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
           decoration: BoxDecoration(
             color: Colors.white,
           ),
-          child: TextField(
+          child: TextFormField(
+            validator: checkFieldEmpty,
             maxLines: widget.maxLength ?? 1,
             onTap: widget.ontap,
             controller: widget.controller,
@@ -130,5 +133,12 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
         ),
       ],
     );
+  }
+
+  String? checkFieldEmpty(String? fieldContent) {
+    if (fieldContent!.isEmpty) {
+      return 'Field Tidak Boleh Kosong';
+    }
+    return null;
   }
 }
