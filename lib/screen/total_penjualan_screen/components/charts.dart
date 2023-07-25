@@ -96,7 +96,7 @@ class BarChartSample6 extends StatelessWidget {
                     ),
                   ),
                 ),
-                barTouchData: BarTouchData(enabled: false),
+                barTouchData: BarTouchData(enabled: true),
                 borderData: FlBorderData(show: false),
                 gridData: const FlGridData(show: false),
                 barGroups: [

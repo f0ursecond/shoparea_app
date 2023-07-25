@@ -30,13 +30,7 @@ class AnotherInfo extends StatelessWidget {
         ),
       },
     ];
-    return ListView.separated(
-        separatorBuilder: (context, index) {
-          return const Divider(
-            height: 1,
-            color: Colors.black,
-          );
-        },
+    return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: anotherInfoList.length,

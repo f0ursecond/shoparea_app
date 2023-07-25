@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shoparea_app/consts/colors.dart';
 import 'package:shoparea_app/screen/total_penjualan_screen/components/charts.dart';
 import 'package:shoparea_app/size_config.dart';
 
@@ -32,24 +33,94 @@ class TotalSalesScreen extends StatelessWidget {
                       ? getWebProportionateScreenHeight(24)
                       : getProportionateScreenHeight(24),
                 ),
-                Expanded(
-                  child: BarChartSample6(),
-                ),
+                BarChartSample6(),
                 SizedBox(
                   height: kIsWeb
                       ? getWebProportionateScreenHeight(24)
                       : getProportionateScreenHeight(24),
                 ),
                 Container(
-                  color: Colors.greenAccent,
+                  color: cColorNeutral30,
                   height: kIsWeb
                       ? getWebProportionateScreenHeight(138)
                       : getProportionateScreenHeight(138),
+                  child: const Column(
+                    children: [
+                      ListTile(
+                        dense: true,
+                        leading: Icon(
+                          Icons.info,
+                          color: cColorPrimary50,
+                        ),
+                        title: Text(
+                            'untuk informasi lanjut silahkan scroll  ke kanan dan ke kiri  '),
+                      ),
+                      ListTile(
+                        dense: true,
+                        leading: Icon(
+                          Icons.info,
+                          color: cColorPrimary50,
+                        ),
+                        title: Text(
+                            'hold blue bar untuk mengetahui data keseluruhan di hari tersebut'),
+                      ),
+                      ListTile(
+                        dense: true,
+                        leading: Icon(
+                          Icons.info,
+                          color: cColorPrimary50,
+                        ),
+                        title: Text(
+                            'click blue bar untuk mengetahui data lebih spesifik di hari tersebut'),
+                      ),
+                    ],
+                  ),
                 ),
+                const Spacer(),
+                const TotalPenjualanSection(),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class TotalPenjualanSection extends StatelessWidget {
+  const TotalPenjualanSection({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '7 Feb - 14 Feb 2023',
+            style: TextStyle(
+                color: cColorNeutralBlack50,
+                fontSize: 14,
+                fontWeight: FontWeight.w700),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Total data penjualan'),
+              Text(
+                '10x',
+                style: TextStyle(
+                  color: cColorPrimary50,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }

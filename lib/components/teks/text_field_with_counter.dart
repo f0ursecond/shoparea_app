@@ -57,6 +57,11 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
 
   @override
   Widget build(BuildContext context) {
+    final borderErrorStyle = OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8)),
+      borderSide: BorderSide(color: cColorError50),
+    );
+
     return Column(
       children: [
         Row(
@@ -107,6 +112,7 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
                 height: 1,
               ),
               counter: SizedBox.shrink(),
+              focusedErrorBorder: borderErrorStyle,
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(8)),
                 borderSide: BorderSide(color: cColorPrimary10),
@@ -115,10 +121,7 @@ class _TextFieldWithCounterState extends State<TextFieldWithCounter> {
                 borderRadius: BorderRadius.all(Radius.circular(8)),
                 borderSide: BorderSide(color: cColorNeutral70),
               ),
-              errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(8)),
-                borderSide: BorderSide(color: cColorError50),
-              ),
+              errorBorder: borderErrorStyle,
               hintText: widget.teksHint,
               hintStyle: TextStyle(
                 color: cColorExpired30,

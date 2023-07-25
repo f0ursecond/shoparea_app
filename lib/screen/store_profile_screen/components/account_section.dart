@@ -44,20 +44,14 @@ class _AccountSectionState extends State<AccountSection> {
       },
     ];
 
-    return ListView.separated(
-      separatorBuilder: (context, index) {
-        return const Divider(
-          thickness: 1,
-          color: Colors.black,
-        );
-      },
+    return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: accountList.length,
       itemBuilder: (context, index) {
         var list = accountList[index];
         return ListTile(
-          dense: true,
+          dense: false,
           leading: list['icon'],
           title: Text(
             list['title'],

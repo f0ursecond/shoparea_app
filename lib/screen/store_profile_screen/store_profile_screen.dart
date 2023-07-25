@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:shoparea_app/screen/store_profile_screen/components/account_section.dart';
 import 'package:shoparea_app/screen/store_profile_screen/components/another_info.dart';
 import 'package:shoparea_app/screen/store_profile_screen/components/logout_button.dart';
-import 'package:shoparea_app/screen/store_profile_screen/components/profile_section.dart';
 import 'package:shoparea_app/size_config.dart';
 
 import '../onboarding_screen/components/pageview_item.dart';
@@ -40,12 +39,14 @@ class StoreProfileScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const ProfileSection(),
-                Container(
-                  height: kIsWeb
-                      ? getWebProportionateScreenHeight(15)
-                      : getProportionateScreenHeight(15),
-                  color: Colors.grey[200],
+                ListTile(
+                  leading: const CustomCircleAvatar(),
+                  title: const Text('Warung Jos'),
+                  subtitle: const Text('039103912312\nwarung@gmail.com'),
+                  trailing: TextButton(
+                    onPressed: () {},
+                    child: const Text('Lihat Toko'),
+                  ),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(left: 15.0),
@@ -87,6 +88,24 @@ class StoreProfileScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CustomCircleAvatar extends StatelessWidget {
+  const CustomCircleAvatar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 56,
+      height: 56,
+      decoration: const BoxDecoration(
+        color: Colors.red,
+        shape: BoxShape.circle,
       ),
     );
   }
